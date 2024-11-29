@@ -337,153 +337,169 @@ typedef struct
 #define DRIVER_FIELD7C_BIT28                (1 << 28)
 #define DRIVER_FIELD7C_BIT29                (1 << 29)
 
-typedef struct driver_t
+typedef struct {
+	int SLIP_DRIFT:1;
+	int HOPPING:1;
+	int HOP_LOCK:1;
+	int IS_DRIFTING:1;
+	int IS_ON_FLOOR:1;
+	int IS_TOUCHING_DRIVER:1;
+	int IS_TOUCHING_MOBJ_WALL:1;
+	int IS_TOUCHING_WALL:1;
+	int IS_GOING_BACKWARDS:1;
+	int BIT9:1;
+	int BIT10:1;
+	int BIT11:1;
+	int BIT12:1;
+	int BIT13:1;
+	int BIT14:1;
+	int BIT15:1;
+	int BIT16:1;
+	int BIT18:1;
+	int BIT19:1;
+	int IS_ON_FALLS_WATER:1;
+	int BIT21:1;
+	int BIT23:1;
+	int BIT24:1;
+	int BIT26:1;
+	int BIT27:1;
+	int BIT28:1;
+	int BIT29:1;
+	int BIT30:1;
+	int BIT31:1;
+} racerFlags44;
+
+typedef struct {
+	int IN_LOOP:1;
+	int A_BUTTON:1;
+	int B_BUTTON:1;
+	int DPAD_LEFT:1;
+	int DPAD_RIGHT:1;
+	int BOOST:1;
+	int RESPAWNING:1;
+	int WHEELSPINNING:1;
+	int BIT8:1;
+	int BIT9:1;
+	int BIT10:1;
+	int BIT11:1;
+	int BIT12:1;
+	int FORCE_STOP:1;
+	int BIT14:1;
+	int START_BOOST:1;
+	int CANNON:1;
+	int BIT17:1;
+	int BIT18:1;
+	int DRIFT_BOOST:1;
+	int SHROOM_BOOST:1;
+	int SFX_TRIGGER_HANDLED:1;
+	int MIN_SPEED_BOOST:1;
+	int WATER_RESPAWN:1;
+	int YOUGAN_RESPAWN:1;
+	int RESPAWN_START:1;
+	int DOSSUN_SMASH_CAM:1;
+	int BIT27:1;
+	int ON_JUMP_PAD:1;
+	int BIT29:1;
+	int ANTIGRAVITY_CAM:1;
+	int BIT31:1;
+} racerFlags48;
+
+typedef struct {
+	int BIT0:1;
+	int BIT1:1;
+	int BIT3:1;
+	int BIT4:1;
+	int SPIN_OUT:1;
+	int STAR_INVINCIBLE:1;
+	int THUNDER_SHRINK:1;
+	int GROWING:1;
+	int BIT10:1;
+	int BIT11:1;
+	int BIT12:1;
+	int SLIPSTREAM_FULL:1;
+	int SLIPSTREAM_BEGIN:1;
+	int BIT15:1;
+	int DOSSUN_FLAT:1;
+	int GESSO_INK_FADING_OUT:1;
+	int BIT18:1;
+	int BIT20:1;
+	int BIT21:1;
+	int BIT22:1;
+	int BIT23:1;
+	int BIT25:1;
+	int BIT26:1;
+	int GESSO_INK:1;
+	int KILLER_MODE:1;
+	int START_FAILURE:1;
+	int FALLS_WATER:1;
+	int BIT31:1;
+} racerFlags4C;
+
+typedef struct {
+	int IS_PLAYER:1;
+	int IS_ENEMY:1;
+	int IS_GHOST:1;
+	int BIT3:1;
+	int CHAR_HAS_NSBCA_ANIM:1;
+	int IS_BEING_KILLED:1;
+	int IS_KILLED:1;
+	int BIT7:1;
+	int BIT8:1;
+	int IS_NET_PLAYER:1;
+	int IS_NET_NON_PLAYER:1;
+	int BIT12:1;
+	int TERESA_EFFECT_ACTIVE:1;
+	int TERESA_FLICKER:1;
+	int TERESA_RENDERING_OFF:1;
+	int BIT16:1;
+	int BIT17:1;
+	int MG_KILL:1;
+	int BIT19:1;
+	int BIT20:1;
+	int BIT21:1;
+	int MG_KILL_GHOST:1;
+	int BIT23:1;
+	int BIT24:1;
+	int BIT25:1;
+	int BIT26:1;
+	int BIT27:1;
+	int BIT28:1;
+	int BIT29:1;
+} racerFlags7C;
+
+struct racerData;
+typedef void racerFunction (racerData* racer);
+
+typedef struct {
+	union {
+		racerFunction* funcs[9];
+		struct {
+			racerFunction* func1;
+			racerFunction* oob;
+			racerFunction* eachFrame1;
+			racerFunction* eachFrame2;
+			racerFunction* eachFrame0;
+			racerFunction* func6;
+			racerFunction* func7;
+			racerFunction* func8;
+			racerFunction* func9;
+		};
+	};
+} racerFunctions;
+
+typedef struct racerData
 {
 	sfx_emitter_t soundEmitter;
-	union {
-		u32 flags44;
-		struct {
-			int SLIP_DRIFT:1;
-			int HOPPING:1;
-			int HOP_LOCK:1;
-			int IS_DRIFTING:1;
-			int IS_ON_FLOOR:1;
-			int IS_TOUCHING_DRIVER:1;
-			int IS_TOUCHING_MOBJ_WALL:1;
-			int IS_TOUCHING_WALL:1;
-			int IS_GOING_BACKWARDS:1;
-			int BIT9:1;
-			int BIT10:1;
-			int BIT11:1;
-			int BIT12:1;
-			int BIT13:1;
-			int BIT14:1;
-			int BIT15:1;
-			int BIT16:1;
-			int BIT18:1;
-			int BIT19:1;
-			int IS_ON_FALLS_WATER:1;
-			int BIT21:1;
-			int BIT23:1;
-			int BIT24:1;
-			int BIT26:1;
-			int BIT27:1;
-			int BIT28:1;
-			int BIT29:1;
-			int BIT30:1;
-			int BIT31:1;
-		};
-	};
-	union {
-		u32 flags48;
-		struct {
-			int IN_LOOP:1;
-			int A_BUTTON:1;
-			int B_BUTTON:1;
-			int DPAD_LEFT:1;
-			int DPAD_RIGHT:1;
-			int BOOST:1;
-			int RESPAWNING:1;
-			int WHEELSPINNING:1;
-			int BIT8:1;
-			int BIT9:1;
-			int BIT10:1;
-			int BIT11:1;
-			int BIT12:1;
-			int FORCE_STOP:1;
-			int BIT14:1;
-			int START_BOOST:1;
-			int CANNON:1;
-			int BIT17:1;
-			int BIT18:1;
-			int DRIFT_BOOST:1;
-			int SHROOM_BOOST:1;
-			int SFX_TRIGGER_HANDLED:1;
-			int MIN_SPEED_BOOST:1;
-			int WATER_RESPAWN:1;
-			int YOUGAN_RESPAWN:1;
-			int RESPAWN_START:1;
-			int DOSSUN_SMASH_CAM:1;
-			int BIT27:1;
-			int ON_JUMP_PAD:1;
-			int BIT29:1;
-			int ANTIGRAVITY_CAM:1;
-			int BIT31:1;
-		};
-	};
-	union {
-		u32 flags4C;
-		struct {
-			int BIT0:1;
-			int BIT1:1;
-			int BIT3:1;
-			int BIT4:1;
-			int SPIN_OUT:1;
-			int STAR_INVINCIBLE:1;
-			int THUNDER_SHRINK:1;
-			int GROWING:1;
-			int BIT10:1;
-			int BIT11:1;
-			int BIT12:1;
-			int SLIPSTREAM_FULL:1;
-			int SLIPSTREAM_BEGIN:1;
-			int BIT15:1;
-			int DOSSUN_FLAT:1;
-			int GESSO_INK_FADING_OUT:1;
-			int BIT18:1;
-			int BIT20:1;
-			int BIT21:1;
-			int BIT22:1;
-			int BIT23:1;
-			int BIT25:1;
-			int BIT26:1;
-			int GESSO_INK:1;
-			int KILLER_MODE:1;
-			int START_FAILURE:1;
-			int FALLS_WATER:1;
-			int BIT31:1;
-		};
-	};
-	VecFx32 direction;
-	VecFx32 drivingDirection;
-	VecFx32 velocity;
-	u16 id;
+	union { u32 flags44; racerFlags44 flagsA; };
+	union { u32 flags48; racerFlags44 flagsB; };
+	union { u32 flags4C; racerFlags44 flagsC; };
+	VecFx32 targetMovementVector;
+	VecFx32 tmvSigned;
+	VecFx32 movementVector;
+	u16 playerId;
 	u16 padding;
 	InputUnitId inputId;
-	union {
-		u32 flags7C;
-		struct {
-			int IS_PLAYER:1;
-			int IS_ENEMY:1;
-			int IS_GHOST:1;
-			int BIT3:1;
-			int CHAR_HAS_NSBCA_ANIM:1;
-			int IS_BEING_KILLED:1;
-			int IS_KILLED:1;
-			int BIT7:1;
-			int BIT8:1;
-			int IS_NET_PLAYER:1;
-			int IS_NET_NON_PLAYER:1;
-			int BIT12:1;
-			int TERESA_EFFECT_ACTIVE:1;
-			int TERESA_FLICKER:1;
-			int TERESA_RENDERING_OFF:1;
-			int BIT16:1;
-			int BIT17:1;
-			int MG_KILL:1;
-			int BIT19:1;
-			int BIT20:1;
-			int BIT21:1;
-			int MG_KILL_GHOST:1;
-			int BIT23:1;
-			int BIT24:1;
-			int BIT25:1;
-			int BIT26:1;
-			int BIT27:1;
-			int BIT28:1;
-			int BIT29:1;
-		};
-	};
+	union { u32 flags7C; racerFlags44 flagsD; };
 	VecFx32 position;
 	VecFx32 lastPosition;
 	VecFx32 kartTiresPosition;
@@ -492,15 +508,15 @@ typedef struct driver_t
 	VecFx32 scale;
 	fx32 fieldC8;
 	fx32 targetMaxSpeed;
-	fx32 maxSpeed;
-	u32 fieldD4;
+	fx32 currentMaxSpeed;
+	u32 fastFallMaxSpeedMultiplier;
 	fx32 slipstreamSpeedMultiplier;
-	fx32 speedMultiplier;
-	quaternion_t rotation;
-	quaternion_t fieldF0;
-	quaternion_t field100;
-	quaternion_t field110;
-	Orientation4D mainMtx;
+	fx32 offroadSpeedMultiplier;
+	quaternion_t fA_quaternion;
+	quaternion_t surfaceNormalQuaternion;
+	quaternion_t SN_Target;
+	quaternion_t facingQuaternion;
+	Orientation4D facingOrientation;
 	union {
 		Orientation4D kartOrientation4D;
 		struct {
@@ -511,58 +527,60 @@ typedef struct driver_t
 	DriverCollisionReaction colReaction;
 	Orientation4D field184;
 	u32 charKartMtx;
-	VecFx32 colPos; // 0x1b8
-	VecFx32 prevColPos;
+	VecFx32 positionForCollision; // 0x1b8
+	VecFx32 preMovementPosForCollision;
 	fx32 colSphereSize; // 0x1d0 (radius)
-	fx32 colSphereZOffset;
-	VecFx32 netColPos;
-	VecFx32 lastNetColPos;
+	fx32 itemHitboxOffset;
+	VecFx32 positionForItems; // Also for racer-racer collisions
+	VecFx32 previousPositionForItems; // Or is it pre-movement?
 	VecFx32 colPos2;
-	VecFx32 field1FC;
+	VecFx32 wallBoucne1; // When you hit a corner or non-aligned wall.
 	u32* field208;
-	void* field20C[9]; // function pointers? 210 is OOB
-	void (*field230)(driver_t* driver);
-	s16 xRot;
-	u16 yRot;
+	racerFunctions functions;
+	racerFunction* func230;
+	s16 pitch;
+	u16 facingAngle;
 	s16 boostTimer;
 	s16 field23A;
-	s16 driftBoostCounter;
-	fx32 velocityMinusDirMultiplier;
-	VecFx32 upDir;
+	s16 mtBoostTimer;
+	u16 padding2;
+	fx32 grip;
+	VecFx32 surfaceNormalVector;
 	VecFx32 field250;
-	VecFx32 velocityY;
+	VecFx32 verticalVelocity; // It is a vector, but only the Y component is ever used!
 	VecFx32 fallsWaterForward;
 	fx32 fallsWaterStrength;
-	VecFx32 forwardDir;
+	VecFx32 driftlessTMV;
 	VecFx32 jumpDriftUp;
 	VecFx32 jumpDriftForward;
 	DriverCollisionMode collisionMode;
-	fx32 maxSpeedFraction; // 0x2a0
-	fx32 deltaPosMag;
+	fx32 maxSpeedFraction; // It's in 3D! // 0x2a0
+	fx32 basePosDeltaMag;
 	fx32 speed;
-	fx32 field2AC;
+	fx32 lastGroundHeight;
 	u16 driverHitCheckMask;
 	u16 driverHitMask;
 	u16 lastDriverHitMask;
 	u8 gap2B6[2];
 	int field2B8;
-	s32 field2BC;
-	u16 field2C0;
-	fx32 leftRightDir;
+	s32 camVerticalFocusOffset;
+	u16 hopRotation;
+	u16 padding3;
+	fx32 driftDirection;
 	s16 colEntryId1;
 	s16 colEntryId2;
-	physp_kart_params_t* kartPhysicalParams;
+	physp_kart_params_t* kartPhysicalParams; // aka stats
 	physp_char_params_t* charPhysicalParams;
-	fx32 turningAmount;
-	VecFx32 field2D8;
-	VecFx32 field2E4;
-	VecFx32 field2F0;
+	fx32 turnLoss;
+	VecFx32 bounce2_c; // copied to b
+	VecFx32 boucne2_b; // copied to bounce2
+	VecFx32 bounce2; // shroomless wall bounces, bumpers, obstacles, racer collisions...
 	s32 driftLeftRightCount;
 	u16 driftLeftCount;
 	u16 driftRightCount;
-	u16* driftDir1CountPtr;
-	u16* driftDir2CountPtr;
-	s32 driftLeftRightTimeout;
+	u16* driftInsideCountPtr;
+	u16* driftOutsideCountPtr;
+	s32 mtChargeTimer;
 	enemy_t* enemyState;
 	u16 field314;
 	fx32 field318;
@@ -582,20 +600,20 @@ typedef struct driver_t
 	fx32 spinOutProgress;
 	u32 spinOutVelocity;
 	u16 field370;
-	VecFx32 field374;
-	u32 field380;
+	VecFx32 bounce3; // edge wall and RR slopes
+	u32 framesInAir;
 	u16 ghostFlickerPhase;
-	s16 wallRotYSpeed;
-	s16 driftRotY;
-	fx16 extraDrift;
-	fx32 field38C;
+	s16 wallRotYSpeed; // around Y axis, not pitch
+	s16 driftAngle;
+	fx16 wideDriftTurnSpeed;
+	fx32 wallMaxSpeedMultiplier;
 	u8 gap390[4];
-	u32 field394;
+	u32 someMaxSpeedMultiplier;
 	fx32 field398;
-	fx32 field39C;
+	fx32 someMaxSpeedAdd;
 	fx32 field3A0;
 	u16 tireRotX;
-	s32 field3A8;
+	s32 snQuaternionChangeRate;
 	u16 respawnCounter;
 	VecFx32 field3B0;
 	u16 field3BC;
@@ -611,11 +629,11 @@ typedef struct driver_t
 	DriverCollisionType floorDriverColType;
 	u32 floorColType;
 	int floorColVariant;
-	s16 field3E8;
+	s16 pitchMomentum;
 	u32 yRotSpeedTarget;
 	u32 yRotSpeed;
 	fx32 field3F4;
-	fx32 field3F8;
+	fx32 airSpeed;
 	u16 field3FC;
 	u16 field3FE;
 	u16 field400;
@@ -643,7 +661,7 @@ typedef struct driver_t
 	s16 fallsWaterDstId;
 	s16 wallTouchTimeout;
 	s16 floorTouchTimeout;
-	s16 field4DE;
+	s16 someAngleAdd;
 	s16 field4E0;
 	s16 field4E2;
 	u16 field4E4;
@@ -655,33 +673,33 @@ typedef struct driver_t
 	fx32 waterDepth;
 	u16 field504;
 	u16 field506;
-	VecFx32* field508;
-	quaternion_t* field50C;
-	VecFx32* field510;
+	VecFx32* ptrPositionForRender;
+	quaternion_t* ptrFacingQuaternion;
+	VecFx32* somePositionPtr;
 	driver_net_state_t* netState;
 	sfx_emitter_ex_params_t field518;
-	void* field534;
+	VecFx32* somePositionPtr2;
 	driver_timers_t timers; // 0x538
-	charkart_t* charKart; // 0x590, 1424
+	charkart_t* charKart;
 	fx32 field594;
 	s16 field598;
 	u32 field59C;
 	u16 field5A0;
 	u8 gap5A2[2];
 	fx32 field5A4;
-} dtriver_t;
-static_assert(sizeof(driver_t) == 0x5A8);
+} racerData;
+static_assert(sizeof(racerData) == 0x5A8);
 
-driver_t* driver_getById(u32 driverId);
+racerData* driver_getById(u32 driverId);
 
 driver_statistics_t* driver_getPlayerStatistics();
 
-static inline bool32 driver_isPlayer(driver_t* driver)
+static inline bool32 driver_isPlayer(racerData* driver)
 {
 	return (driver->flags7C & DRIVER_FIELD7C_IS_PLAYER) != 0;
 }
 
-static inline bool32 driver_isEnemy(driver_t* driver)
+static inline bool32 driver_isEnemy(racerData* driver)
 {
 	return (driver->flags7C & DRIVER_FIELD7C_IS_ENEMY) != 0;
 }

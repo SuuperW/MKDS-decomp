@@ -71,7 +71,7 @@ extern mobj_state_t* gMapObjState;
 extern struct water_splash_state_t* gMObjSplashState;
 extern struct water_state_t* gMObjWaterState;
 
-int mobj_collideDriver(driver_t* driver, const VecFx32* position, VecFx32* pushback);
+int mobj_collideDriver(racerData* driver, const VecFx32* position, VecFx32* pushback);
 int mobj_queryBySphere(const VecFx32* position, fx32 sphereSize, MObjId objectId);
 mobj_inst_t* mobj_getQueryResult(int idx);
 const VecFx32* mobj_getQueryPushback(int idx);

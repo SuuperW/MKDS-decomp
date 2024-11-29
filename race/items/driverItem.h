@@ -5,7 +5,7 @@
 
 #include "item.h"
 
-typedef struct driver_t driver_t;
+typedef struct racerData racerData;
 typedef struct it_driver_item_status_t it_driver_item_status_t;
 typedef struct mdat_itempoint_t mdat_itempoint_t;
 
@@ -28,7 +28,7 @@ typedef struct
 	int itemConfigId;
 	int field8;
 	it_driver_item_status_t* driverItemStatus;
-	driver_t* driver;
+	racerData* driver;
 	it_item_inst_t* items[3];
 	int itemCount;
 	int field24;
@@ -83,7 +83,7 @@ typedef struct it_driver_item_status_t
 	mdat_itempoint_t* ipoi;
 	int field1F4;
 	u16 driverId;
-	driver_t* driver;
+	racerData* driver;
 	int driverIndex;
 	int isUsingShroom;
 	int field208;

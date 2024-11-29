@@ -3,7 +3,7 @@
 #ifndef HP_RACE_DRIVERS_DRIVERCORE_H
 #define HP_RACE_DRIVERS_DRIVERCORE_H
 
-#include "driver.h"
+#include "racer.h"
 #include "race/mapobj/mapobjInstance.h"
 
 typedef enum
@@ -30,10 +30,10 @@ typedef enum
 #define DRIVER_COL_REACTION_FLAGS_BIT2              (1 << 2)
 #define DRIVER_COL_REACTION_FLAGS_HANDLE_AS_WALL    (1 << 3)
 
-typedef bool(*driver_off_217AC14_t)(driver_t* driver, u32 colFlags, const VecFx32* a3);
+typedef bool(*driver_off_217AC14_t)(racerData* driver, u32 colFlags, const VecFx32* a3);
 
-typedef u32 (*driver_init_reaction_func_t)(driver_t* driver, u32* a1, mobj_inst_t* mobj);
-typedef void (*driver_handle_reaction_func_t)(driver_t* driver, VecFx32* a1, mobj_inst_t* mobj);
+typedef u32 (*driver_init_reaction_func_t)(racerData* driver, u32* a1, mobj_inst_t* mobj);
+typedef void (*driver_handle_reaction_func_t)(racerData* driver, VecFx32* a1, mobj_inst_t* mobj);
 
 extern const VecFx32 driverCore_sOneVec;
 extern const VecFx32 driverCore_sForwardVec;
@@ -41,12 +41,11 @@ extern const VecFx32 driverCore_sUpVec;
 extern const VecFx32 driverCore_sRightVec;
 extern const VecFx32 driverCore_sZeroVec;
 
-void driver_invokeThunder(driver_t* driver);
-void driver_startShroomBoost(driver_t* driver);
-void driver_startStarInvincibility(driver_t* driver);
-void driver_startTeresaEffect(driver_t* driver);
-void driver_startGessoInk(driver_t* driver, int splashCount);
-void sub_2069044(driver_t* driver);
-bool32 driver_isKilled(driver_t* driver);
-
+void driver_invokeThunder(racerData* driver);
+void driver_startShroomBoost(racerData* driver);
+void driver_startStarInvincibility(racerData* driver);
+void driver_startTeresaEffect(racerData* driver);
+void driver_startGessoInk(racerData* driver, int splashCount);
+void sub_2069044(racerData* driver);
+bool32 driver_isKilled(racerData* driver);
 #endif

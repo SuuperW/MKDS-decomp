@@ -6,7 +6,7 @@
 #include <types.h>
 #include "race/mapData/mapData.h"
 
-typedef struct driver_t driver_t;
+typedef struct racerData racerData;
 
 typedef struct
 {
@@ -84,7 +84,7 @@ typedef struct
 
 typedef struct
 {
-	driver_t* driver;
+	racerData* driver;
 	u16 driverId;
 	u16 field6;
 	struc_316_epoi epoi;
@@ -112,7 +112,7 @@ typedef struct
 	int fieldA4;
 	int fieldA8;
 	u16 fieldAC;
-	driver_t* targetDriver;
+	racerData* targetDriver;
 	int fieldB4;
 	int fieldB8;
 	int fieldBC;

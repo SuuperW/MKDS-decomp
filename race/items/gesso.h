@@ -4,7 +4,7 @@
 #define HP_RACE_ITEMS_GESSO_H
 
 #include "item.h"
-#include "race/drivers/driver.h"
+#include "race/drivers/racer.h"
 
 typedef struct
 {
@@ -19,7 +19,7 @@ typedef struct
 typedef struct
 {
 	it_item_inst_t item;
-	driver_t* driver;
+	racerData* driver;
 	u8 driverSplashCount[RACE_DRIVER_COUNT_MAX];
 	int field138;
 	VecFx32 field13C;

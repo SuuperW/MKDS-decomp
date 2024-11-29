@@ -6,7 +6,7 @@
 #include "race/raceConfig.h"
 #include "race/items/item.h"
 #include "race/mapData/mapData.h"
-#include "race/drivers/driver.h"
+#include "race/drivers/racer.h"
 
 typedef enum
 {
@@ -64,7 +64,7 @@ typedef struct
 	void* blncntDriverEntries;
 } mgcnt_t;
 
-fx32 mgcnt_20A23A0(const driver_t* driver);
+fx32 mgcnt_20A23A0(const racerData* driver);
 void mgcnt_setBlncntDriverEntries(/*balloon_controller_entry_t*/void* entries);
 /*balloon_controller_entry_t*/
 void* mgcnt_getBlncntDriverEntries();

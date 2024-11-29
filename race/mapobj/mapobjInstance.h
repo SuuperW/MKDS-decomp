@@ -7,7 +7,7 @@
 #include "race/mapData/nkm.h"
 #include "sfx.h"
 #include "stateMachine.h"
-#include "race/drivers/driver.h"
+#include "race/drivers/racer.h"
 
 #define MOBJ_INST_FLAGS_HIDDEN                              (1 << 0) //not rendered and no collision
 #define MOBJ_INST_FLAGS_DISABLE_VISIBILITY_UPDATES          (1 << 1)
@@ -74,10 +74,10 @@ void mobj_initSoundEmitterForObjectSfxParam3(mobj_inst_t* mobj);
 void mobj_initSoundEmitterForObjectSfxParam4(mobj_inst_t* mobj);
 sfx_sound_t* mobj_emitSfxFromEmitter2(mobj_inst_t* mobj, int sfxId);
 sfx_sound_t* mobj_emitSfxFromEmitter(mobj_inst_t* mobj, int sfxId);
-bool32 mobj_tryDestroyByDriver(mobj_inst_t* mobj, driver_t* driver);
-sfx_sound_t* mobj_driverEmitSfx2(driver_t* driver, int sfxId);
-sfx_sound_t* mobj_driverEmitSfx(driver_t* driver, int sfxId);
-void mobj_emitDriverHitSfx(mobj_inst_t* mobj, driver_t* driver, int a3, int a4);
+bool32 mobj_tryDestroyByDriver(mobj_inst_t* mobj, racerData* driver);
+sfx_sound_t* mobj_driverEmitSfx2(racerData* driver, int sfxId);
+sfx_sound_t* mobj_driverEmitSfx(racerData* driver, int sfxId);
+void mobj_emitDriverHitSfx(mobj_inst_t* mobj, racerData* driver, int a3, int a4);
 void mobj_20D2600(int sfxId, const VecFx32* position, int sfxParamsId);
 void mobj_setSizeY(mobj_inst_t* mobj, fx32 sizeY);
 fx32 mobj_getBoundingSphereSize(mobj_inst_t* mobj);

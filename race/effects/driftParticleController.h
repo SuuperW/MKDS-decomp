@@ -4,7 +4,7 @@
 #define HP_RACE_EFFECTS_DRIFTPARTICLECONTROLLER_H
 
 #include "jnlib/spa/spaEmitter.h"
-#include "race/drivers/driver.h"
+#include "race/drivers/racer.h"
 
 typedef struct dptc_t dptc_t;
 
@@ -47,9 +47,9 @@ typedef struct dptc_t
 void dptc_init(NNSFndHeapHandle heapHandle);
 void dptc_startDustClouds(dptc_t* controller);
 void dptc_stopDustClouds(dptc_t* controller);
-void dptc_updateDustClouds(dptc_t* controller, driver_t* driver);
+void dptc_updateDustClouds(dptc_t* controller, racerData* driver);
 void dptc_killContRedSparks(dptc_t* controller);
-void dptc_updateContRedSparks(dptc_t* controller, driver_t* driver);
+void dptc_updateContRedSparks(dptc_t* controller, racerData* driver);
 void dptc_emitRedSparks(dptc_t* controller, bool32 a2);
 void dptc_updateRedSparks(dptc_t* controller, const VecFx16* axes, const VecFx32* positions);
 void dptc_emitBlueSparks(dptc_t* controller, bool32 a2);

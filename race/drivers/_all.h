@@ -3,8 +3,8 @@
 
 #include "character_kart_locator.h"
 #include "charKart.h"
-#include "driver.h"
-#include "driverCore.h"
+#include "racer.h"
+#include "racerCore.h"
 #include "enemy.h"
 #include "ghostData.h"
 #include "kartOffsetData.h"

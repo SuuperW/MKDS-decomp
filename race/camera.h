@@ -4,7 +4,7 @@
 #define HP_RACE_CAMERA_H
 
 #include "mapData/mapData.h"
-#include "race/drivers/driver.h"
+#include "race/drivers/racer.h"
 
 typedef enum
 {
@@ -143,7 +143,7 @@ void cam_applyFrustum(camera_t* camera, bool32 useSkyFar);
 void cam_applyLookAt(camera_t* camera);
 void cam_resetPlayerCamera();
 void cam_updateElevationFromWater(camera_t* camera);
-void cam_updatePlayerCamera(camera_t* camera, driver_t* driver);
+void cam_updatePlayerCamera(camera_t* camera, racerData* driver);
 void cam_2075EB8();
 void cam_2075D08(bool32 a1);
 void cam_2075CF0();

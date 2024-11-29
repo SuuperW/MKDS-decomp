@@ -1,13 +1,15 @@
 #pragma once
 
+#include <types.h>
+
 typedef struct
 {
-    u8 points[8];
+	u8 points[8];
 } rankpoint_entry_t;
 
 typedef struct
 {
-    u32 signature;
-    u32 fileSize;
-    rankpoint_entry_t entries[1];
+	u32 signature;
+	u32 fileSize;
+	rankpoint_entry_t entries[1];
 } rankpoint_t;

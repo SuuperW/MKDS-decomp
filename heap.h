@@ -1,12 +1,15 @@
 #pragma once
 
+#include <types.h>
+#include <nnsys/fnd/heapcommon.h>
+
 typedef struct
 {
-    u32 unknown;
-    void* memoryRegionStart; //?
-    void* heapStart;
-    NNSFndHeapHandle heapHandle;
-    const char* processName; //?
+	u32 unknown;
+	void* memoryRegionStart; //?
+	void* heapStart;
+	NNSFndHeapHandle heapHandle;
+	const char* processName; //?
 } heap_info_t;
 
 NNSFndHeapHandle heap_create(void* address, u32 size);

@@ -1,18 +1,24 @@
 #pragma once
 
+#include <types.h>
+#include <nnsys/fnd/heapcommon.h>
+#include <nnsys/fnd/list.h>
+#include <nnsys/g3d/binres/res_struct.h>
+#include <nnsys/g3d/kernel.h>
+
 typedef struct
 {
-    NNSFndLink link;
-    void* nsbmd;
-    NNSG3dResTex* texRes;
+	NNSFndLink link;
+	void* nsbmd;
+	NNSG3dResTex* texRes;
 } model_res_t;
 
 typedef struct
 {
-    NNSG3dRenderObj renderObj;
-    u32 cullReversed;
-    BOOL render1Mat1Shp;
-    model_res_t res;
+	NNSG3dRenderObj renderObj;
+	u32 cullReversed;
+	bool32 render1Mat1Shp;
+	model_res_t res;
 } model_t;
 
 extern void (*const gModelRenderFuncs[2])(model_t* model);
@@ -28,12 +34,12 @@ NNSG3dResMdl* model_initFromNsbmdNoCullFix(model_t* model, void* nsbmd);
 NNSG3dResMdl* model_initFromNsbmdNsbtxMetaCopy(NNSFndHeapHandle heapHandle, model_t* model, void* nsbmd, void* nsbtx);
 void model_configShadowPass1(model_t* model, int alpha);
 void model_configShadowPass2(model_t* model, int alpha, int polygonId);
-void model_drawTransformed(model_t* model, const MtxFx43* mtx, const VecFx32* scale);
+void model_drawTransformed(model_t* model, const Orientation* mtx, const VecFx32* scale);
 void model_render(model_t* model);
 
 // static inline void model_draw(model_t* model)
 // {
-// 	gModelDrawFuncs[model->render1Mat1Shp](model);
+//     gModelDrawFuncs[model->render1Mat1Shp](model);
 // }
 
 void model_setPolygonId(model_t* model, int polygonId);

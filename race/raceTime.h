@@ -1,8 +1,10 @@
 #pragma once
 
+#include <types.h>
+
 typedef struct
 {
-    u16 milliseconds;
-    u8 minutes;
-    u8 seconds;
+	u16 milliseconds;
+	u8 minutes;
+	u8 seconds;
 } race_time_t;

@@ -1,11 +1,14 @@
 #pragma once
 
+#include <types.h>
+#include <nnsys/fnd/heapcommon.h>
+
 typedef enum
 {
-    INPUT_REC_STATE_IDLE,
-    INPUT_REC_STATE_RECORDING,
-    INPUT_REC_STATE_PLAYING,
-    INPUT_REC_STATE_BUFFER_FULL
+	INPUT_REC_STATE_IDLE,
+	INPUT_REC_STATE_RECORDING,
+	INPUT_REC_STATE_PLAYING,
+	INPUT_REC_STATE_BUFFER_FULL
 } InputRecState;
 
 #define INPUT_REC_RECORDING_ENTRY_COUNT             1764
@@ -21,23 +24,23 @@ typedef enum
 
 typedef struct
 {
-    u8 keys;
-    u8 duration;
+	u8 keys;
+	u8 duration;
 } input_rec_recording_entry_t;
 
 typedef struct
 {
-    u32 dataLength;
-    input_rec_recording_entry_t entries[INPUT_REC_RECORDING_ENTRY_COUNT];
+	u32 dataLength;
+	input_rec_recording_entry_t entries[INPUT_REC_RECORDING_ENTRY_COUNT];
 } input_rec_recording_t;
 
 typedef struct
 {
-    input_rec_recording_t* recording;
-    u16 curEntry;
-    u16 waitCounter;
-    InputRecState state;
-    BOOL isBufferClear;
+	input_rec_recording_t* recording;
+	u16 curEntry;
+	u16 waitCounter;
+	InputRecState state;
+	bool32 isBufferClear;
 } input_rec_t;
 
 void irec_allocBuffer(input_rec_t* recorder, NNSFndHeapHandle heapHandle);
@@ -49,5 +52,5 @@ void irec_startPlayback(input_rec_t* recorder);
 void irec_stopPlayback(input_rec_t* recorder);
 void irec_recordKeys(input_rec_t* recorder, u16 keys);
 u16 irec_playKeys(input_rec_t* recorder);
-BOOL irec_isBufferFull(const input_rec_t* recorder);
-BOOL irec_isAlmostAtPlayBufferEnd(const input_rec_t* recorder);
+bool32 irec_isBufferFull(const input_rec_t* recorder);
+bool32 irec_isAlmostAtPlayBufferEnd(const input_rec_t* recorder);

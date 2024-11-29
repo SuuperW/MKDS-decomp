@@ -1,16 +1,19 @@
 #pragma once
 
+#include <types.h>
+#include <nitro/gx/gxcommon.h>
+
 typedef struct
 {
-    GXRgb color;
-    s16 r;
-    s16 g;
-    s16 b;
-    s16 rDelta;
-    s16 gDelta;
-    s16 bDelta;
-    u16 lightMask;
-    fx16 progress;
+	GXRgb color;
+	s16 r;
+	s16 g;
+	s16 b;
+	s16 rDelta;
+	s16 gDelta;
+	s16 bDelta;
+	u16 lightMask;
+	fx16 progress;
 } light_t;
 
 void light_init(light_t* light, u16 lightMask);

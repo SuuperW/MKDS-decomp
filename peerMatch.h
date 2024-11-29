@@ -1,7 +1,10 @@
 #pragma once
+
+#include <nnsys/fnd/heapcommon.h>
 #include "common.h"
+#include "dwc_things.h"
+#include "stateMachine.h"
 #include "struct217AA00.h"
-#include <dwc.h>
 
 typedef struct net_menu_dgram_header_t_
 {
@@ -128,7 +131,7 @@ typedef struct net_state_t_
 
 extern net_state_t* gNetState;
 
-static inline BOOL netstate_inline1()
+static inline bool32 netstate_inline1()
 {
-    return gNetState && gNetState->heapInitialized;
+	return gNetState && gNetState->heapInitialized;
 }

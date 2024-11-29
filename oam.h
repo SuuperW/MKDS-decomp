@@ -1,16 +1,19 @@
 #pragma once
 
+#include <types.h>
+#include <nitro/gx/g2_oam.h>
+
 typedef struct
 {
-    GXOamAttr oam[128];
-    u16 objCount;
-    u16 affineCount;
+	GXOamAttr oam[128];
+	u16 objCount;
+	u16 affineCount;
 } oam_buf_t;
 
 typedef struct
 {
-    oam_buf_t mainOamBuf;
-    oam_buf_t subOamBuf;
+	oam_buf_t mainOamBuf;
+	oam_buf_t subOamBuf;
 } oam_buffers_t;
 
 void oam_clearResetBuffers(oam_buf_t* main, oam_buf_t* sub);

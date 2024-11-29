@@ -3,7 +3,7 @@
 
 typedef struct
 {
-    mobj_inst_t mobj;
+	mobj_inst_t mobj;
 } bbobj_t;
 
 extern mobj_def_t gOf6Tree1NoColMObjDef;

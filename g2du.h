@@ -1,5 +1,8 @@
 #pragma once
 
+#include <nnsys/g2d/fmt/g2d_Cell_data.h>
+#include <nnsys/g2d/fmt/g2d_Character_data.h>
+
 void g2du_unpackPaletteData(NNSG2dPaletteData** palData, const void* nclr);
 void g2du_getPaletteData(NNSG2dPaletteData** palData, const void* nclr);
 void g2du_unpackCharacterData(NNSG2dCharacterData** charData, const void* ncgr);

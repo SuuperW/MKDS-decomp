@@ -4,8 +4,8 @@
 
 typedef struct
 {
-    mobj_inst_t mobj;
-    u16 nsbtaFrame;
+	mobj_inst_t mobj;
+	u16 nsbtaFrame;
 } rainstar_t;
 
 extern mobj_def_t gRainStarMObjDef;

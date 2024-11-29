@@ -3,7 +3,7 @@
 
 typedef struct
 {
-    mobj_inst_t mobj;
+	mobj_inst_t mobj;
 } pole_t;
 
 extern mobj_def_t gDummyPoleMObjDef;

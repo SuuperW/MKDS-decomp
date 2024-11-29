@@ -1,4 +1,6 @@
 #pragma once
+
+#include <nitro/os/common/tick.h>
 #include "stateMachine.h"
 #include "race/struc_351.h"
 #include "peerMatch.h"
@@ -47,9 +49,9 @@ typedef struct rnet_driver_state_t_
 //net race datagram struct
 typedef struct rnet_dgram_t_
 {
-	u8 src : 2;                        //AID of origin
-	u8 dst : 2;                        //AID destination
-	u8 op : 4;                         //datagram opcode
+	u8 src : 2;						//AID of origin
+	u8 dst : 2;						//AID destination
+	u8 op : 4;						 //datagram opcode
 	u8 field1;
 	u8 field2;
 	u8 field3;
@@ -118,24 +120,24 @@ typedef struct rnet_ping_t_
 //net race state struct
 typedef struct
 {
-    state_machine_t stateMachine;
+	state_machine_t stateMachine;
 	rnet_ping_t pingStatuses[4];
 	u32 fieldF4;
 	u16 lastSentAid;
 	u8 heardFromBitmap;
 	u8 fieldFB;
-    u8 initialAidsBitmap;
+	u8 initialAidsBitmap;
 	u8 fieldFD;
 	u8 gapFE[0x104 - 0xFE];
-    struc_222 drivers[4];
+	struc_222 drivers[4];
 	rnet_item_action_entry_t itemActionSlots[16];
 	rnet_item_action_entry_t incomingItemActions[RNET_MAX_ITEM_ACTIONS][4];
 	u8 itemActionProcessed[RNET_MAX_ITEM_ACTIONS][4];
-    s16 bufferAvailable;
+	s16 bufferAvailable;
 	u8 gap726[2];
 	int frameCounter;
-    int field72C;
-    u8 gap730[0x734 - 0x730];
+	int field72C;
+	u8 gap730[0x734 - 0x730];
 	u16 lastAidSent;
 	u16 field_736;
 	u16 idleTime;
@@ -152,17 +154,17 @@ typedef struct
 	rnet_dgram_t *dwcSendBuffer;
 	u32 packetNextState;
 	u16 flags;
-    u8 gap75E[1];
-    u8 field75F;
+	u8 gap75E[1];
+	u8 field75F;
 } net_race_state_t;
 
 //struct for mapping between AIDs and driver IDs
 typedef struct
 {
-    s8 driverToAid[4]; //map driver ID -> AID
-	u8 initialAids;    //connected AIDs bitmap
-	u8 initialized;    //initialized
-    s8 aidToDriver[4]; //map AID -> Driver ID
+	s8 driverToAid[4]; //map driver ID -> AID
+	u8 initialAids;	//connected AIDs bitmap
+	u8 initialized;	//initialized
+	s8 aidToDriver[4]; //map AID -> Driver ID
 } rnet_aid_map_t;
 
 extern net_race_state_t* gNetRaceState;

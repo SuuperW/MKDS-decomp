@@ -7,15 +7,15 @@
 
 typedef struct
 {
-    VecFx32 scale;
-    bbm_model_t* bbModel;
-    model_t* model;
-    shadowmodel_t* shadowModel;
-    void* nsbmd;
-    anim_manager_t* nsbcaAnim;
-    anim_manager_t* nsbtpAnim;
-    anim_manager_t* nsbmaAnim;
-    anim_manager_t* nsbtaAnim;
+	VecFx32 scale;
+	bbm_model_t* bbModel;
+	model_t* model;
+	shadowmodel_t* shadowModel;
+	void* nsbmd;
+	anim_manager_t* nsbcaAnim;
+	anim_manager_t* nsbtpAnim;
+	anim_manager_t* nsbmaAnim;
+	anim_manager_t* nsbtaAnim;
 } mobj_model_t;
 
 void mobj_bbModelApplyMaterial(mobj_render_part_t* renderPart, mobj_model_t* model);

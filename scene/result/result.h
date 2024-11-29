@@ -5,9 +5,9 @@
 
 typedef struct
 {
-    oam_buf_t mainOamBuf;
-    oam_buf_t subOamBuf;
-    RaceMode raceMode;
+	oam_buf_t mainOamBuf;
+	oam_buf_t subOamBuf;
+	RaceMode raceMode;
 } result_t;
 
 void result_init(NNSFndHeapHandle heapHandle);

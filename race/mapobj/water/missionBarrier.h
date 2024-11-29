@@ -4,9 +4,9 @@
 
 typedef struct
 {
-    dcol_inst_t dcolMObj;
+	dcol_inst_t dcolMObj;
 } mrbarrier_t;
 
 extern const mobj_def_t gMissionBarrierMObjDef;
 
-BOOL mrbar_isMissionBarrier(MObjId objectId);
+bool32 mrbar_isMissionBarrier(MObjId objectId);

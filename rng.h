@@ -1,23 +1,28 @@
 #pragma once
 
+#include <types.h>
+#include <nitro/fx/fx_const.h>
+#include <nitro/math/rand.h>
+#include <nitro/os/common/tick.h>
+
 static inline u32 rng_getSeed1()
 {
-    return (OS_GetTick() << 16) + OS_GetTick();
+	return (OS_GetTick() << 16) + OS_GetTick();
 }
 
 static inline u32 rng_getSeed2()
 {
-    return OS_GetTick() + ((OS_GetTick() << 24) + (OS_GetTick() << 8));
+	return OS_GetTick() + ((OS_GetTick() << 24) + (OS_GetTick() << 8));
 }
 
 static inline u32 rng_getRandom32(MATHRandContext32* context, u32 max)
 {
-    return max == 0 ? 0 : MATH_Rand32(context, max);
+	return max == 0 ? 0 : MATH_Rand32(context, max);
 }
 
 static inline u16 rng_getRandom16(MATHRandContext32* context, u16 max)
 {
-    return max == 0 ? 0 : MATH_Rand32(context, max);
+	return max == 0 ? 0 : MATH_Rand32(context, max);
 }
 
 /**
@@ -27,5 +32,5 @@ static inline u16 rng_getRandom16(MATHRandContext32* context, u16 max)
  */
 static inline fx32 rng_getRandomFx32(MATHRandContext32* context)
 {
-    return ((s16)(u16)(MATH_Rand32(context, 0) >> 20) - FX32_HALF) * 2;
+	return ((s16)(u16)(MATH_Rand32(context, 0) >> 20) - FX32_HALF) * 2;
 }

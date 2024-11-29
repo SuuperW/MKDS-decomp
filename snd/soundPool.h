@@ -1,5 +1,8 @@
 #pragma once
 
+#include <types.h>
+#include <nnsys/snd/player.h>
+
 typedef struct
 {
 	NNSSndHandle handle;

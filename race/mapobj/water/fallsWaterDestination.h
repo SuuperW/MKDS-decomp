@@ -3,9 +3,9 @@
 
 typedef struct
 {
-    mobj_inst_t mobj;
-    u16 index;
-    u16 ccDependentSetting;
+	mobj_inst_t mobj;
+	u16 index;
+	u16 ccDependentSetting;
 } fwdst_t;
 
 extern const mobj_def_t gFallsWaterDstMObjDef;

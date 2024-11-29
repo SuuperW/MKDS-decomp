@@ -1,17 +1,21 @@
 #pragma once
+
+#include <nnsys/g2d/fmt/g2d_Cell_data.h>
+#include <nnsys/g2d/fmt/g2d_Character_data.h>
+#include <nnsys/g2d/g2d_Font.h>
 #include "jnlib/ui/jnUIUtil.h"
 
 typedef enum
 {
-    FONT_LC_S,
-    FONT_LC_M,
-    FONT_MARIO
+	FONT_LC_S,
+	FONT_LC_M,
+	FONT_MARIO
 } MKDSFont;
 
 typedef enum
 {
-    PORTRAIT_MEDIUM,
-    PORTRAIT_LARGE
+	PORTRAIT_MEDIUM,
+	PORTRAIT_LARGE
 } MKDSPortrait;
 
 void m2d_load();

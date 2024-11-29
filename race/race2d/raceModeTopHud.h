@@ -1,29 +1,32 @@
 #pragma once
 
+#include <types.h>
+#include "oam.h"
+
 typedef struct
 {
-    union
-    {
-        struct
-        {
-            u16 mgBalloonInflateFrame;
-            u16 mgInventoryBalloonCount;
-        };
+	union
+	{
+		struct
+		{
+			u16 mgBalloonInflateFrame;
+			u16 mgInventoryBalloonCount;
+		};
 
-        struct
-        {
-            u16 mgShineCount;
-        };
+		struct
+		{
+			u16 mgShineCount;
+		};
 
-        int place;
-        int mrCurrentValue;
-    };
+		int place;
+		int mrCurrentValue;
+	};
 
-    int mrTargetValue;
-    BOOL ghostAvailable;
+	int mrTargetValue;
+	bool32 ghostAvailable;
 } r2d_race_mode_top_hud_state_t;
 
-BOOL r2d_isGhostAvailable(void);
+bool32 r2d_isGhostAvailable(void);
 void r2d_initRaceModeTopHud(void);
 void r2d_finalizeRaceModeTopHud(void);
 void r2d_updateRaceModeTopHud(void);

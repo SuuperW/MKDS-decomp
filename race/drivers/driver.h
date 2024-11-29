@@ -699,7 +699,8 @@ static inline bool32 driver_isNearby(u16 driverId, const VecFx32* position, fx32
 
 static inline bool32 driver_isAnyNearby(const VecFx32* position, fx32 distance)
 {
-	for (int i = 0; i < (int)rconf_getDriverCount(); i++)
+	int i;
+	for (i = 0; i < (int)rconf_getDriverCount(); i++)
 	{
 		if (driver_isNearby(i, position, distance))
 			return TRUE;

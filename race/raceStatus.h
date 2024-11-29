@@ -146,7 +146,8 @@ bool32 rstat_203C0BC();
 
 static inline bool32 rstat_hasAnyDriverReachedLap(int lap)
 {
-	for (int i = 0; i < (int)rconf_getDriverCount(); i++)
+	int i;
+	for (i = 0; i < (int)rconf_getDriverCount(); i++)
 		if (rstat_getDriverHighestReachedLap(i) >= lap)
 			return TRUE;
 	return FALSE;
@@ -154,7 +155,8 @@ static inline bool32 rstat_hasAnyDriverReachedLap(int lap)
 
 static inline bool32 rstat_signedHasAnyDriverReachedLap(int lap)
 {
-	for (int i = 0; i < (int)rconf_getDriverCount(); i++)
+	int i;
+	for (i = 0; i < (int)rconf_getDriverCount(); i++)
 		if ((int)rstat_getDriverHighestReachedLap(i) >= lap)
 			return TRUE;
 	return FALSE;

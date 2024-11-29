@@ -1,0 +1,6 @@
+#ifndef _RACE_RACE2D_MAP2D_SCENERY_ALL_H
+#define _RACE_RACE2D_MAP2D_SCENERY_ALL_H
+
+#include "rainStarIcon.h"
+
+#endif // _RACE_RACE2D_MAP2D_SCENERY_ALL_H

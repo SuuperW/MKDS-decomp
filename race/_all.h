@@ -1,0 +1,33 @@
+#ifndef _RACE_ALL_H
+#define _RACE_ALL_H
+
+#include "billboardModel.h"
+#include "camera.h"
+#include "cameraRoute.h"
+#include "race/collision/_all.h"
+#include "courseModel.h"
+#include "race/drivers/_all.h"
+#include "race/effects/_all.h"
+#include "race/items/_all.h"
+#include "jugem.h"
+#include "light.h"
+#include "race/mapData/_all.h"
+#include "race/mapobj/_all.h"
+#include "minigameController.h"
+#include "mission.h"
+#include "missionRunController.h"
+#include "objectShadow.h"
+#include "pathwalker.h"
+#include "pathwalkerInterpolate.h"
+#include "race.h"
+#include "race/race2d/_all.h"
+#include "raceConfig.h"
+#include "raceResults.h"
+#include "raceStatus.h"
+#include "raceTime.h"
+#include "rankpoint.h"
+#include "ranktimeGp.h"
+#include "race/sound/_all.h"
+#include "struc_351.h"
+
+#endif // _RACE_ALL_H

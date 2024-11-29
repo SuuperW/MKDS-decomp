@@ -1,0 +1,6 @@
+#ifndef _RACE_RACE2D_MAP2D_ENEMIES_ALL_H
+#define _RACE_RACE2D_MAP2D_ENEMIES_ALL_H
+
+#include "nsKiller2Icon.h"
+
+#endif // _RACE_RACE2D_MAP2D_ENEMIES_ALL_H

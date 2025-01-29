@@ -44,12 +44,12 @@ typedef struct
 	u32 field8;
 	race_time_t lapTimes[5];
 	race_time_t totalTime;
-	s32 curLap;
+	s32 curLap; // 0x24
 	u32 firstPlaceTime;
 	u32 totalMilliseconds;
 	u16 flags;
 	u16 curCpoi;
-	s16 lastCorrectKeyPoint;
+	s16 lastCorrectKeyPoint; // 0x34
 	s16 curKeyPoint;
 	u16 curCpat;
 	u16 highestReachedLap;
@@ -115,7 +115,7 @@ typedef struct
 	race_skill_rankpoints_t skillRankPoints;
 } race_status_t;
 
-extern race_status_t* gRaceStatus;
+extern race_status_t* gRaceStatus; // 0x021755FC
 
 
 void rstat_winMission(u16 playerId);

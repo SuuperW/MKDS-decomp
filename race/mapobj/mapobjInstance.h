@@ -49,7 +49,7 @@ typedef struct mobj_inst_t
 	VecFx32 position;
 	VecFx32 velocity;
 	VecFx32 scale;
-	Orientation mtx;
+	Orientation4D mtx;
 	VecFx32 size;
 	s16 colEntryId;
 	u16 alpha;
@@ -65,6 +65,8 @@ typedef struct mobj_inst_t
 	mobj_config_t* config;
 	const nkm_obji_entry_t* objiEntry;
 } mobj_inst_t;
+
+static_assert(sizeof(mobj_inst_t) == 160);
 
 void mobj_setScale(mobj_inst_t* mobj, const VecFx32* scale);
 void mobj_setSizeX(mobj_inst_t* mobj, fx32 sizeX);

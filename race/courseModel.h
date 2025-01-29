@@ -13,7 +13,7 @@ typedef struct
 	anim_manager_t nsbtpAnim;
 	anim_manager_t nsbtaAnim;
 	anim_manager_t nsbtaAnimV;
-	Orientation mtx;
+	Orientation4D mtx;
 	bool32 modelHasPartialFog;
 	s64 modelFogFlags;
 	bool32 modelVHasPartialFog;

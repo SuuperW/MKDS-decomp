@@ -45,7 +45,7 @@ typedef struct camera_t
 	VecFx32 right; // 0x0C
 	VecFx32 target; // 0x18
 	VecFx32 position; // 0x24
-	Orientation mtx; // 0x30
+	Orientation4D mtx; // 0x30
 	s32 fov; // 0x60
 	s32 targetFov;
 	fx16 fovSin;
@@ -138,7 +138,7 @@ void cam_init(camera_t* camera);
 void cam_updateFrustum(camera_t* camera);
 void cam_updateLookAt(camera_t* camera);
 void cam_updateLookAtEx(camera_t* camera);
-const Orientation4D* cam_getProjectionMtx();
+const MtxFx44* cam_getProjectionMtx();
 void cam_applyFrustum(camera_t* camera, bool32 useSkyFar);
 void cam_applyLookAt(camera_t* camera);
 void cam_resetPlayerCamera();
@@ -149,8 +149,8 @@ void cam_2075D08(bool32 a1);
 void cam_2075CF0();
 bool32 cam_updateReplayCamera(camera_t* cam);
 void cam_setupMissionFinishCamera();
-const Orientation* cam_updateIntroCamDouble();
-const Orientation* cam_updateIntroCamSingle();
+const Orientation4D* cam_updateIntroCamDouble();
+const Orientation4D* cam_updateIntroCamSingle();
 void cam_2074E6C(camera_t* camera);
 camera_t* cam_getPlayerCamera();
 camera_t* cam_getReplayCamera();

@@ -44,7 +44,7 @@ typedef struct
 
 void trl_init(NNSFndHeapHandle heapHandle);
 void trl_update();
-void trl_render(const Orientation* camMtx);
+void trl_render(const Orientation4D* camMtx);
 trl_trail_t* trl_createTrail(const VecFx32* targetPosition);
 trl_trail_t* trl_createTrailForDriver(u16 driverId);
 void trl_killTrail(trl_trail_t* trail);

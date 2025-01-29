@@ -3,7 +3,7 @@
 #ifndef HP_RACE_COLLISION_COLLISION_H
 #define HP_RACE_COLLISION_COLLISION_H
 
-#include <types.h>
+#include <nitro/fx/fx.h>
 #include "kcollision.h"
 
 #define COL_ENTRY_COUNT_MAX             256
@@ -15,15 +15,15 @@ typedef enum
 	COL_TYPE_SLIPPERY_ROAD,
 	COL_TYPE_WEAK_OFF_ROAD,
 	COL_TYPE_OFF_ROAD,
-	COL_TYPE_SOUND_TRIGGER,
+	COL_TYPE_SOUND_TRIGGER, // 0x10
 	COL_TYPE_HEAVY_OFF_ROAD,
 	COL_TYPE_SLIPPERY_ROAD_2,
 	COL_TYPE_BOOST_PAD,
-	COL_TYPE_WALL,
+	COL_TYPE_WALL, // 0x1 00
 	COL_TYPE_INVISIBLE_WALL, //ignored by cameras, should also have the ignore items flag set
 	COL_TYPE_OUT_OF_BOUNDS,
 	COL_TYPE_FALL_BOUNDARY,
-	COL_TYPE_JUMP_PAD,
+	COL_TYPE_JUMP_PAD, // 0x10 00
 	COL_TYPE_ROAD_NO_DRIVERS, //should have the ignore drivers flag set
 	COL_TYPE_WALL_NO_DRIVERS, //should have the ignore drivers flag set
 	COL_TYPE_CANNON_ACTIVATOR,
@@ -62,7 +62,7 @@ typedef enum
 
 static inline u16 col_getPrismAttrVariant(u16 prismAttr)
 {
-	return (prismAttr & COL_PRISM_ATTRIBUTE_VARIANT_MASK) >> COL_PRISM_ATTRIBUTE_VARIANT_SHIFT;
+    return (prismAttr & COL_PRISM_ATTRIBUTE_VARIANT_MASK) >> COL_PRISM_ATTRIBUTE_VARIANT_SHIFT;
 }
 
 static inline int col_getPrismAttrColType(u16 prismAttr)
@@ -71,7 +71,6 @@ static inline int col_getPrismAttrColType(u16 prismAttr)
 }
 
 //flags
-
 #define COL_FLAGS_TYPE(x)                       (1 << (x))
 
 #define COL_FLAGS_MAP2D_SHADOW_SHIFT            24
@@ -89,7 +88,7 @@ static inline int col_getPrismAttrColType(u16 prismAttr)
 #define COL_FLAGS_LIGHT_2_SHIFT                 (COL_FLAGS_LIGHT_SHIFT + 2)
 #define COL_FLAGS_LIGHT_2_MASK                  (COL_FLAGS_LIGHT(2))
 #define COL_FLAGS_LIGHT_3_SHIFT                 (COL_FLAGS_LIGHT_SHIFT + 3)
-#define COL_FLAGS_LIGHT_3_MASK                  ((COL_FLAGS_LIGHT(3))
+#define COL_FLAGS_LIGHT_3_MASK                  (COL_FLAGS_LIGHT(3))
 
 #define COL_FLAGS_DCOL                          (1 << 30)
 #define COL_FLAGS_KCOL                          (1 << 31)
@@ -130,6 +129,21 @@ static inline int col_getPrismAttrColType(u16 prismAttr)
 #define COL_COLLIDE_FLAGS_IS_JUGEM          (1 << 4)
 #define COL_COLLIDE_FLAGS_BIT5              (1 << 5)
 #define COL_COLLIDE_FLAGS_BIT6              (1 << 6)
+typedef struct {
+	union {
+		u8 flags;
+		struct {
+			u8 isRacer:1;
+			u8 isCamera:1; // ??? What is isLakitu then?
+			u8 isItem:1;
+			u8 isMapObj:1;
+			u8 isLakitu:1; // ??? What is isCamera then?
+			u8 bit20:1;
+			u8 bit40:1;
+			u8 bit80:1;
+		};
+	};
+} colliderType;
 
 typedef struct
 {
@@ -198,11 +212,11 @@ extern u16* gColQueryResultFlags;
 extern s16 gColQueryResultCount;
 extern u16* gColQueryResultEntryIds;
 
-struct dcol_inst_t;
+struct dynamicCollisionObject;
 
 void col_loadCourseCollision();
-void sub_20D5AA0(struct dcol_inst_t*** a1, u32 colFlags, u32* a3, VecFx32* a4, VecFx32* a5);
-bool32 sub_20D5A68(struct dcol_inst_t*** a1, u32 colFlags, u32* a3);
+void sub_20D5AA0(struct dynamicCollisionObject*** a1, u32 colFlags, u32* a3, VecFx32* a4, VecFx32* a5);
+bool32 sub_20D5A68(struct dynamicCollisionObject*** a1, u32 colFlags, u32* a3);
 u16 col_findResponsePrismAttribute(u32 colFlagsMask);
 void col_init();
 int col_createColEntry(const VecFx32* position, fx32 boundingSphereSize, u16 flags, void* object);
@@ -213,9 +227,9 @@ void col_disableColEntry(s16 entryId);
 void col_enableColEntry(s16 entryId);
 
 bool32 col_collide(
-	const VecFx32* position, const VecFx32* prevPosition, const VecFx32* direction, fx32 sphereSize, u16 flags, s16 colEntryId,
-	VecFx32* pushback, VecFx32* floorNormal, VecFx32* wallNormal, u32* outColFlags, VecFx32* a11, VecFx32* dcolA9,
-	u16* dcolA10, struct dcol_inst_t*** dcolResults);
+	const VecFx32* position, const VecFx32* prevPosition, const VecFx32* direction, fx32 radius, colliderType collider, s16 colEntryId,
+	VecFx32* out_pushback, VecFx32* out_floorNormal, VecFx32* out_wallNormal, u32* out_ColFlags, VecFx32* out_param_11, VecFx32* out_param_12,
+	u16* out_objTurnRacer, struct dynamicCollisionObject*** dcolResults);
 void col_update();
 void col_queryByColEntry(s16 colEntryId, u16 flagMask);
 
@@ -234,5 +248,40 @@ static inline void col_updateResponseMinMax(col_response_t* response, const VecF
 	else if (vec->z < response->minSomething.z)
 		response->minSomething.z = vec->z;
 }
+
+// SUUPER
+typedef struct {
+	s32 size;
+	u16 vertexId;
+	u16 surfaceNormalId;
+	u16 outId1, outId2;
+	u16 inId;
+	union {
+		u16 surfaceProperties;
+		struct {
+			u8 unknownBit1:1;
+			u8 shadow:1; // 0x02
+			u8 light:2; // 0x0C
+			u8 unknownBit10:1;
+			u8 unknownBits:3; // 0xE0
+			u8 type:5;
+			u8 unknownBit2000:1;
+			u8 unknownBit4000:1;
+			u8 unknownBit8000:1;
+		};
+	};
+} triangle_collision_data;
+static_assert(sizeof(triangle_collision_data) == 0x10);
+
+extern VecFx32* collisionVertexes; // 0x0217b5f4
+extern VecFx32* collisionVectors; // 0x0217b5f8
+extern triangle_collision_data* collisionTriangles; // 0x0217b5fc
+extern int* collisionMap; // 0x0217b600
+
+extern s32 touchedSurfaceCount; // 0x027e0060
+extern u32* touchedSurfaceProperties; // 0x027e0064
+extern u32* touchedSurfacePropFlags; // 0x027e0068
+
+extern dynamicCollisionObject* touchedDynamicObjects[4]; // 0x0217b5b0
 
 #endif

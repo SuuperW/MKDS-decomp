@@ -37,7 +37,7 @@ NNSG3dResMdl* model_initFromNsbmdNoCullFix(model_t* model, void* nsbmd);
 NNSG3dResMdl* model_initFromNsbmdNsbtxMetaCopy(NNSFndHeapHandle heapHandle, model_t* model, void* nsbmd, void* nsbtx);
 void model_configShadowPass1(model_t* model, int alpha);
 void model_configShadowPass2(model_t* model, int alpha, int polygonId);
-void model_drawTransformed(model_t* model, const Orientation* mtx, const VecFx32* scale);
+void model_drawTransformed(model_t* model, const Orientation4D* mtx, const VecFx32* scale);
 void model_render(model_t* model);
 
 // static inline void model_draw(model_t* model)

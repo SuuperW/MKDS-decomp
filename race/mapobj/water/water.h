@@ -53,7 +53,7 @@ typedef struct water_state_t
 	void* waterCNsbmd;
 	model_t waterAModel;
 	model_t waterCModel;
-	Orientation transformMtx;
+	Orientation4D transformMtx;
 	bool32 isDiveable;
 	void* waterEfctNsbmd;
 	void* waterEfctNsbca;
@@ -72,7 +72,7 @@ extern const mobj_def_t gWaterMObjDef;
 extern const mobj_def_t gSplashMObjDef;
 
 void water_update(water_state_t* state);
-void water_render(water_state_t* state, const Orientation* camMtx);
+void water_render(water_state_t* state, const Orientation4D* camMtx);
 
 void water_loadMiniStage3Water();
 void water_loadBeachWater();

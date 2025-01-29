@@ -24,8 +24,8 @@ typedef struct
 	mobj_inst_t mobj;
 	int fieldA0;
 	bool32 modelFlip;
-	Orientation baseMatrices[FLIP_ANIM_FRAME_COUNT];
-	Orientation extraColMatrices[FLIP_ANIM_FRAME_COUNT];
+	Orientation4D baseMatrices[FLIP_ANIM_FRAME_COUNT];
+	Orientation4D extraColMatrices[FLIP_ANIM_FRAME_COUNT];
 	VecFx32 ptclEmitterPositions[FLIP_ANIM_FRAME_COUNT];
 	VecFx32 ptclEmitterTargets[FLIP_ANIM_FRAME_COUNT];
 	int waitCounter;

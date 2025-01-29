@@ -8,7 +8,7 @@
 
 typedef struct
 {
-	dcol_inst_t dcolMObj;
+	dynamicCollisionObject dcolMObj;
 } mrbarrier_t;
 
 extern const mobj_def_t gMissionBarrierMObjDef;

@@ -20,7 +20,7 @@ typedef struct
 
 void ptcm_init(NNSFndHeapHandle heapHandle);
 void ptcm_update();
-void ptcm_render(const Orientation* cameraMtx);
+void ptcm_render(const Orientation4D* cameraMtx);
 spa_emitter_t* ptcm_createEmitter(int particleId, const VecFx32* position);
 spa_emitter_t* ptcm_createEmitterNoUpdateSkip(
 	int particleId, const VecFx32* position, void* arg, spa_emitter_create_callback_func_t func);

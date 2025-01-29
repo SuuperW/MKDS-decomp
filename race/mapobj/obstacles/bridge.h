@@ -15,7 +15,7 @@ typedef struct
 
 typedef struct 
 {
-	dcol_inst_t dcolMObj;
+	dynamicCollisionObject dcolMObj;
 	u16 field144;
 	u16 rotSpeed;
 	u16 angle;
@@ -28,7 +28,7 @@ typedef struct
 
 extern const mobj_def_t gBridgeMObjDef;
 
-void bridge_renderAll(const Orientation* camMtx);
+void bridge_renderAll(const Orientation4D* camMtx);
 int bridge_getProgress();
 bool32 bridge_isBridge(MObjId objectId);
 

@@ -100,7 +100,7 @@ typedef struct
 	u16 field7A;
 	light_t light;
 	light_t* lightPtr;
-	Orientation mtx;
+	Orientation4D mtx;
 	u8 gapC4[12];
 	VecFx32* fieldD0;
 	u32 visibilityFlags;
@@ -123,6 +123,8 @@ typedef struct
 	u32 field124;
 	u8 field128DriverMask;
 } it_item_inst_t;
+
+static_assert(sizeof(it_item_inst_t) == 0x12c);
 
 typedef struct
 {

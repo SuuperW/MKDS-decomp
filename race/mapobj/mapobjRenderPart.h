@@ -17,7 +17,7 @@ typedef struct mobj_render_part_t mobj_render_part_t;
 typedef void (*mobj_render_part_global_init_func_t)(mobj_render_part_t* renderPart);
 typedef void (*mobj_render_part_global_pre_render_func_t)(mobj_render_part_t* renderPart);
 typedef void (*mobj_render_part_instance_render_func_t)(
-	mobj_render_part_t* renderPart, mobj_inst_t* instance, const Orientation* camMtx, u16 alpha);
+	mobj_render_part_t* renderPart, mobj_inst_t* instance, const Orientation4D* camMtx, u16 alpha);
 typedef void (*mobj_render_part_global_post_render_func_t)(mobj_render_part_t* renderPart);
 
 typedef struct mobj_render_part_t

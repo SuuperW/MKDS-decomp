@@ -33,7 +33,7 @@ typedef struct
 	int itemCount;
 	int field24;
 	u16 driverId;
-	Orientation field2C;
+	Orientation4D field2C;
 	VecFx32 field5C;
 	int field68;
 	VecFx32 field6C;

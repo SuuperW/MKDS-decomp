@@ -12,7 +12,7 @@ typedef struct
 	quaternion_t rotation;
 	VecFx32 prevPosition;
 	VecFx32 renderPos;
-	Orientation shadowMtx;
+	Orientation4D shadowMtx;
 	fx32 offsetY;
 	u16 swingRange;
 	u16 swingVelocity;

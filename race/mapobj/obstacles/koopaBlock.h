@@ -16,7 +16,7 @@ typedef enum
 
 typedef struct
 {
-	dcol_inst_t dcolMObj;
+	dynamicCollisionObject dcolMObj;
 	pw_pathwalker_t pathWalker;
 	fx32 speed;
 	u16 waitCounter;
@@ -24,7 +24,7 @@ typedef struct
 
 extern const mobj_def_t gKoopaBlockMObjDef;
 
-void kblock_renderAll(const Orientation* camMtx);
+void kblock_renderAll(const Orientation4D* camMtx);
 bool32 kblock_isKoopaBlock(MObjId objectId);
 fx32 kblock_getRouteProgress(koopablock_t* instance);
 

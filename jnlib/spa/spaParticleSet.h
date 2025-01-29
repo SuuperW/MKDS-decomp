@@ -60,7 +60,7 @@ typedef struct
 	u32 unknown : 7;
 	u32 polygonAttr;
 	struct spa_emitter_t* curEmitter;
-	const Orientation* cameraMtx;
+	const Orientation4D* cameraMtx;
 	u16 frameIndex;
 } spa_particleset_t;
 
@@ -76,7 +76,7 @@ bool32 spa_defaultUploadTextures(spa_particleset_t* pset);
 bool32 spa_defaultUploadPalettes(spa_particleset_t* pset);
 
 void spa_updateSet(spa_particleset_t* pset);
-void spa_renderSet(spa_particleset_t* pset, const Orientation* cameraMtx);
+void spa_renderSet(spa_particleset_t* pset, const Orientation4D* cameraMtx);
 
 struct spa_emitter_t* spa_createEmitter(spa_particleset_t* pset, int emitterId, VecFx32* position);
 

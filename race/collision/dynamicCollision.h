@@ -13,7 +13,7 @@ typedef enum
 	DCOL_SHAPE_CYLINDER
 } DColShape;
 
-typedef struct dcol_inst_t
+typedef struct dynamicCollisionObject
 {
 	mobj_inst_t mobj;
 	MtxFx33 lastMtx;
@@ -33,16 +33,15 @@ typedef struct dcol_inst_t
 	u32 field138;
 	u32 field13C;
 	model_t* model;
-} dcol_inst_t;
+} dynamicCollisionObject;
 
-typedef void (*dcol_render_func_t)(dcol_inst_t* instance, const Orientation* camMtx, u16 alpha);
+typedef void (*dcol_render_func_t)(dynamicCollisionObject* instance, const Orientation4D* camMtx, u16 alpha);
 
-void dcol_render(mobj_render_part_t* renderPart, const Orientation* camMtx, dcol_render_func_t renderFunc);
-void dcol_commonRender(dcol_inst_t* instance, const Orientation* camMtx, u16 alpha);
+void dcol_render(mobj_render_part_t* renderPart, const Orientation4D* camMtx, dcol_render_func_t renderFunc);
+void dcol_commonRender(dynamicCollisionObject* instance, const Orientation4D* camMtx, u16 alpha);
 void dcol_setModel(mobj_render_part_t* renderPart, model_t* model);
 
-bool32 dcol_collide(dcol_inst_t* instance, const VecFx32* position, fx32 sphereSize, u16 collideFlags,
-				  col_response_t* floorResponse, col_response_t* wallResponse, VecFx32* a7,
-				  u16* collisionType, VecFx32* a9, u16* a10);
-
+bool32 dcol_collide(dynamicCollisionObject* instance, const Vec3_fx32* position, fx32 sphereSize, u16 collideFlags,
+				  col_response_t* floorResponse, col_response_t* wallResponse, Vec3_fx32* a7,
+				  u16* collisionType, Vec3_fx32* a9, u16* a10);
 #endif

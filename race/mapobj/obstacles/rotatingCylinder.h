@@ -27,7 +27,7 @@ typedef enum
 
 typedef struct
 {
-	dcol_inst_t dcol;
+	dynamicCollisionObject dcol;
 	u16 startStopDuration;
 	u16 rotateDuration;
 	u16 idleDuration;
@@ -60,7 +60,7 @@ extern const mobj_def_t gGearMObjDef;
 extern const mobj_def_t gRotaryRoomMObjDef;
 extern const mobj_def_t gRotaryBridgeMObjDef;
 
-void rotcyl_renderAll(const Orientation* camMtx);
+void rotcyl_renderAll(const Orientation4D* camMtx);
 bool32 rotcyl_isRotatingCylinder(MObjId objectId);
 
 #endif

@@ -40,7 +40,7 @@ typedef struct
 	sinthing_t rotZ;
 	model_t trophyModel;
 	anim_manager_t trophyNsbtpAnim;
-	Orientation identity;
+	Orientation4D identity;
 	fx16 light0DirX;
 	fx16 light1DirX;
 	fx16 light0DirY;

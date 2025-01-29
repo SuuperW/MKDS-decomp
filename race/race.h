@@ -58,7 +58,7 @@ void race_startDarkening();
 void race_resetDarkeningFadeWaitCounter();
 void race_forceDarkeningFade();
 bool32 race_getIsDarkeningActive();
-const Orientation* race_getCameraMtx();
+const Orientation4D* race_getCameraMtx();
 int race_getCameraField250();
 camera_t* race_getCamera();
 void race_setField34();

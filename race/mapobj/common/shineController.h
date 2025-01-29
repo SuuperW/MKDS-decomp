@@ -13,6 +13,8 @@ typedef struct
 	int counter;
 } shinc_t;
 
+static_assert(sizeof(shinc_t) == 0xac);
+
 extern const mobj_def_t gShineControllerMObjDef;
 
 #endif

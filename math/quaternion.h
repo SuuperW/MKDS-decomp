@@ -13,7 +13,7 @@ typedef struct
 
 extern quaternion_t stru_217B660;
 
-void qtrn_20D7BEC(const Orientation* mtx);
+void qtrn_20D7BEC(const Orientation4D* mtx);
 void qtrn_fromForwardVec(const VecFx32* forward, quaternion_t* dst);
 void qtrn_fromYAngle(u16 angle, quaternion_t* dst);
 void qtrn_20D7A3C(const VecFx32* a1, u16 angle, quaternion_t* a3);
@@ -31,7 +31,7 @@ bool32 qtrn_lookAt(quaternion_t* dst, const VecFx32* a, const VecFx32* b);
 void qtrn_normalize(const quaternion_t* src, quaternion_t* dst);
 void qtrn_mult(const quaternion_t* a, const quaternion_t* b, quaternion_t* dst);
 void qtrn_lerp(const quaternion_t* a, const quaternion_t* b, quaternion_t* dst, fx32 f);
-void qtrn_toMtx43(Orientation* dst, const quaternion_t* quaternion);
+void qtrn_toMtx43(Orientation4D* dst, const quaternion_t* quaternion);
 void qtrn_toMtx33(MtxFx33* dst, const quaternion_t* quaternion);
 
 #endif

@@ -19,10 +19,12 @@ typedef struct
 typedef struct
 {
 	NNSG3dRenderObj renderObj;
-	u32 cullReversed;
+	u32 cullReversed; // 0x84
 	bool32 render1Mat1Shp;
 	model_res_t res;
 } model_t;
+
+static_assert(sizeof(model_t) == 0x6c);
 
 extern void (*const gModelRenderFuncs[2])(model_t* model);
 

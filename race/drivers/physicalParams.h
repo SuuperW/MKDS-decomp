@@ -9,8 +9,8 @@
 typedef struct
 {
 	fx32 colSphereSize;
-	fx32 colSphereZOffset;
-	u8 gap8[4];
+	fx32 itemSphereZOffset;
+	fx32 itemRadius;
 	fx16 weight;
 	s16 driftBoostTime;
 	fx32 maxSpeed;

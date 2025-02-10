@@ -34,6 +34,8 @@ typedef struct
 	u8 field2F : 2;
 } ghost_header_t;
 
+static_assert(sizeof(ghost_header_t) == 0x30);
+
 typedef struct
 {
 	ghost_header_t header;

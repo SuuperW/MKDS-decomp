@@ -80,7 +80,6 @@ bool col_collide(
 	u16 *triangleEnumerator;
 	bool touchedSomething;
 	u32 accumulatedSurfaceProps;
-	s64 outDistance_2D_sq;
 	VecFx32 playerPosition;
 	VecFx32 _previousPosition;
 	VecFx32 totalFloorPush;
@@ -96,7 +95,7 @@ bool col_collide(
 	Vec3_fx10_22 maxEdgeWallPushComponents;
 	VecFx32 maxWallPushyComponents;
 	Vec3_fx10_22 minWallPushyComponents;
-	VecFx32 maybe_distanceToTriangle_LargestVertical;
+	VecFx32 distanceToLowestTri;
 	VecFx32 *triangleVertexes;
 	VecFx32 *triangleVectors = collisionVectors;
 
@@ -140,9 +139,9 @@ bool col_collide(
 	minWallPushyComponents.y = 0;
 	minWallPushyComponents.z = 0;
 	if (out_param_11 != NULL) {
-		maybe_distanceToTriangle_LargestVertical.x = 0;
-		maybe_distanceToTriangle_LargestVertical.y = radius << 1;
-		maybe_distanceToTriangle_LargestVertical.z = 0;
+		distanceToLowestTri.x = 0;
+		distanceToLowestTri.y = radius << 1;
+		distanceToLowestTri.z = 0;
 	}
 	touchedSurfaceCount = 0;
 	playerPosition.x = position->x;
@@ -243,14 +242,19 @@ bool col_collide(
 				middleDistance = outDistance2;
 				middleVector = outVector2;
 			}
+			s32 previousUpDistance = DotProduct_t(&previousDistanceFromVertex, &surfaceNormalVector);
+			s64 outDistance_2D_sq; // My code says this may be uninitialized. That's probably a bug from me.
 			if (largestOutDistance <= 0) {
 				// Center of our hitbox is within the three triangle edges
 				if (upDistance < 0 && prevPosition != NULL) {
-					if (DotProduct_t(&previousDistanceFromVertex, &surfaceNormalVector) < 0 &&
-							(collider.bit20 ||
-								0 < DotProduct_t(&previousDistanceFromVertex, &outVector1) ||
-								0 < DotProduct_t(&previousDistanceFromVertex, &outVector2) ||
-							triangle.size < DotProduct_t(&previousDistanceFromVertex, &inVector))) continue;
+					// If pre-movement we were already behind
+					if (previousUpDistance < 0 && (
+							collider.bit20 ||
+							// 
+							0 < DotProduct_t(&previousDistanceFromVertex, &outVector1) ||
+							0 < DotProduct_t(&previousDistanceFromVertex, &outVector2) ||
+							triangle.size < DotProduct_t(&previousDistanceFromVertex, &inVector)))
+						continue;
 				}
 			} else {
 				// Center of out hitbox is outside at least one of the three triangle edges
@@ -310,7 +314,6 @@ bool col_collide(
 				VecFx32 positionDelta;
 				VEC_Subtract(&playerPosition, &_previousPosition, &positionDelta);
 
-				s32 previousUpDistance = DotProduct_t(&previousDistanceFromVertex, &surfaceNormalVector);
 				if (previousUpDistance < 0) {
 					if (kindoffar && (someProperties & COL_FLAGS_TYPE_WALL_MASK) != 0 && direction != NULL) {
 						maxWallPushyComponents.x = max(maxWallPushyComponents.x, outwardPush.x);
@@ -321,7 +324,7 @@ bool col_collide(
 					if ((collider.flags & 0x3b) != 0 || previousUpDistance < -0xa000)
 						continue; // This is what prevents touching a wall while inside of it.
 				}
-				if (819 < DotProduct_t(&positionDelta, &surfaceNormalVector)) { // B Delta, upper limit for touching floors?
+				if (819 < DotProduct_t(&positionDelta, &surfaceNormalVector)) {
 					// This would be NOT touching the surface
 					if (kindoffar && (someProperties & COL_FLAGS_TYPE_WALL_MASK) != 0 && direction != NULL) {
 						maxWallPushyComponents.x = max(maxWallPushyComponents.x, outwardPush.x);
@@ -334,10 +337,10 @@ bool col_collide(
 			}
 			// for the main racerData call, flags == 1
 			if (!collider.isCamera || (someProperties & (1 << COL_TYPE_INVISIBLE_WALL)) == 0) {
-				if (out_param_11 != NULL && distanceToTriangle.y < maybe_distanceToTriangle_LargestVertical.y) {
-					maybe_distanceToTriangle_LargestVertical.x = distanceToTriangle.x;
-					maybe_distanceToTriangle_LargestVertical.y = distanceToTriangle.y;
-					maybe_distanceToTriangle_LargestVertical.z = distanceToTriangle.z;
+				if (out_param_11 != NULL && distanceToTriangle.y < distanceToLowestTri.y) {
+					distanceToLowestTri.x = distanceToTriangle.x;
+					distanceToLowestTri.y = distanceToTriangle.y;
+					distanceToLowestTri.z = distanceToTriangle.z;
 				}
 				if (hasOut8Plus) {
 					if ((someProperties & COL_FLAGS_TYPE_FLOOR_MASK) == 0) {
@@ -430,7 +433,7 @@ bool col_collide(
 				VecFx32* pVVar13 = NULL;
 				u16 outShort; // This is not initialized. However it is definitely set by checkRacerObjectCollision if it returns non-zero...? (That is, assuming the functions that it calls and gives out_param_8 set it.)
 				if (out_param_11 != NULL)
-					pVVar13 = &maybe_distanceToTriangle_LargestVertical;
+					pVVar13 = &distanceToLowestTri;
 				if (checkRacerObjectCollision(theObject, position, radius, collider,
 				  &maxLandablePushComponents, &maxRegWallPushComponents,
 				  pVVar13, &outShort, out_param_12, out_objTurnRacer) != 0) {
@@ -477,40 +480,40 @@ bool col_collide(
 		out_wallNormal->z = biggestWallPushDirection.z;
 	}
 	if (out_param_11 != NULL) {
-		out_param_11->x = maybe_distanceToTriangle_LargestVertical.x;
-		out_param_11->y = maybe_distanceToTriangle_LargestVertical.y;
-		out_param_11->z = maybe_distanceToTriangle_LargestVertical.z;
+		out_param_11->x = distanceToLowestTri.x;
+		out_param_11->y = distanceToLowestTri.y;
+		out_param_11->z = distanceToLowestTri.z;
 	}
 
 	if (out_pushback != NULL) {
 		Vec3_fx10_22 somePositionChange;
 		somePositionChange.y = max(maxLandablePushComponents.y, maxRegWallPushComponents.y);
 		somePositionChange.y += min(minLandablePushComponents.y, minRegWallPushComponents.y);
-		if ((accumulatedSurfaceProps & (1 << EdgeWall)) != 0) {
+		if ((accumulatedSurfaceProps & (1 << COL_TYPE_EDGE_WALL)) != 0) {
 			if (out_param_11 == NULL || 
-				  (accumulatedSurfaceProps & LANDABLE) == 0 ||
-			      (accumulatedSurfaceProps & (1 << OobFloor)) != 0 ||
-			      (accumulatedSurfaceProps & (1 << FallBoundary)) != 0
+				  (accumulatedSurfaceProps & COL_FLAGS_TYPE_FLOOR_MASK) == 0 ||
+			      (accumulatedSurfaceProps & (1 << COL_TYPE_OUT_OF_BOUNDS)) != 0 ||
+			      (accumulatedSurfaceProps & (1 << COL_TYPE_FALL_BOUNDARY)) != 0
 				) {
-				accumulatedSurfaceProps &= ~(1 << EdgeWall);
+				accumulatedSurfaceProps &= ~(1 << COL_TYPE_EDGE_WALL);
 			}
 			else {
-				maybe_distanceToTriangle_LargestVertical.z = (int)maybe_distanceToTriangle_LargestVertical.z >> 4;
-				maybe_distanceToTriangle_LargestVertical.x = (int)maybe_distanceToTriangle_LargestVertical.x >> 4;
-				maybe_distanceToTriangle_LargestVertical.y = (int)maybe_distanceToTriangle_LargestVertical.y >> 4;
-				if ((int)(maybe_distanceToTriangle_LargestVertical.x * maybe_distanceToTriangle_LargestVertical.x + maybe_distanceToTriangle_LargestVertical.z * maybe_distanceToTriangle_LargestVertical.z) <= (int)(maybe_distanceToTriangle_LargestVertical.y * maybe_distanceToTriangle_LargestVertical.y)) {
-					accumulatedSurfaceProps &= ~(1 << EdgeWall);
+				distanceToLowestTri.z = (int)distanceToLowestTri.z >> 4;
+				distanceToLowestTri.x = (int)distanceToLowestTri.x >> 4;
+				distanceToLowestTri.y = (int)distanceToLowestTri.y >> 4;
+				if ((int)(distanceToLowestTri.x * distanceToLowestTri.x + distanceToLowestTri.z * distanceToLowestTri.z) <= (int)(distanceToLowestTri.y * distanceToLowestTri.y)) {
+					accumulatedSurfaceProps &= ~(1 << COL_TYPE_EDGE_WALL);
 					goto LAB_01fff184;
 				}
 				somePositionChange.y = 0;
-				accumulatedSurfaceProps &= ~LANDABLE;
+				accumulatedSurfaceProps &= ~COL_FLAGS_TYPE_FLOOR_MASK;
 				if (out_floorNormal != NULL) {
 					out_floorNormal->x = 0;
 					out_floorNormal->y = 0;
 					out_floorNormal->z = 0;
 				}
 			}
-			accumulatedSurfaceProps |= (1 << Wall);
+			accumulatedSurfaceProps |= (1 << COL_TYPE_WALL);
 			if (somePositionChange.y < maxEdgeWallPushComponents.y) {
 				somePositionChange.y = maxEdgeWallPushComponents.y;
 			}
@@ -524,7 +527,7 @@ bool col_collide(
 		out_pushback->y = somePositionChange.y >> 10;
 		out_pushback->z = somePositionChange.z >> 10;
 
-		if (accumulatedSurfaceProps & ALL_WALLS != 0 && direction != NULL &&
+		if (accumulatedSurfaceProps & COL_FLAGS_TYPE_WALL_MASK != 0 && direction != NULL &&
 			out_param_12 != NULL && out_wallNormal != NULL) {
 			VecFx32 totalPushy;
 			totalPushy.x = maxWallPushyComponents.x + minWallPushyComponents.x;

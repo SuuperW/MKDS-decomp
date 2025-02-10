@@ -20,6 +20,8 @@ typedef struct
 	u16 field1A;
 } charkart_field24_t;
 
+static_assert(sizeof(charkart_field24_t) == 0x1C);
+
 typedef struct
 {
 	GXRgb diffuse;
@@ -46,29 +48,34 @@ typedef struct
 	fx16 progress;
 } charkart_colors_t;
 
+static_assert(sizeof(charkart_colors_t ) == 0x2C);
+
 typedef struct
 {
 	CharacterId characterId;
 	s32 kartId;
 	anim_manager_t* characterNsbcaAnim;
 	anim_manager_t* characterNsbtpAnim;
-	model_t* characterModel;
-	model_t* kartModel; // 0x10
+	model_t* characterModel; // 0x10
+	model_t* kartModel;
 	model_t* kartTireModel;
 	model_t* kartShadowModel;
-	const kofs_entry_t* kartOffsetData;
+	const kofs_entry_t* kartOffsetData; // 0x20
 	charkart_field24_t field24;
-	light_t light;
-	u32 field54;
+	light_t light; // 0x40
+	u32 field54; // 0x54
 	bool32 isKartInvisible;
 	bool32 isCharacterInvisible;
-	bool32 useSeparateTires;
+	bool32 useSeparateTires; // 0x60
 	bool32 inStarToonMode;
 	u16 kartABC;
-	charkart_colors_t colors;
-	anim_animator_t field98;
+	u16 padding;
+	charkart_colors_t colors; // 0x68
+	anim_animator_t field98; // 0x94
 	bool32 nsbtpAnimDisabled;
 	u32 fieldB0;
 } charkart_t;
+
+const int t = sizeof(charkart_t); // should be 0xB4!!
 
 #endif

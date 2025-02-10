@@ -558,7 +558,7 @@ typedef struct racerData
 	fx32 basePosDeltaMag;
 	fx32 speed;
 	fx32 lastGroundHeight;
-	u16 driverHitCheckMask;
+	u16 driverHitCheckMask; // 0x2b0
 	u16 driverHitMask;
 	u16 lastDriverHitMask;
 	u8 gap2B6[2];

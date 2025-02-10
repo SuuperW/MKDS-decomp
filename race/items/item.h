@@ -88,14 +88,14 @@ typedef struct
 typedef struct
 {
 	sfx_emitter_t sfxEmitter;
-	u32 type;
+	u32 type; // 0x44
 	u32 field48;
 	u16 field4C;
 	u16 field4E;
 	VecFx32 position;
 	VecFx32 velocity;
 	VecFx32 scale;
-	u32 flags;
+	u32 flags; // 0x74
 	u16 field78;
 	u16 field7A;
 	light_t light;
@@ -106,9 +106,9 @@ typedef struct
 	u32 visibilityFlags;
 	s16 alpha;
 	u16 colEntryId;
-	u32 fieldDC;
+	fx32 collisionRadius;
 	fx32 sphereSize;
-	VecFx32 fieldE4;
+	VecFx32 preMovementPos;
 	VecFx32 fieldF0;
 	u32 fieldFC;
 	u32 field100;
@@ -129,14 +129,14 @@ static_assert(sizeof(it_item_inst_t) == 0x12c);
 typedef struct
 {
 	u32 id;
-	it_item_inst_t* instances;
+	it_item_inst_t** instances;
 	u32 totalInstanceCount;
 	u32 itemParamsField10;
 	u32 activeInstanceCount;
 	u32 field14;
 	u32 field18;
 	u32 activeInstanceCount2;
-	u32 limit;
+	u32 limit; // 0x20
 	void* renderFunc;
 	void* visibilityFlagCalcFunc;
 	u32 itemParamsField70;
@@ -147,6 +147,8 @@ typedef struct
 	bool32 renderingDisabled;
 } it_itemset_t;
 
+static_assert(sizeof(it_itemset_t) == 0x44);
+
 //action buffer entry struct
 typedef struct itnet_action_t_ {
 	u8 data[20];
@@ -156,7 +158,7 @@ typedef struct itnet_action_t_ {
 } itnet_action_t;
 
 extern it_itemconfig_t* it_sItemConfigs;
-extern it_itemset_t* it_sItemsets;
+extern it_itemset_t* it_sItemsets; // DTCM, 0x27e00cc, points to array of 14
 
 it_item_inst_t* it_spawnItem(MKDSItem item, u32 flags, const VecFx32* position, const VecFx32* up);
 void it_startThrowAnim(it_item_inst_t* item, u32 a2, const VecFx32* position, const VecFx32* a4, const VecFx32* up);

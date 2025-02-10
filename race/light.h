@@ -17,7 +17,10 @@ typedef struct
 	s16 bDelta;
 	u16 lightMask;
 	fx16 progress;
+	u16 padding;
 } light_t;
+
+static_assert(sizeof(light_t) == 0x14);
 
 void light_init(light_t* light, u16 lightMask);
 void light_setToKclColor(light_t* light, u16 lightMask);

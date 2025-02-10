@@ -62,6 +62,8 @@ typedef struct
 	u32 squareDistance;
 } sfx_emitter_t;
 
+static_assert(sizeof(sfx_emitter_t) == 0x44);
+
 typedef struct
 {
 	int field0;

@@ -10,8 +10,8 @@
 
 typedef struct
 {
+	u8 MKDSSV10[8];
 	u32 signature;
-	u8 gap4[8];
 	u16 nickname[10];
 	u8 unlockBits[4];
 	u16 field24;
@@ -30,12 +30,15 @@ typedef struct
 	DWCAccUserData dwcUserData;
 	u8 gap8C[0x100 - 0x8C];
 } nksy_t;
+static_assert(sizeof(nksy_t) == 0x100);
 
 typedef struct
 {
 	ghost_header_t header;
 	u8 inputData[3532];
+	u32 padding;
 } nkpg_t;
+static_assert(sizeof(nkpg_t) == 0xe00);
 
 typedef struct
 {

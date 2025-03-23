@@ -66,7 +66,7 @@ bool col_collide(
 	colliderType collider, short colEntryId,
 	VecFx32* out_pushback, VecFx32* out_floorNormal,
 	VecFx32* out_wallNormal, u32* out_ColFlags,
-	VecFx32* out_param_11, VecFx32* out_param_12,
+	VecFx32* out_param_11, VecFx32* out_wallBounce1,
 	u16 *out_objTurnRacer, struct dynamicCollisionObject*** dcolResults)
 {
 	s64 lVar1;
@@ -322,7 +322,7 @@ bool col_collide(
 						minWallPushyComponents.z = min(minWallPushyComponents.z, outwardPush.z);
 					}
 					if ((collider.flags & 0x3b) != 0 || previousUpDistance < -0xa000)
-						continue; // This is what prevents touching a wall while inside of it.
+						continue; // This is what prevents touching a wall while behind it.
 				}
 				if (819 < DotProduct_t(&positionDelta, &surfaceNormalVector)) {
 					// This would be NOT touching the surface
@@ -404,10 +404,10 @@ bool col_collide(
 	} // surfaces loop
 
 	u32 uVar_b;
-	if (out_param_12 != NULL) {
-		out_param_12->x = 0;
-		out_param_12->y = 0;
-		out_param_12->z = 0;
+	if (out_wallBounce1 != NULL) {
+		out_wallBounce1->x = 0;
+		out_wallBounce1->y = 0;
+		out_wallBounce1->z = 0;
 	}
 	if (out_objTurnRacer != NULL) {
 		*out_objTurnRacer = 0;
@@ -436,7 +436,7 @@ bool col_collide(
 					pVVar13 = &distanceToLowestTri;
 				if (checkRacerObjectCollision(theObject, position, radius, collider,
 				  &maxLandablePushComponents, &maxRegWallPushComponents,
-				  pVVar13, &outShort, out_param_12, out_objTurnRacer) != 0) {
+				  pVVar13, &outShort, out_wallBounce1, out_objTurnRacer) != 0) {
 					accumulatedSurfaceProps = accumulatedSurfaceProps | 0x40000000 | 1 << (outShort & 0xff);
 					if (touchedSurfaceCount == 0x10) {
 						touchedSurfaceCount = 0xf;
@@ -528,7 +528,7 @@ bool col_collide(
 		out_pushback->z = somePositionChange.z >> 10;
 
 		if (accumulatedSurfaceProps & COL_FLAGS_TYPE_WALL_MASK != 0 && direction != NULL &&
-			out_param_12 != NULL && out_wallNormal != NULL) {
+			out_wallBounce1 != NULL && out_wallNormal != NULL) {
 			VecFx32 totalPushy;
 			totalPushy.x = maxWallPushyComponents.x + minWallPushyComponents.x;
 			totalPushy.z = maxWallPushyComponents.z + minWallPushyComponents.z;
@@ -556,8 +556,8 @@ bool col_collide(
 					}
 					lVar1 = (s64)totalPushy.x * (s64)(radius >> 5);
 					lVar2 = (s64)totalPushy.z * (s64)(radius >> 5);
-					out_param_12->x = (u32)lVar1 >> 0xc | (int)((u64)lVar1 >> 0x20) << 0x14;
-					out_param_12->z = (u32)lVar2 >> 0xc | (int)((u64)lVar2 >> 0x20) << 0x14;
+					out_wallBounce1->x = (u32)lVar1 >> 0xc | (int)((u64)lVar1 >> 0x20) << 0x14;
+					out_wallBounce1->z = (u32)lVar2 >> 0xc | (int)((u64)lVar2 >> 0x20) << 0x14;
 				}
 			}
 		}

@@ -1,4 +1,5 @@
 #pragma once
+// goomba
 
 #ifndef HP_RACE_MAPOBJ_ENEMIES_KURIBO_H
 #define HP_RACE_MAPOBJ_ENEMIES_KURIBO_H

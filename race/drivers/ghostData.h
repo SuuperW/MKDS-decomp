@@ -22,7 +22,7 @@ typedef struct
 	u32 : 16;
 
 	u32 isValid : 1;
-	u32 flagsBit1 : 1;
+	u32 useEmblem : 1;
 	u32 flagsBit2_3 : 2;
 	u32 : 4;
 	u32 minutes : 7;

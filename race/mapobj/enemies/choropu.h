@@ -1,4 +1,5 @@
 #pragma once
+// mole?
 
 #ifndef HP_RACE_MAPOBJ_ENEMIES_CHOROPU_H
 #define HP_RACE_MAPOBJ_ENEMIES_CHOROPU_H

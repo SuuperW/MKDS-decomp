@@ -206,6 +206,8 @@ typedef struct
 	u8 field2F;
 } race_config_driver_t;
 
+static_assert(sizeof(race_config_driver_t) == 0x30);
+
 typedef struct
 {
 	CourseId course;
@@ -236,6 +238,8 @@ typedef struct
 	u8 gap66[2];
 	race_config_driver_t drivers[RACE_DRIVER_COUNT_MAX];
 } race_config_t;
+
+static_assert(sizeof(race_config_t) == 0x1e8);
 
 typedef struct
 {

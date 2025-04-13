@@ -44,6 +44,8 @@ typedef struct dptc_t
 	void (*updateContRedSparksFunc)(dptc_t* controller, const VecFx16* a2, const VecFx32* a3);
 } dptc_t;
 
+static_assert(sizeof(dptc_t) == 0x88);
+
 void dptc_init(NNSFndHeapHandle heapHandle);
 void dptc_startDustClouds(dptc_t* controller);
 void dptc_stopDustClouds(dptc_t* controller);

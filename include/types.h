@@ -62,6 +62,8 @@ typedef volatile int16_t vint16;
 typedef volatile int32_t vint32;
 typedef volatile int64_t vint64;
 
+typedef u32 bool32;
+
 #ifndef TRUE
 #define TRUE 1
 #define FALSE 0

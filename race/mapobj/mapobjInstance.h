@@ -66,7 +66,7 @@ typedef struct mobj_inst_t
 	const nkm_obji_entry_t* objiEntry;
 } mobj_inst_t;
 
-static_assert(sizeof(mobj_inst_t) == 160);
+static_assert(sizeof(mobj_inst_t) == 0xa0);
 
 void mobj_setScale(mobj_inst_t* mobj, const VecFx32* scale);
 void mobj_setSizeX(mobj_inst_t* mobj, fx32 sizeX);

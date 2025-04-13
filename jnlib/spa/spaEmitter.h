@@ -82,6 +82,8 @@ typedef struct spa_emitter_t
 	};
 } spa_emitter_t;
 
+static_assert(sizeof(spa_emitter_t) == 0x9c);
+
 void spa_initEmitter(spa_emitter_t* emitter, spa_emitter_data_t* emitterData, VecFx32* position);
 void spa_updateEmitter(spa_particleset_t* pset, spa_emitter_t* emitter);
 void spa_renderEmitter(spa_particleset_t* pset);

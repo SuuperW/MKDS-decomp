@@ -29,6 +29,8 @@ typedef struct spa_particle_t
 	VecFx32 basePosition;
 } spa_particle_t;
 
+static_assert(sizeof(spa_particle_t) == 0x44);
+
 void spa_emitParticles(spa_emitter_t* emitter, spa_list_t* freeParticleList);
 void spa_emitChildParticles(spa_particle_t* parent, spa_emitter_t* emitter, spa_list_t* freeParticleList);
 

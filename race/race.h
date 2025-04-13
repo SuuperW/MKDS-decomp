@@ -20,23 +20,26 @@ typedef enum
 typedef struct
 {
 	s16 state;
+	s16 padding02;
 	u32 frameCounter;
 	int frameCounter2;
 	int frameCounterModulo8;
-	bool32 isOddFrame;
+	bool32 isOddFrame; // 0x10
 	int frameCounterModuloDriverCount;
 	u32 toonTableOffset;
 	u32 toonTableUpdateCounter;
-	RaceDarkeningFogState darkeningFogState;
+	RaceDarkeningFogState darkeningFogState; // 0x20
 	RaceDarkeningFogState prevDarkeningFogState;
 	bool32 isCamAnimMode;
 	bool32 isCamAnimSingleScreen;
-	u32 field30;
+	u32 field30; // 0x30
 	u32 field34;
 	bool32 isAwardStaffRoll;
 	u32 field3C;
 	VecFx16 light0Dir;
 } race_state_t;
+
+static_assert(sizeof(race_state_t) == 0x44);
 
 bool32 race_isCamAnimMode();
 bool32 race_isAwardStaffRoll();

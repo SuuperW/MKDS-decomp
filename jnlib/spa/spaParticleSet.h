@@ -64,6 +64,8 @@ typedef struct
 	u16 frameIndex;
 } spa_particleset_t;
 
+static_assert(sizeof(spa_particleset_t) == 0x4c);
+
 spa_particleset_t* spa_createParticleSet(
 	spa_alloc_func_t allocFunc, u16 maxEmitterCount, u16 maxParticleCount,
 	u16 constPolygonId, u16 firstPolygonId, u16 lastPolygonId);

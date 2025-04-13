@@ -409,15 +409,15 @@ typedef struct {
 	int BIT1:1;
 	int BIT3:1;
 	int BIT4:1;
-	int SPIN_OUT:1;
+	int SPIN_OUT:1; // 0x10
 	int STAR_INVINCIBLE:1;
 	int THUNDER_SHRINK:1;
 	int GROWING:1;
-	int BIT10:1;
+	int BIT10:1; // 0x1_00
 	int BIT11:1;
 	int BIT12:1;
 	int SLIPSTREAM_FULL:1;
-	int SLIPSTREAM_BEGIN:1;
+	int SLIPSTREAM_BEGIN:1; // 0x10_00
 	int BIT15:1;
 	int DOSSUN_FLAT:1;
 	int GESSO_INK_FADING_OUT:1;

@@ -10,6 +10,28 @@
 
 #define BIT(n) (1 << (n))
 
+#ifdef GHIDRA_PARSER
+// I do not understand what C is doing. It's a mess.
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+typedef unsigned long uint32_t;
+typedef unsigned long long uint64_t;
+typedef signed char int8_t;
+typedef short int16_t;
+typedef long int32_t;
+typedef long long int64_t;
+
+typedef uint8_t __uint8_t;
+typedef uint16_t __uint16_t;
+typedef uint32_t __uint32_t;
+typedef uint64_t __uint64_t;
+typedef int8_t __int8_t;
+typedef int16_t __int16_t;
+typedef int32_t __int32_t;
+typedef int64_t __int64_t;
+#endif
+
+
 typedef uint8_t uint8;
 typedef uint8_t  byte;
 typedef uint8_t  u8;

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_EFFECTS_EXPLOSION_H
+#define HP_RACE_EFFECTS_EXPLOSION_H
+
 #include "animationManager.h"
 #include "model.h"
 
@@ -68,3 +72,5 @@ expl_inst_t* expl_spawnEffect(ExplType type, const VecFx32* position, bool32 emi
 void expl_update();
 void expl_render();
 void expl_spawnSplash(const VecFx32* position, bool32 showSplashModel);
+
+#endif

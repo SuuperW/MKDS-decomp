@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_HEAP_H
+#define HP_HEAP_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 
@@ -22,3 +25,5 @@ NNSFndHeapHandle heap_createSubFrmHeap(NNSFndHeapHandle heap);
 NNSFndHeapHandle heap_createSubFrmHeapWithSize(NNSFndHeapHandle heap, u32 size);
 NNSFndHeapHandle heap_createSubFrmHeapWithSizeFromTail(NNSFndHeapHandle heap, u32 size);
 void heap_adjustSubFrmHeap(NNSFndHeapHandle heap);
+
+#endif

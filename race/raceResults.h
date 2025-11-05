@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_RACERESULTS_H
+#define HP_RACE_RACERESULTS_H
+
 #include "raceTime.h"
 #include "raceConfig.h"
 
@@ -50,3 +54,5 @@ static inline race_driver_result_t * rres_getDriverResults(u8 raceIdx, u16 drive
 	result = (race_driver_result_t*)(result + driverId);
 	return result;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_MATH_MATH_H
+#define HP_MATH_MATH_H
+
 #include <types.h>
 
 //for some reason the rounding constant is different than the one in the sdk???
@@ -71,3 +74,5 @@ fx32 FxDivide(fx32 numerator, fx32 denominator) {
 	s64 raw = Divide((s64)numerator << 0x20, (s32)denominator, 1);
 	return (raw + 0x80000) >> (0x20 - FX_SHIFT);
 }
+
+#endif

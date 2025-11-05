@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPAPARTICLESET_H
+#define HP_JNLIB_SPA_SPAPARTICLESET_H
+
 #include "spaList.h"
 #include "spaRes.h"
 
@@ -82,3 +85,5 @@ struct spa_emitter_t* spa_createEmitterWithCallback(
 	void* arg, spa_emitter_create_callback_func_t func);
 
 void spa_removeEmitter(spa_particleset_t* pset, struct spa_emitter_t* emitter);
+
+#endif

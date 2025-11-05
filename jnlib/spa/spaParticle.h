@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPAPARTICLE_H
+#define HP_JNLIB_SPA_SPAPARTICLE_H
+
 #include "spaList.h"
 #include "spaEmitter.h"
 #include "spaParticleSet.h"
@@ -43,3 +46,5 @@ static inline void spa_killParticle(spa_particle_t* particle)
 {
 	particle->age = particle->maxAge;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_PARTICLES_PARTICLEIDS_H
+#define HP_PARTICLES_PARTICLEIDS_H
+
 //RaceEffect.spa
 
 #define PTCL_RACE_EFFECT_TROPHY_SPARKLE           0
@@ -157,3 +160,5 @@
 
 #define PTCL_MISSION_EFFECT_MR_SPLASH_A        1058
 #define PTCL_MISSION_EFFECT_MR_SPLASH_B        1060
+
+#endif

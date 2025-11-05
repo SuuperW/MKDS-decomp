@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_OBSTACLES_DRAM_H
+#define HP_RACE_MAPOBJ_OBSTACLES_DRAM_H
+
 #include <types.h>
 #include <race/mapobj/mapobj.h>
 #include <race/mapobj/mapobjInstance.h>
@@ -29,3 +32,5 @@ typedef struct
 } dram_t;
 
 extern const mobj_def_t gDramMObjDef;
+
+#endif

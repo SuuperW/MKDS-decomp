@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_PROCESS_H
+#define HP_PROCESS_H
+
 #include "heap.h"
 
 typedef int (*process_main_func_t)(void* arg);
@@ -28,3 +31,5 @@ static inline NNSFndHeapHandle proc_getCurrentHeap()
 #define proc_alloc(size)                heap_alloc(proc_getCurrentHeap(), (size))
 #define proc_allocEx(size, alignment)    heap_allocEx(proc_getCurrentHeap(), (size), (alignment))
 #define proc_free(memoryBlock)            heap_free(proc_getCurrentHeap(), (memoryBlock))
+
+#endif

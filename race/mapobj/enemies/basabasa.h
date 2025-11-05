@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_BASABASA_H
+#define HP_RACE_MAPOBJ_ENEMIES_BASABASA_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 #include "math/quaternion.h"
@@ -31,3 +34,5 @@ extern mobj_def_t gBasabasaMObjDef;
 
 void basa_spawn(u32 state2Start, const VecFx32* position, const VecFx32* velocity, u32 state0Start, bool32 emitSound,
 				u16 mapIconType);
+
+#endif

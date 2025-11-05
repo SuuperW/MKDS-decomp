@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_COLLISION_DYNAMICCOLLISION_H
+#define HP_RACE_COLLISION_DYNAMICCOLLISION_H
+
 #include "collision.h"
 #include "model.h"
 #include "race/mapobj/mapobj.h"
@@ -40,3 +44,5 @@ void dcol_setModel(mobj_render_part_t* renderPart, model_t* model);
 bool32 dcol_collide(dcol_inst_t* instance, const VecFx32* position, fx32 sphereSize, u16 collideFlags,
 				  col_response_t* floorResponse, col_response_t* wallResponse, VecFx32* a7,
 				  u16* collisionType, VecFx32* a9, u16* a10);
+
+#endif

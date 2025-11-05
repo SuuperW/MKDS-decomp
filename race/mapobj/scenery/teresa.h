@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_SCENERY_TERESA_H
+#define HP_RACE_MAPOBJ_SCENERY_TERESA_H
+
 #include "sinThing.h"
 #include "race/mapobj/mapobj.h"
 
@@ -29,3 +33,5 @@ extern mobj_def_t gTeresaMObjDef;
 void tesa_20946B8();
 void tesa_spawn(const VecFx32* position);
 int tesa_getActiveInstanceCount();
+
+#endif

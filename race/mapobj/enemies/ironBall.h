@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_IRONBALL_H
+#define HP_RACE_MAPOBJ_ENEMIES_IRONBALL_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/objectShadow.h"
 #include "race/pathwalker.h"
@@ -32,3 +36,5 @@ typedef struct
 
 extern mobj_def_t gIronBallMObjDef;
 extern mobj_def_t gIronBallNoColMObjDef;
+
+#endif

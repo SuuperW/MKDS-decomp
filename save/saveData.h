@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SAVE_SAVEDATA_H
+#define HP_SAVE_SAVEDATA_H
+
 #include "dwc_things.h"
 #include "input/inputRecorder.h"
 #include "race/drivers/ghostData.h"
@@ -92,3 +95,5 @@ static inline bool32 savd_isBusy()
 
 	return TRUE;
 }
+
+#endif

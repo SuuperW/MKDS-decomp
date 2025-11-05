@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_SCENERY_BAKUBAKU_H
+#define HP_RACE_MAPOBJ_SCENERY_BAKUBAKU_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef enum
@@ -20,3 +24,5 @@ typedef struct
 } bakubaku_t;
 
 extern mobj_def_t gBakubakuMObjDef;
+
+#endif

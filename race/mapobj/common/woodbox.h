@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_COMMON_WOODBOX_H
+#define HP_RACE_MAPOBJ_COMMON_WOODBOX_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/objectShadow.h"
 
@@ -33,3 +37,5 @@ typedef struct
 } wbox_t;
 
 extern const mobj_def_t gWoodboxMObjDef;
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_DWC_THINGS_H
+#define HP_DWC_THINGS_H
+
 // NitroDWC package is missing a bunch of files that it needs, and I don't know where they are. So...
 // Here are a few types from DWC.
 
@@ -56,5 +60,7 @@ typedef struct DWCstAccUserData
     int                 reserved[5];        // 20
     u32                 crc32;              // 4
 } DWCAccUserData;
+
+#endif
 
 #endif

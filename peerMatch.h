@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_PEERMATCH_H
+#define HP_PEERMATCH_H
+
 #include <nnsys/fnd/heapcommon.h>
 #include "common.h"
 #include "dwc_things.h"
@@ -135,3 +138,5 @@ static inline bool32 netstate_inline1()
 {
 	return gNetState && gNetState->heapInitialized;
 }
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_CHOROPU_H
+#define HP_RACE_MAPOBJ_ENEMIES_CHOROPU_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/objectShadow.h"
 
@@ -28,3 +32,5 @@ typedef struct
 } choropu_t;
 
 extern const mobj_def_t gChoropuMObjDef;
+
+#endif

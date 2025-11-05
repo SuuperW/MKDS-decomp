@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_DOSSUN_H
+#define HP_RACE_MAPOBJ_ENEMIES_DOSSUN_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 
@@ -48,3 +51,5 @@ typedef struct
 extern const mobj_def_t gDossunMObjDef;
 
 fx32 dossun_getMapElevation(dossun_t* dossun);
+
+#endif

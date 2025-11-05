@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_INPUT_INPUTRECORDER_H
+#define HP_INPUT_INPUTRECORDER_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 
@@ -54,3 +57,5 @@ void irec_recordKeys(input_rec_t* recorder, u16 keys);
 u16 irec_playKeys(input_rec_t* recorder);
 bool32 irec_isBufferFull(const input_rec_t* recorder);
 bool32 irec_isAlmostAtPlayBufferEnd(const input_rec_t* recorder);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_COURSEMODEL_H
+#define HP_RACE_COURSEMODEL_H
+
 #include "model.h"
 #include "animationManager.h"
 
@@ -23,3 +27,5 @@ void crsmdl_renderSky();
 void crsmdl_setupLights();
 void crsmdl_setFogFlags(bool32 enabled);
 int crsmdl_getNsbtpProgress();
+
+#endif

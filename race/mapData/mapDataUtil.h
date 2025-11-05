@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPDATA_MAPDATAUTIL_H
+#define HP_RACE_MAPDATA_MAPDATAUTIL_H
+
 #include "mapData.h"
 
 nkm_poit_entry_t* mdat_getPathPoint(u16 path, u16 poit);
@@ -14,3 +18,5 @@ mdat_mgenemypoint_t* mdat_getMgRespawnData(u16 respawnId, VecFx32* pPos, VecFx32
 mdat_itempoint_t* mdat_getItemPointForRespawn(u16 respawnId);
 bool32 mdat_isDriverInClipArea(u16 driverId, int clipAreaId);
 mdat_mgenemypoint_t* mdat_getNextMgEnemyPointForWarpPipe(int cannonId);
+
+#endif

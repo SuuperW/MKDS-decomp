@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SINTHING_H
+#define HP_SINTHING_H
+
 #include "include/types.h"
 
 typedef struct
@@ -17,3 +20,5 @@ typedef struct
 static inline fx32 updateSinThing(sinthing_t* sinThing);
 
 static inline fx32 updateSinThing2(sinthing_t* sinThing);
+
+#endif

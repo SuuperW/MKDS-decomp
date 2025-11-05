@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_SUN_H
+#define HP_RACE_MAPOBJ_ENEMIES_SUN_H
+
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
@@ -26,3 +30,5 @@ typedef struct
 } sun_t;
 
 extern mobj_def_t gSunMObjDef;
+
+#endif

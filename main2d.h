@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_MAIN2D_H
+#define HP_MAIN2D_H
+
 #include <nnsys/g2d/fmt/g2d_Cell_data.h>
 #include <nnsys/g2d/fmt/g2d_Character_data.h>
 #include <nnsys/g2d/g2d_Font.h>
@@ -26,3 +29,5 @@ NNSG2dPaletteData* m2d_getPortraitShyGuyONclr(MKDSPortrait portrait);
 NNSG2dCharacterData* m2d_getPortraitNceNcgr(MKDSPortrait portrait);
 NNSG2dCellDataBank* m2d_getPortraitNceNcer(MKDSPortrait portrait);
 const jnui_bncl_res_t* m2d_getPortraitBncl(MKDSPortrait portrait);
+
+#endif

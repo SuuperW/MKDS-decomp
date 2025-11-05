@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_OBSTACLES_ROTATINGCYLINDER_H
+#define HP_RACE_MAPOBJ_OBSTACLES_ROTATINGCYLINDER_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/collision/dynamicCollision.h"
 
@@ -58,3 +62,5 @@ extern const mobj_def_t gRotaryBridgeMObjDef;
 
 void rotcyl_renderAll(const Orientation* camMtx);
 bool32 rotcyl_isRotatingCylinder(MObjId objectId);
+
+#endif

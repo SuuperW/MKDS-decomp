@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MISSION_H
+#define HP_RACE_MISSION_H
+
 #include <types.h>
 
 typedef enum
@@ -56,3 +59,5 @@ typedef struct
 	u32 nrMissions;
 	mission_config_t missions[0];
 } mission_mr_t;
+
+#endif

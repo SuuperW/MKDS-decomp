@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_BACKGROUNDWORKER_H
+#define HP_BACKGROUNDWORKER_H
+
 #include <types.h>
 #include <nitro/os/common/thread.h>
 #include <nnsys/fnd/heapcommon.h>
@@ -41,3 +44,5 @@ static inline bool32 bgwkr_isRequestDone()
 {
 	return !gBgWkrState->requestAvailable;
 }
+
+#endif

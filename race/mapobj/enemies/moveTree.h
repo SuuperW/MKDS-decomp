@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_MOVETREE_H
+#define HP_RACE_MAPOBJ_ENEMIES_MOVETREE_H
+
 #include "race/objectShadow.h"
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
@@ -23,3 +27,5 @@ typedef struct
 } movetree_t;
 
 extern mobj_def_t gMoveTreeMObjDef;
+
+#endif

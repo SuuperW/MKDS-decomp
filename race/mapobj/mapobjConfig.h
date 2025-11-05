@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJCONFIG_H
+#define HP_RACE_MAPOBJ_MAPOBJCONFIG_H
+
 #include "mapobjInstance.h"
 #include "race/drivers/driver.h"
 #include "race/items/item.h"
@@ -35,3 +39,5 @@ typedef struct mobj_config_t
 	fx32 sfxAudibleMaxCamYDiff;
 	fx32 sfxAudibleMinCamYDiff;
 } mobj_config_t;
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_LIGHT_H
+#define HP_RACE_LIGHT_H
+
 #include <types.h>
 #include <nitro/gx/gxcommon.h>
 
@@ -21,3 +24,5 @@ void light_setToKclColor(light_t* light, u16 lightMask);
 void light_interpolateToKclColor(light_t* light, u16 lightMask, fx32 interpolationSpeed);
 void light_apply(const light_t* light);
 void light_applyDefault();
+
+#endif

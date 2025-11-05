@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_SANBO_H
+#define HP_RACE_MAPOBJ_ENEMIES_SANBO_H
+
 #include "sinThing.h"
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
@@ -37,3 +41,5 @@ typedef struct
 } sanbo_t;
 
 extern mobj_def_t gSanboMObjDef;
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_CAMERA_H
+#define HP_RACE_CAMERA_H
+
 #include "mapData/mapData.h"
 #include "race/drivers/driver.h"
 
@@ -162,3 +166,5 @@ void cam_2073E98();
 bool32 cam_2073E88();
 fx32 cam_2073E4C(const VecFx32* position);
 fx32 cam_2073E04(const VecFx32* position);
+
+#endif

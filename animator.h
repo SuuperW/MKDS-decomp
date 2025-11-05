@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_ANIMATOR_H
+#define HP_ANIMATOR_H
+
 #include <types.h>
 
 typedef enum
@@ -23,3 +26,5 @@ typedef struct
 void anim_initAnimatorLoop(anim_animator_t* animator, fx32 animLength);
 void anim_initAnimator(anim_animator_t* animator, fx32 animLength, u16 loop);
 void anim_updateAnimator(anim_animator_t* animator);
+
+#endif

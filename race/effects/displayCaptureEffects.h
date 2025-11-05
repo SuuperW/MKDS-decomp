@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_EFFECTS_DISPLAYCAPTUREEFFECTS_H
+#define HP_RACE_EFFECTS_DISPLAYCAPTUREEFFECTS_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include <nitro/gx/g2_oam.h>
@@ -37,3 +40,5 @@ void dce_fadeFromBlack(s16 frameCount);
 bool32 dce_2055B1C(void);
 bool32 dce_2055AFC(void);
 void dce_2055A94(void);
+
+#endif

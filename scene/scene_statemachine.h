@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SCENE_SCENE_STATEMACHINE_H
+#define HP_SCENE_SCENE_STATEMACHINE_H
+
 #include <types.h>
 #include "sceneProc.h"
 
@@ -26,3 +29,5 @@ static inline void ssm_increaseFrameCounter(ssm_t* ssm)
 	if (ssm->frameCounter < 0x7FFFFFFF)
 		ssm->frameCounter++;
 }
+
+#endif

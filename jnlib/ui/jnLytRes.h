@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_UI_JNLYTRES_H
+#define HP_JNLIB_UI_JNLYTRES_H
+
 #include <types.h>
 
 #define JNUI_COORD_H_ORIGIN_LEFT    0
@@ -86,3 +89,5 @@ typedef struct
 	jnui_bnbl_res_header_t header;
 	jnui_bnbl_res_element_t elements[0];
 } jnui_bnbl_res_t;
+
+#endif

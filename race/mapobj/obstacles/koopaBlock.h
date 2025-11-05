@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_OBSTACLES_KOOPABLOCK_H
+#define HP_RACE_MAPOBJ_OBSTACLES_KOOPABLOCK_H
+
 #include "race/pathwalker.h"
 #include "race/collision/dynamicCollision.h"
 #include "race/mapobj/mapobjIds.h"
@@ -23,3 +27,5 @@ extern const mobj_def_t gKoopaBlockMObjDef;
 void kblock_renderAll(const Orientation* camMtx);
 bool32 kblock_isKoopaBlock(MObjId objectId);
 fx32 kblock_getRouteProgress(koopablock_t* instance);
+
+#endif

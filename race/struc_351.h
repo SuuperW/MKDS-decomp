@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_STRUC_351_H
+#define HP_RACE_STRUC_351_H
+
 #include <types.h>
 
 typedef struct
@@ -14,3 +17,5 @@ typedef struct
 	int field514field48;
 	int field514field44;
 } struc_351;
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPALIST_H
+#define HP_JNLIB_SPA_SPALIST_H
+
 #include <types.h>
 
 typedef struct spa_list_link_t
@@ -18,3 +21,5 @@ typedef struct
 void spa_listPrepend(spa_list_t* list, spa_list_link_t* item);
 spa_list_link_t* spa_listTakeHead(spa_list_t* list);
 spa_list_link_t* spa_listRemove(spa_list_t* list, spa_list_link_t* item);
+
+#endif

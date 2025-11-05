@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_MATH_QUATERNION_H
+#define HP_MATH_QUATERNION_H
+
 #include <types.h>
 #include <nitro/fx/fx.h>
 
@@ -30,3 +33,5 @@ void qtrn_mult(const quaternion_t* a, const quaternion_t* b, quaternion_t* dst);
 void qtrn_lerp(const quaternion_t* a, const quaternion_t* b, quaternion_t* dst, fx32 f);
 void qtrn_toMtx43(Orientation* dst, const quaternion_t* quaternion);
 void qtrn_toMtx33(MtxFx33* dst, const quaternion_t* quaternion);
+
+#endif

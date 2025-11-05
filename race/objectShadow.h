@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_OBJECTSHADOW_H
+#define HP_RACE_OBJECTSHADOW_H
+
 #include <types.h>
 
 typedef struct
@@ -18,3 +21,5 @@ void oshd_renderJgShadow(u16 alpha, u16 maxAlpha);
 void oshd_init();
 bool32 oshd_setParams(objshadow_t* objShadow, const VecFx32* position, fx32 scale, u16 alpha);
 bool32 oshd_isPointOnShadowFloor(const VecFx32* position);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJCOLLISION_H
+#define HP_RACE_MAPOBJ_MAPOBJCOLLISION_H
+
 #include "race/items/item.h"
 #include "mapobj.h"
 
@@ -10,3 +14,5 @@ u32 mobj_handleItemCollision(it_item_inst_t* item, mobj_inst_t* mobj, u32* objRe
 bool32 mobj_getCollidesWithDriver(int collisionMode, mobj_inst_t* mobj);
 bool32 mobj_getCollidesWithItem(MKDSItem itemType, mobj_inst_t* mobj);
 u32 mobj_getItemHitObjResponseForMObj(MKDSItem itemType, mobj_inst_t* mobj);
+
+#endif

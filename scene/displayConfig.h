@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SCENE_DISPLAYCONFIG_H
+#define HP_SCENE_DISPLAYCONFIG_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include <nitro/gx/g3.h>
@@ -247,3 +250,5 @@ static inline void dc_setSubBg2ConfigDcBmp(display_config_t* displayConfig, int 
 {
 	dc_setBg2ConfigDcBmp(&displayConfig->subConfig, priority, mosaic, screenSize, areaOverMode, screenBase);
 }
+
+#endif

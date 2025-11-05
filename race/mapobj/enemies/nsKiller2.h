@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_NSKILLER2_H
+#define HP_RACE_MAPOBJ_ENEMIES_NSKILLER2_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef enum
@@ -19,3 +22,5 @@ typedef struct
 extern const mobj_def_t gNsKiller2MObjDef;
 
 void nsk2_spawn(const VecFx32* position, const VecFx32* direction, u16 rotY);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_OBPAKKUNSF_H
+#define HP_RACE_MAPOBJ_ENEMIES_OBPAKKUNSF_H
+
 #include "race/mapobj/rotDieMObj.h"
 
 typedef struct
@@ -8,3 +12,5 @@ typedef struct
 } obpakkunsf_t;
 
 extern const mobj_def_t gObPakkunSfMObjDef;
+
+#endif

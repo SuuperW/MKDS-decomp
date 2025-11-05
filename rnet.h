@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RNET_H
+#define HP_RNET_H
+
 #include <nitro/os/common/tick.h>
 #include "stateMachine.h"
 #include "race/struc_351.h"
@@ -169,3 +172,5 @@ typedef struct
 
 extern net_race_state_t* gNetRaceState;
 extern rnet_aid_map_t* gNetRaceAidMap;
+
+#endif

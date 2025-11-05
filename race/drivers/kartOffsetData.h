@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_DRIVERS_KARTOFFSETDATA_H
+#define HP_RACE_DRIVERS_KARTOFFSETDATA_H
+
 #include <types.h>
 
 typedef struct
@@ -16,3 +19,5 @@ typedef struct
 {
 	kofs_entry_t entries[0];
 } kofs_t;
+
+#endif

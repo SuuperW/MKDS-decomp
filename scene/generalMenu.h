@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SCENE_GENERALMENU_H
+#define HP_SCENE_GENERALMENU_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include <nnsys/g2d/g2d_Font.h>
@@ -57,3 +60,5 @@ void gmenu_init(NNSFndHeapHandle heapHandle, const gmenu_config_t* config);
 void gmenu_finish();
 void gmenu_render();
 void gmenu_vblank();
+
+#endif

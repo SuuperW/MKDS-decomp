@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_PUKUPUKU_H
+#define HP_RACE_MAPOBJ_ENEMIES_PUKUPUKU_H
+
 #include "race/objectShadow.h"
 #include "race/mapobj/mapobj.h"
 #include "race/mapobj/rotDieMObj.h"
@@ -27,3 +30,5 @@ typedef struct
 } pukupuku_t;
 
 extern const mobj_def_t gPukupukuMObjDef;
+
+#endif

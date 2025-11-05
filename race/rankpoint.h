@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RANKPOINT_H
+#define HP_RACE_RANKPOINT_H
+
 #include <types.h>
 
 typedef struct
@@ -13,3 +16,5 @@ typedef struct
 	u32 fileSize;
 	rankpoint_entry_t entries[1];
 } rankpoint_t;
+
+#endif

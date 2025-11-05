@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_PAKKUNFIRE_H
+#define HP_RACE_MAPOBJ_ENEMIES_PAKKUNFIRE_H
+
 #include "jnlib/spa/spaEmitter.h"
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
@@ -22,3 +26,5 @@ typedef struct
 void pknf_spawn(pw_pathwalker_t* pathwalker, fx32 elevation);
 
 extern mobj_def_t gPakkunFireMObjDef;
+
+#endif

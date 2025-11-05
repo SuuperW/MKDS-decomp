@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SCENE_SCENEPROC_H
+#define HP_SCENE_SCENEPROC_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 
@@ -62,3 +65,5 @@ void scproc_init(NNSFndHeapHandle heapHandle);
 s16 scproc_getCurrentScene();
 s16 scproc_getNextScene();
 void scproc_run();
+
+#endif

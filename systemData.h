@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SYSTEMDATA_H
+#define HP_SYSTEMDATA_H
+
 #include <nnsys/g3d/gecom.h>
 #include <nitro/math/rand.h>
 #include <nitro/os/common/ownerInfo.h>
@@ -86,3 +89,5 @@ static inline void sysdat_setG3dUseFastDma(bool32 fastDma)
 	NNS_G3dGeUseFastDma(fastDma);
 	gSystemData->useG3dFastDma = fastDma;
 }
+
+#endif

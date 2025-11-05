@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_VRAM_H
+#define HP_VRAM_H
+
 #include <nitro/gx/gx_vramcnt.h>
 
 #define VRAM_WVR_STATUS_LOADED        0
@@ -23,3 +26,5 @@ void vram_setBankForARM7(GXVRamARM7 arm7);
 void vram_disableAll(void);
 void vram_startUpWifiVram(void);
 void vram_terminateWifiVram(void);
+
+#endif

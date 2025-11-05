@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJSETUPUTIL_H
+#define HP_RACE_MAPOBJ_MAPOBJSETUPUTIL_H
+
 #include "mapobjConfig.h"
 #include "mapobjLogicPart.h"
 #include "mapobjModel.h"
@@ -41,3 +45,5 @@ mobj_model_t* mobj_loadShadowModel(mobj_render_part_t* renderPart, const char* f
 mobj_model_t* mobj_loadBillboardModel(mobj_render_part_t* renderPart, const char* fileName);
 mobj_model_t* mobj_loadTexAnimBillboardModel(mobj_render_part_t* renderPart, const char* nsbmdFileName,
 											 const char* nsbtpFileName);
+
+#endif

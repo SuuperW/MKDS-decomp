@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_MSG_MSG_H
+#define HP_JNLIB_MSG_MSG_H
+
 #include <types.h>
 
 #define JN_MSG_BMG_HEADER_MAGIC1    MKTAG('M','E','S','G')
@@ -49,3 +52,5 @@ typedef struct
 } jn_msg_bmg_t;
 
 const u16* jn_msg_getMessage(const jn_msg_bmg_t* bmg, int idx);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_ITEMS_GESSO_H
+#define HP_RACE_ITEMS_GESSO_H
+
 #include "item.h"
 #include "race/drivers/driver.h"
 
@@ -38,3 +42,5 @@ typedef struct
 
 extern const it_itemconfig_t gGessoConfig;
 extern const it_item_def_t gGessoDef;
+
+#endif

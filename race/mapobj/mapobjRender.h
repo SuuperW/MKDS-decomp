@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_MAPOBJRENDER_H
+#define HP_RACE_MAPOBJ_MAPOBJRENDER_H
+
 #include <types.h>
 
 typedef struct
@@ -19,3 +22,5 @@ typedef struct
 int mobj_calcVisibilityFlags2d(const VecFx32* position, fx32 nearClip, fx32 farClip, int sfxMaxDistanceSquare, u16 alpha);
 int mobj_calcVisibilityFlags3d(const VecFx32* position, fx32 nearClip, fx32 farClip, int sfxMaxDistanceSquare, u16 alpha);
 int mobj_calcXZCamDistSquare(const VecFx32* position);
+
+#endif

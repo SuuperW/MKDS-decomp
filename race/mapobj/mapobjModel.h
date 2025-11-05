@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJMODEL_H
+#define HP_RACE_MAPOBJ_MAPOBJMODEL_H
+
 #include "mapobj.h"
 #include "model.h"
 #include "model2.h"
@@ -28,3 +32,5 @@ void mobj_setModelNsbtaFrame(mobj_model_t* model, u16 frame);
 u16 mobj_getModelNsbtaFrameCount(mobj_model_t* model);
 void mobj_setModelNsbtpFrame(mobj_model_t* model, u16 frame);
 u16 mobj_getModelNsbtpFrameCount(mobj_model_t* model);
+
+#endif

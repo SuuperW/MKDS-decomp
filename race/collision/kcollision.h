@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_COLLISION_KCOLLISION_H
+#define HP_RACE_COLLISION_KCOLLISION_H
+
 #include <types.h>
 #include <nitro/fx/fx.h>
 
@@ -34,3 +37,5 @@ typedef struct
 } kcol_header_t;
 
 static_assert(sizeof(kcol_header_t) == 0x3C);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_FIREBALL2_H
+#define HP_RACE_MAPOBJ_ENEMIES_FIREBALL2_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef struct
@@ -25,3 +29,5 @@ typedef struct
 } fireball2_t;
 
 extern mobj_def_t gFireball2MObjDef;
+
+#endif

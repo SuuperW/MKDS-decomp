@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_UI_JNLABEL_H
+#define HP_JNLIB_UI_JNLABEL_H
+
 #include <nnsys/fnd/heapcommon.h>
 #include <nnsys/g2d/fmt/g2d_Cell_data.h>
 #include "jnLyt.h"
@@ -27,3 +30,5 @@ void jnui_2124248(int engine, int elementIdx, const jnui_bnll_res_t* bnll, const
 				   jnui_layout_element_t* layoutElements, s8 charWidth);
 void jnui_2124224(int engine, int elementIdx, const jnui_bnll_res_t* bnll, const u16* text, const jnui_bncl_res_t* bncl,
 				   jnui_layout_element_t* layoutElements, s8 charWidth);
+
+#endif

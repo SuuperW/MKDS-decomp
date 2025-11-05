@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_DRIVERS_GHOSTDATA_H
+#define HP_RACE_DRIVERS_GHOSTDATA_H
+
 #include <types.h>
 
 typedef struct
@@ -36,3 +39,5 @@ typedef struct
 	ghost_header_t header;
 	u8 emblem[0x200];
 } ghost_header_ex_t;
+
+#endif

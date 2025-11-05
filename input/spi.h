@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_INPUT_SPI_H
+#define HP_INPUT_SPI_H
+
 #include <types.h>
 #include <nitro/spi/ARM9/tp.h>
 #include <nnsys/fnd/heapcommon.h>
@@ -78,3 +81,5 @@ static inline bool32 spi_isValidPenDownEvent(input_tpmic_t* shit)
 {
 	return !spi_isPenReleaseTimeout(shit) && spi_isPenDownEvent(shit);
 }
+
+#endif

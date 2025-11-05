@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_RACE_H
+#define HP_RACE_RACE_H
+
 #include "camera.h"
 
 typedef enum
@@ -62,3 +66,5 @@ void race_20617D8();
 bool32 race_20617A8(u32* a1);
 u16 race_getFirstObjectPolygonId();
 u16 race_getLastParticlePolygonId();
+
+#endif

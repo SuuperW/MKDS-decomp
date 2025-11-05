@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_GRPCONF_H
+#define HP_RACE_MAPOBJ_GRPCONF_H
+
 #include <types.h>
 
 typedef struct
@@ -13,3 +16,5 @@ typedef struct
 	u16 height;
 	u16 depth;
 } grpconf_entry_t;
+
+#endif

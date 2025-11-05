@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_OBSTACLES_PENDULUM_H
+#define HP_RACE_MAPOBJ_OBSTACLES_PENDULUM_H
+
 #include <types.h>
 #include <race/mapobj/mapobj.h>
 
@@ -18,3 +21,5 @@ typedef struct
 } pendulum_t;
 
 extern const mobj_def_t gPendulumMObjDef;
+
+#endif

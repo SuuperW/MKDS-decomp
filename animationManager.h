@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_ANIMATIONMANAGER_H
+#define HP_ANIMATIONMANAGER_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include <nnsys/g3d/kernel.h>
@@ -45,3 +48,5 @@ static inline void anim_setFrame(anim_manager_t* manager, fx32 frame)
 {
 	manager->anmObjs[manager->curAnimIdx]->frame = manager->animator.progress = frame;
 }
+
+#endif

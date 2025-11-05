@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_SCENE_RESULT_TROPHY_H
+#define HP_SCENE_RESULT_TROPHY_H
+
 #include "animationManager.h"
 #include "model.h"
 #include "sinThing.h"
@@ -53,3 +57,5 @@ typedef struct
 void trophy_init(TrophyId trophyId, u16 trophyRank);
 void trophy_update();
 void trophy_render();
+
+#endif

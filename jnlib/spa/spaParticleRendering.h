@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_JNLIB_SPA_SPAPARTICLERENDERING_H
+#define HP_JNLIB_SPA_SPAPARTICLERENDERING_H
+
 #include "spaParticleSet.h"
 #include "spaParticle.h"
 
@@ -11,3 +15,5 @@ void spa_renderChildParticleBillboard(spa_particleset_t* pset, spa_particle_t* p
 void spa_renderChildParticleDirBillboard(spa_particleset_t* pset, spa_particle_t* particle);
 void spa_renderChildParticlePolygon(spa_particleset_t* pset, spa_particle_t* particle);
 void spa_renderChildParticleDirPolygon(spa_particleset_t* pset, spa_particle_t* particle);
+
+#endif

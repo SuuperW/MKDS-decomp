@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_INCLUDE_TYPES_H
+#define HP_INCLUDE_TYPES_H
+
 // Although we have #pragma once, we must also have traditional header guards because Ghidra does not undertand #pragma once.
 #ifndef HPS_TYPES_H
 #define HPS_TYPES_H
@@ -100,4 +103,6 @@ typedef struct Orientation4D { VecFx32 left, up, forward, fourth; } Orientation4
 #ifdef __cplusplus
 }
 #endif
+#endif
+
 #endif

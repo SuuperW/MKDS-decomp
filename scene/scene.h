@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SCENE_SCENE_H
+#define HP_SCENE_SCENE_H
+
 #include <types.h>
 #include <nitro/os/common/thread.h>
 #include <nitro/spi/ARM9/pm.h>
@@ -44,3 +47,5 @@ bool32 scene_areUpdatesSuspended() __attribute__((never_inline));
 void scene_reportError(int a1);
 SceneState scene_getState();
 void scene_runScene(scene_manager_t* sceneManager, const scene_def_t* sceneDef);
+
+#endif

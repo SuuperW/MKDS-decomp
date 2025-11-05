@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_DRIVERS_CHARACTER_KART_LOCATOR_H
+#define HP_RACE_DRIVERS_CHARACTER_KART_LOCATOR_H
+
 #include "../raceConfig.h"
 
 typedef struct
@@ -27,3 +31,5 @@ const char* cklcr_getCharacterFolderPath(CharacterId character);
 const char* cklcr_getFaceAnimPath();
 const char* cklcr_getCharacterEmblemPath(CharacterId character);
 const char* cklcr_getTeamEmblemPath(int team);
+
+#endif

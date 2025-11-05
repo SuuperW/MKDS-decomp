@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJRENDERPART_H
+#define HP_RACE_MAPOBJ_MAPOBJRENDERPART_H
+
 #include "mapobjInstance.h"
 
 typedef enum
@@ -32,3 +36,5 @@ typedef struct mobj_render_part_t
 } mobj_render_part_t;
 
 void mobj_renderPartSetThisPointer(mobj_render_part_t** renderPart);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_SNOWMAN_H
+#define HP_RACE_MAPOBJ_ENEMIES_SNOWMAN_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef enum
@@ -26,3 +30,5 @@ typedef struct
 } snowman_t;
 
 extern mobj_def_t gSmanMObjDef;
+
+#endif

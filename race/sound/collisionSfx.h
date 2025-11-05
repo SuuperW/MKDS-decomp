@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_SOUND_COLLISIONSFX_H
+#define HP_RACE_SOUND_COLLISIONSFX_H
+
 #include <types.h>
 
 typedef enum
@@ -74,3 +77,5 @@ void csfx_setFloorOverride(int collisionType, int variant, const u32* sfxes);
 void csfx_setWallOverride(int collisionType, int variant, const u32* sfxes);
 u16 csfx_getFloorSfx(CSfxFloorSfxType sfxType, int collisionType, int variant);
 u16 csfx_getWallSfx(CSfxWallSfxType sfxType, int collisionType, int variant);
+
+#endif

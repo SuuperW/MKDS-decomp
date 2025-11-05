@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_COLLISION_COLLISION_H
+#define HP_RACE_COLLISION_COLLISION_H
+
 #include <types.h>
 #include "kcollision.h"
 
@@ -231,3 +234,5 @@ static inline void col_updateResponseMinMax(col_response_t* response, const VecF
 	else if (vec->z < response->minSomething.z)
 		response->minSomething.z = vec->z;
 }
+
+#endif

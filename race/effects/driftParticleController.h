@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_EFFECTS_DRIFTPARTICLECONTROLLER_H
+#define HP_RACE_EFFECTS_DRIFTPARTICLECONTROLLER_H
+
 #include "jnlib/spa/spaEmitter.h"
 #include "race/drivers/driver.h"
 
@@ -57,3 +60,5 @@ void dptc_208C534(dptc_t* controller);
 void dptc_208C520(dptc_t* result);
 void dptc_hideAll(dptc_t* controller);
 void dptc_showAll(dptc_t* controller);
+
+#endif

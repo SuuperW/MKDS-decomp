@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RACESTATUS_H
+#define HP_RACE_RACESTATUS_H
+
 #include <nitro/math/rand.h>
 #include "raceConfig.h"
 #include "raceTime.h"
@@ -156,3 +159,5 @@ static inline bool32 rstat_signedHasAnyDriverReachedLap(int lap)
 			return TRUE;
 	return FALSE;
 }
+
+#endif

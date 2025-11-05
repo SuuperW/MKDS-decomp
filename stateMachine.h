@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_STATEMACHINE_H
+#define HP_STATEMACHINE_H
+
 #include <types.h>
 
 typedef void (*state_machine_init_func_t)(void* userData);
@@ -27,3 +30,5 @@ typedef struct
 void sm_init(state_machine_t* stateMachine, const state_machine_state_t* states, u16 nrStates, void* userData);
 void sm_gotoState(state_machine_t* stateMachine, u16 state);
 void sm_execute(state_machine_t* stateMachine);
+
+#endif

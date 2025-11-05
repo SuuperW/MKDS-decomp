@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_PARTICLES_PARTICLEMANAGER_H
+#define HP_PARTICLES_PARTICLEMANAGER_H
+
 #include <nnsys/fnd/heapcommon.h>
 #include "jnlib/spa/spaEmitter.h"
 
@@ -27,3 +30,5 @@ void ptcm_killEmitter(spa_emitter_t** emitter);
 spa_emitter_t* ptcm_createFogOffEmitter(int emitterId, const VecFx32* position);
 void ptcm_setEmitterPosition(spa_emitter_t* emitter, const VecFx32* position);
 spa_emitter_t* ptcm_208B498(u32 emitterId, const VecFx32* position, u16 driverId, fx32 velocityFactor);
+
+#endif

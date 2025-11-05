@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RANKTIMEGP_H
+#define HP_RACE_RANKTIMEGP_H
+
 #include <types.h>
 
 typedef struct
@@ -26,3 +29,5 @@ typedef struct
 	u16 respawnFactor;
 	ranktime_gp_entry_t courseRankTimes[1];
 } ranktime_gp_t;
+
+#endif

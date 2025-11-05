@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_MATH_MATRIX_H
+#define HP_MATH_MATRIX_H
+
 #include <types.h>
 #include <nitro/fx/fx.h>
 #include <nitro/fx/fx_trig.h>
@@ -45,3 +48,5 @@ static inline void mtx_rotAxisAngle43(MtxFx43* dst, const VecFx32* axis, u16 ang
 {
 	MTX_RotAxis43(dst, axis, FX_SinIdx(angle), FX_CosIdx(angle));
 }
+
+#endif

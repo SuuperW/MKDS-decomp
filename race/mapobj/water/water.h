@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_WATER_WATER_H
+#define HP_RACE_MAPOBJ_WATER_WATER_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef struct
@@ -75,3 +79,5 @@ void water_loadBeachWater();
 void water_loadTownWater();
 void water_loadYoshiWater();
 void water_loadHyudoroWater();
+
+#endif

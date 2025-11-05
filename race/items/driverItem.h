@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_ITEMS_DRIVERITEM_H
+#define HP_RACE_ITEMS_DRIVERITEM_H
+
 #include "item.h"
 
 typedef struct driver_t driver_t;
@@ -87,3 +91,5 @@ typedef struct it_driver_item_status_t
 } it_driver_item_status_t;
 
 extern it_driver_item_status_t* it_sDriverItemStatus;
+
+#endif

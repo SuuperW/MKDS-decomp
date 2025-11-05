@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_DRIVERS_DRIVERCORE_H
+#define HP_RACE_DRIVERS_DRIVERCORE_H
+
 #include "driver.h"
 #include "race/mapobj/mapobjInstance.h"
 
@@ -44,3 +48,5 @@ void driver_startTeresaEffect(driver_t* driver);
 void driver_startGessoInk(driver_t* driver, int splashCount);
 void sub_2069044(driver_t* driver);
 bool32 driver_isKilled(driver_t* driver);
+
+#endif

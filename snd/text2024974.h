@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_TEXT2024974_H
+#define HP_SND_TEXT2024974_H
+
 typedef struct
 {
 	int field0;
@@ -12,3 +15,5 @@ typedef struct
 } struc_333;
 
 extern struc_333 stru_2161AE8[3];
+
+#endif

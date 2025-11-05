@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_SCENERY_COW_H
+#define HP_RACE_MAPOBJ_SCENERY_COW_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef struct
@@ -7,3 +11,5 @@ typedef struct
 } cow_t;
 
 extern mobj_def_t gCowMObjDef;
+
+#endif

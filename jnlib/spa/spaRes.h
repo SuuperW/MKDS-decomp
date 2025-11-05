@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPARES_H
+#define HP_JNLIB_SPA_SPARES_H
+
 #include <types.h>
 #include <nitro/fx/fx.h>
 #include <nitro/gx/gxcommon.h>
@@ -312,3 +315,5 @@ typedef struct
 } spa_res_header_t;
 
 static_assert(sizeof(spa_res_header_t) == 0x20);
+
+#endif

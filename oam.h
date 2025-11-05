@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_OAM_H
+#define HP_OAM_H
+
 #include <types.h>
 #include <nitro/gx/g2_oam.h>
 
@@ -23,3 +26,5 @@ void oam_applyBuffers(oam_buf_t* main, oam_buf_t* sub);
 u16 oam_getAffineCount(oam_buf_t* oamBuf);
 void oam_increaseAffineCount(oam_buf_t* oamBuf);
 u16 oam_getAffineId(oam_buf_t* oamBuf);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_FLIPPER_H
+#define HP_RACE_MAPOBJ_ENEMIES_FLIPPER_H
+
 #include "jnlib/spa/spaEmitter.h"
 #include "race/mapobj/mapobj.h"
 
@@ -38,3 +42,5 @@ typedef struct
 extern mobj_def_t gFlipperMObjDef;
 
 bool32 flip_handleBallHit(int index);
+
+#endif

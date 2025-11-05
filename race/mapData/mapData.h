@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPDATA_MAPDATA_H
+#define HP_RACE_MAPDATA_MAPDATA_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include <nitro/math/rand.h>
@@ -263,3 +266,5 @@ static inline fx32 nkm_areaGetLengthVecScale()
 }
 
 int nkm_getNrLaps();
+
+#endif

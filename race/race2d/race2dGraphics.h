@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RACE2D_RACE2DGRAPHICS_H
+#define HP_RACE_RACE2D_RACE2DGRAPHICS_H
+
 #include <types.h>
 #include <nnsys/g2d/fmt/g2d_Cell_data.h>
 #include <nnsys/g2d/fmt/g2d_Vec_data.h>
@@ -31,3 +34,5 @@ static inline void renderWindowCell(oam_buf_t* oamBuf, const NNSG2dCellData* cel
 		oamBuf->oam[objIdx].priority = 1;
 	}
 }
+
+#endif

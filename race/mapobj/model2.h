@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MODEL2_H
+#define HP_RACE_MAPOBJ_MODEL2_H
+
 #include "model.h"
 
 typedef struct
@@ -10,3 +14,5 @@ typedef struct
 } shadowmodel_t;
 
 void model2_createFromNsbmd(model_t** model, void* file, int offset);
+
+#endif

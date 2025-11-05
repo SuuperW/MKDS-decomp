@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RACE2D_RACEMODETOPHUD_H
+#define HP_RACE_RACE2D_RACEMODETOPHUD_H
+
 #include <types.h>
 #include "oam.h"
 
@@ -31,3 +34,5 @@ void r2d_initRaceModeTopHud(void);
 void r2d_finalizeRaceModeTopHud(void);
 void r2d_updateRaceModeTopHud(void);
 void r2d_renderRaceModeTopHud(oam_buf_t* oamBuf);
+
+#endif

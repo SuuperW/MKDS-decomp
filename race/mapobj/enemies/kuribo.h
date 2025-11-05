@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_KURIBO_H
+#define HP_RACE_MAPOBJ_ENEMIES_KURIBO_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 #include "math/quaternion.h"
@@ -35,3 +38,5 @@ typedef struct
 extern const mobj_def_t gKuriboMObjDef;
 
 void kuribo_resetRoaming(kuribo_t* instance);
+
+#endif

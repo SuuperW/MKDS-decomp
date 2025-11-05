@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_MAPOBJ_H
+#define HP_RACE_MAPOBJ_MAPOBJ_H
+
 #include "race/mapData/nkm.h"
 #include "mapobjInstance.h"
 #include "mapobjRenderPart.h"
@@ -162,3 +165,5 @@ static inline void idk2_update(idk_struct2_t* idk)
 		idk->value = 2 * idk->min - idk->value;
 	}
 }
+
+#endif

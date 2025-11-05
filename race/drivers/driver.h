@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_DRIVERS_DRIVER_H
+#define HP_RACE_DRIVERS_DRIVER_H
+
 #include <nnsys.h>
 #include "sfx.h"
 #include "charKart.h"
@@ -703,3 +706,5 @@ static inline bool32 driver_isAnyNearby(const VecFx32* position, fx32 distance)
 	}
 	return FALSE;
 }
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_COMMON_BALLOON_H
+#define HP_RACE_MAPOBJ_COMMON_BALLOON_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef enum
@@ -32,3 +36,5 @@ typedef struct balloon_t
 } balloon_t;
 
 extern mobj_def_t gBalloonMObjDef;
+
+#endif

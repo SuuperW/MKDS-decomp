@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_INPUT_INPUT_H
+#define HP_INPUT_INPUT_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include "pad.h"
@@ -132,3 +135,5 @@ static inline bool32 input_isValidPenDownEventById(InputUnitId id)
 {
 	return spi_isValidPenDownEvent(&gInputUnits[id].tpMic);
 }
+
+#endif

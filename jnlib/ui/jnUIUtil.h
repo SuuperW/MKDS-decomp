@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_UI_JNUIUTIL_H
+#define HP_JNLIB_UI_JNUIUTIL_H
+
 #include <nnsys/gfd/VramTransferMan/gfd_VramTransferManager.h>
 #include "jnLyt.h"
 
@@ -26,3 +29,5 @@ static inline void jnui_registerObjCharVramTransfer(int engine, int vramOffset, 
 	else
 		NNS_GfdRegisterNewVramTransferTask(NNS_GFD_DST_2D_OBJ_CHAR_SUB, vramOffset, src, length);
 }
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_PAKKUN_H
+#define HP_RACE_MAPOBJ_ENEMIES_PAKKUN_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 
@@ -40,3 +44,5 @@ typedef struct
 } pakkun_t;
 
 extern mobj_def_t gPakkunMObjDef;
+
+#endif

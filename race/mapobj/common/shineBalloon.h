@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_COMMON_SHINEBALLOON_H
+#define HP_RACE_MAPOBJ_COMMON_SHINEBALLOON_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/drivers/driver.h"
 
@@ -23,3 +27,5 @@ typedef struct
 extern mobj_def_t gShineBalloonMObjDef;
 
 void sblln_spawn(driver_t* driver);
+
+#endif

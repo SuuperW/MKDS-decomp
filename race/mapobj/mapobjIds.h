@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_MAPOBJIDS_H
+#define HP_RACE_MAPOBJ_MAPOBJIDS_H
+
 typedef enum
 {
 	MOBJ_GROUP_AMBIENT = 0,
@@ -152,3 +155,5 @@ typedef enum
 	MOBJ_ID_UNK_511_MR_PARTICLE = 511,
 	MOBJ_ID_IWANTE_CONTROLLER = 512
 } MObjId;
+
+#endif

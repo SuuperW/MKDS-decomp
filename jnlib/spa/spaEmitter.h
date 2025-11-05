@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPAEMITTER_H
+#define HP_JNLIB_SPA_SPAEMITTER_H
+
 #include <types.h>
 #include <nitro/fx/fx.h>
 #include <nitro/gx/gxcommon.h>
@@ -195,3 +198,5 @@ static inline struct spa_particle_t* spa_getLastChildParticle(spa_emitter_t* emi
 {
 	return (struct spa_particle_t*)emitter->childParticleList.tail;
 }
+
+#endif

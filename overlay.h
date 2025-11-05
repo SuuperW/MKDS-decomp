@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_OVERLAY_H
+#define HP_OVERLAY_H
+
 #include <types.h>
 #include <nitro/fs/archive.h>
 #include <nitro/fs/file.h>
@@ -65,3 +68,5 @@ void overlay_destroyExpHeap();
 bool32 overlay_tryFinishLoad();
 void overlay_unload();
 bool32 overlay_isAddressInOverlay(void* address);
+
+#endif

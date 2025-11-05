@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPAEMITTERFIELD_H
+#define HP_JNLIB_SPA_SPAEMITTERFIELD_H
+
 #include "spaParticle.h"
 #include "spaEmitter.h"
 
@@ -9,3 +12,5 @@ void spa_fieldApplyMagnetic(void* resData, spa_particle_t* particle, VecFx32* ac
 void spa_fieldApplySpin(void* resData, spa_particle_t* particle, VecFx32* acceleration, spa_emitter_t* emitter);
 void spa_fieldApplyCollision(void* resData, spa_particle_t* particle, VecFx32* acceleration, spa_emitter_t* emitter);
 void spa_fieldApplyConvergence(void* resData, spa_particle_t* particle, VecFx32* acceleration, spa_emitter_t* emitter);
+
+#endif

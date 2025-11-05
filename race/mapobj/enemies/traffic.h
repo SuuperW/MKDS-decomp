@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_TRAFFIC_H
+#define HP_RACE_MAPOBJ_ENEMIES_TRAFFIC_H
+
 #include "race/mapobj/mapobj.h"
 #include "model.h"
 #include "race/pathwalker.h"
@@ -71,3 +75,5 @@ extern const traffic_params_t gTrafficBusParams;
 extern const mobj_def_t gCarMObjDef;
 extern const mobj_def_t gTruckMObjDef;
 extern const mobj_def_t gBusMObjDef;
+
+#endif

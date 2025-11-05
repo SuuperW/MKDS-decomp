@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPDATA_MRRIVALPASSAREA_H
+#define HP_RACE_MAPDATA_MRRIVALPASSAREA_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 
@@ -20,3 +23,5 @@ typedef struct
 	area_mission_rival_pass_area_t* entries;
 	u16 count;
 } area_mission_rival_pass_area_status_t;
+
+#endif

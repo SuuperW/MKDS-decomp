@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RNG_H
+#define HP_RNG_H
+
 #include <types.h>
 #include <nitro/fx/fx_const.h>
 #include <nitro/math/rand.h>
@@ -34,3 +37,5 @@ static inline fx32 rng_getRandomFx32(MATHRandContext32* context)
 {
 	return ((s16)(u16)(MATH_Rand32(context, 0) >> 20) - FX32_HALF) * 2;
 }
+
+#endif

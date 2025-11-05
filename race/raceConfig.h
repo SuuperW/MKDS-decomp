@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RACECONFIG_H
+#define HP_RACE_RACECONFIG_H
+
 #include <nnsys/fnd/heapcommon.h>
 #include "mission.h"
 #include "raceTime.h"
@@ -356,3 +359,5 @@ static inline bool32 rconf_isDriverValidAndNoEnemy(u16 driverId)
 		result = 1;
 	return result != 0;
 }
+
+#endif

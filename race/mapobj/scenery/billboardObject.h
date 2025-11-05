@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_SCENERY_BILLBOARDOBJECT_H
+#define HP_RACE_MAPOBJ_SCENERY_BILLBOARDOBJECT_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef struct
@@ -35,3 +39,5 @@ extern mobj_def_t gOm6Tree1MObjDef;
 extern mobj_def_t gBeachTree1NoColMObjDef;
 extern mobj_def_t gBankEgg1MObjDef;
 extern mobj_def_t gMiniDokanMObjDef;
+
+#endif

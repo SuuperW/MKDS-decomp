@@ -1,10 +1,13 @@
 #pragma once
 
+#ifndef HP_ARCHIVE_H
+#define HP_ARCHIVE_H
+
 #include <types.h>
 #include <nnsys/fnd/archive.h>
 #include <nnsys/fnd/heapcommon.h>
 #include "scene/sceneProc.h"
-#include "race\raceConfig.h"
+#include "race/raceConfig.h"
 
 typedef void*(*arc_load_func_t)(const char* path);
 
@@ -154,3 +157,5 @@ static inline bool32 arc_isArchiveLoaded(MKDSArchive arcId)
 // {
 //     something->flags = (something->flags & ~0x80000000) | ((flag31 & 1) << 31);
 // }
+
+#endif

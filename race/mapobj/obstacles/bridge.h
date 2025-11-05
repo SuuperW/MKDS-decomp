@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_OBSTACLES_BRIDGE_H
+#define HP_RACE_MAPOBJ_OBSTACLES_BRIDGE_H
+
 #include "race/collision/dynamicCollision.h"
 #include "race/mapobj/mapobjRenderPart.h"
 #include "race/mapobj/mapobjIds.h"
@@ -27,3 +31,5 @@ extern const mobj_def_t gBridgeMObjDef;
 void bridge_renderAll(const Orientation* camMtx);
 int bridge_getProgress();
 bool32 bridge_isBridge(MObjId objectId);
+
+#endif

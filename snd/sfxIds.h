@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_SFXIDS_H
+#define HP_SND_SFXIDS_H
+
 #define SET_CURSOR                    0 //fixed japanese typo
 #define SET_SELECT_ARROW_LR           1
 #define SET_SELECT_ARROW_RECORD_LR    2
@@ -457,3 +460,5 @@
 #define SET_474_HIT_SU              474
 
 #define SETEST                      525
+
+#endif

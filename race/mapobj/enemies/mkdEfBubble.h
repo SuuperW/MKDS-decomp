@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_MKDEFBUBBLE_H
+#define HP_RACE_MAPOBJ_ENEMIES_MKDEFBUBBLE_H
+
 #include "jnlib/spa/spaEmitter.h"
 #include "race/objectShadow.h"
 #include "race/mapobj/mapobj.h"
@@ -33,3 +36,5 @@ typedef struct
 } efbub_logic_part_t;
 
 extern const mobj_def_t gMkdEfBubbleMObjDef;
+
+#endif

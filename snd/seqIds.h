@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_SEQIDS_H
+#define HP_SND_SEQIDS_H
+
 #define SEQ_TITLE                    0
 #define SEQ_SELECT                   1
 #define SEQ_MULTIPLAYER              2 
@@ -76,3 +79,5 @@
 #define SEQ_STAR                    73
 #define SEQ_CIRCUIT                 74
 #define SEQ_LOGO                    75 
+
+#endif

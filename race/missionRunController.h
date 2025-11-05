@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MISSIONRUNCONTROLLER_H
+#define HP_RACE_MISSIONRUNCONTROLLER_H
+
 #include "raceConfig.h"
 #include "mapobj/mapobjInstance.h"
 
@@ -36,3 +40,5 @@ static inline void mrcnt_notifyMObjDamageSafe(mobj_inst_t* mobj)
 	if (rconf_getRaceMode() == RACE_MODE_MR)
 		mrcnt_notifyMObjDamage(mobj->objectId);
 }
+
+#endif

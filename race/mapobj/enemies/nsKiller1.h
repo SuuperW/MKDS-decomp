@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_NSKILLER1_H
+#define HP_RACE_MAPOBJ_ENEMIES_NSKILLER1_H
+
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
@@ -21,3 +24,5 @@ typedef struct
 } nsk1_t;
 
 extern mobj_def_t gNsKiller1MObjDef;
+
+#endif

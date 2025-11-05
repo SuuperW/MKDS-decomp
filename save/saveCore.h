@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SAVE_SAVECORE_H
+#define HP_SAVE_SAVECORE_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 
@@ -87,3 +90,5 @@ static inline bool32 savc_isBusy()
 {
 	return savc_isEnabled() ? gSaveCore->isBusy : FALSE;
 }
+
+#endif

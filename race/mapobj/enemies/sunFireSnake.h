@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_SUNFIRESNAKE_H
+#define HP_RACE_MAPOBJ_ENEMIES_SUNFIRESNAKE_H
+
 #include "jnlib/spa/spaEmitter.h"
 #include "race/mapobj/mapobj.h"
 
@@ -25,3 +29,5 @@ typedef struct
 extern mobj_def_t gSunFireSnakeMObjDef;
 
 void sfsn_spawn(const VecFx32* position, const VecFx32* direction);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_OBSTACLES_SECONDHAND_H
+#define HP_RACE_MAPOBJ_OBSTACLES_SECONDHAND_H
+
 #include "race/pathwalker.h"
 #include "race/collision/dynamicCollision.h"
 
@@ -24,3 +28,5 @@ typedef struct
 } secondhand_t;
 
 extern const mobj_def_t gSecondHandMObjDef;
+
+#endif

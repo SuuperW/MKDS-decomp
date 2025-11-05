@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_COMMON_H
+#define HP_COMMON_H
+
 // #if __MWERKS__ > 0
 // #define ATTRIBUTE_NEVER_INLINE __attribute__((never_inline))
 // #ifdef    __cplusplus
@@ -66,3 +69,5 @@ static inline void MI_CpuClearFast_fix(void* dest, u32 size)
 #include "mkds_rom_config.h"
 #include "snd/sfxIds.h"
 #include "particles/particleIds.h"
+
+#endif

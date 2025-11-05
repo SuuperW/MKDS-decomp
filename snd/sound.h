@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_SOUND_H
+#define HP_SND_SOUND_H
+
 #include <types.h>
 #include <nnsys/snd/output_effect.h>
 #include <nnsys/snd/player.h>
@@ -163,3 +166,5 @@ static inline void snd_startSfxType1(NNSSndHandle* handle, int seqArcNo, u16 ind
 		snd_startSeqArc(handle, seqArcNo, index);
 	}
 }
+
+#endif

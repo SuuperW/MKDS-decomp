@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_STRUCT217B488_H
+#define HP_STRUCT217B488_H
+
 #include <types.h>
 #include "race/raceTime.h"
 
@@ -92,3 +95,5 @@ static inline bool32 struct217B488_getUseDLResult()
 {
 	return gStruct217B488->useDLResult;
 }
+
+#endif

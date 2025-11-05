@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MINIGAMECONTROLLER_H
+#define HP_RACE_MINIGAMECONTROLLER_H
+
 #include "race/raceConfig.h"
 #include "race/items/item.h"
 #include "race/mapData/mapData.h"
@@ -106,3 +110,5 @@ const nkm_mepo_entry_t* mgcnt_getRandomShineMepo();
 void mgcnt_init();
 void mgcnt_forceEnd();
 void mgcnt_update();
+
+#endif

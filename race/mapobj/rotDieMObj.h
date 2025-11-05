@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ROTDIEMOBJ_H
+#define HP_RACE_MAPOBJ_ROTDIEMOBJ_H
+
 #include "mapobj.h"
 
 typedef struct
@@ -12,3 +16,5 @@ typedef struct
 	fx32 dieInitialYVelo;
 	fx32 fieldB4;
 } rotdiemobj_t;
+
+#endif

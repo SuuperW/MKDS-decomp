@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_MODEL_H
+#define HP_MODEL_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 #include <nnsys/fnd/list.h>
@@ -48,3 +51,5 @@ void model_setEmi(model_t* model, GXRgb col);
 void model_setPolyIdLightFlagsEmi(model_t* model, int polygonId, int light, GXRgb emi);
 void model_setCullMode(model_t* model, GXCull cullMode);
 void model_releaseAll();
+
+#endif

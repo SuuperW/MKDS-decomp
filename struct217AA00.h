@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_STRUCT217AA00_H
+#define HP_STRUCT217AA00_H
+
 #include <types.h>
 #include <nitro/math/rand.h>
 #include "dwc_things.h"
@@ -90,3 +93,5 @@ static inline bool32 struct217AA00Inline(void)
 		result = TRUE;
 	return result;
 }
+
+#endif

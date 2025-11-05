@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_SOUND_VAR_H
+#define HP_SND_SOUND_VAR_H
+
 #include <types.h>
 #include <nnsys/snd/player.h>
 
@@ -15,3 +18,5 @@ void sndvar_update(NNSSndHandle* handle);
 bool32 sndvar_getVarField4IsZero(int var);
 int sndvar_getVarField4(int var);
 int sndvar_getDemoRaceDelay();
+
+#endif

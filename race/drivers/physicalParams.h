@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_DRIVERS_PHYSICALPARAMS_H
+#define HP_RACE_DRIVERS_PHYSICALPARAMS_H
+
 #include <types.h>
 #include <nnsys/fnd/heapcommon.h>
 
@@ -51,3 +54,5 @@ void physp_initForDriver(u16 driverId, u16 kart, int character);
 const physp_kart_params_t* physp_getDriverKartPhysicalParams(u16 driverId);
 const physp_char_params_t* physp_getDriverCharPhysicalParams(u16 driverId);
 u32 physp_getField8();
+
+#endif

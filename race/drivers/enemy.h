@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_DRIVERS_ENEMY_H
+#define HP_RACE_DRIVERS_ENEMY_H
+
 #include <types.h>
 #include "race/mapData/mapData.h"
 
@@ -141,3 +144,5 @@ void enmy_notifyDragItemChanged(enemy_t* enemy);
 bool32 enmy_getHasFailedStart(const enemy_t* enemy);
 bool32 enmy_getHasStartBoost(const enemy_t* enemy);
 u16 enmy_getStartBoostAmount(const enemy_t* enemy);
+
+#endif

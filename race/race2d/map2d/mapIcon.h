@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_RACE2D_MAP2D_MAPICON_H
+#define HP_RACE_RACE2D_MAP2D_MAPICON_H
+
 #include "oam.h"
 #include "race/mapobj/mapobjIds.h"
 #include "race/mapobj/mapobjInstance.h"
@@ -58,3 +61,5 @@ typedef struct
 bool32 mpicn_createMapObjIcon(mpicn_mobj_icon_group_t** icon, MObjId objectId);
 void mpicn_destroyMObjIcon(mpicn_mobj_icon_group_t** icon);
 void mpicn_renderMObjIcon(oam_buf_t* oamBuf, mpicn_mobj_icon_group_t* icon, bool32 a3);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_EFFECTS_TRAIL_H
+#define HP_RACE_EFFECTS_TRAIL_H
+
 #include "model.h"
 
 typedef struct
@@ -45,3 +49,5 @@ trl_trail_t* trl_createTrail(const VecFx32* targetPosition);
 trl_trail_t* trl_createTrailForDriver(u16 driverId);
 void trl_killTrail(trl_trail_t* trail);
 void trl_setVisibleForAward(bool32 visible);
+
+#endif

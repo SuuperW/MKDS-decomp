@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_JUGEM_H
+#define HP_RACE_JUGEM_H
+
 #include "animationManager.h"
 #include "billboardModel.h"
 #include "model.h"
@@ -44,3 +47,5 @@ typedef struct
 void jg_startRespawning();
 void jg_finishRespawning();
 void jg_20E79C4();
+
+#endif

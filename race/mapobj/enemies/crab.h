@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_CRAB_H
+#define HP_RACE_MAPOBJ_ENEMIES_CRAB_H
+
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 #include "race/mapobj/mapobjInstance.h"
@@ -28,3 +31,5 @@ typedef struct
 } crab_t;
 
 extern mobj_def_t gCrabMObjDef;
+
+#endif

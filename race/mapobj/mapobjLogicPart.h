@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_MAPOBJLOGICPART_H
+#define HP_RACE_MAPOBJ_MAPOBJLOGICPART_H
+
 #include "mapobjInstance.h"
 #include "race/items/item.h"
 
@@ -32,3 +35,5 @@ void mobj_logicPartIncreaseInstanceCount(mobj_logic_part_t* logicPart, u16 count
 void mobj_logicPartInit(mobj_logic_part_t* logicPart);
 void mobj_logicPartAddInstance(mobj_logic_part_t* logicPart, mobj_inst_t* instance);
 void mobj_logicPartSetThisPointer(mobj_logic_part_t** logicPart);
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJINSTANCE_H
+#define HP_RACE_MAPOBJ_MAPOBJINSTANCE_H
+
 #include "mapobjRender.h"
 #include "race/mapData/nkm.h"
 #include "sfx.h"
@@ -292,3 +296,5 @@ static inline void mobj_setVisibilityFlagsBit31(mobj_inst_t* instance)
 	static const u32 flag = MOBJ_INST_VISIBILITY_FLAGS_BIT31;
 	instance->visibilityFlags |= flag;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_EFFECTS_RACEPARTICLES_H
+#define HP_RACE_EFFECTS_RACEPARTICLES_H
+
 #include <nnsys/fnd/heapcommon.h>
 #include "jnlib/spa/spaEmitter.h"
 
@@ -70,3 +73,5 @@ void rptc_updateRainbowEffect(u16 driverId);
 void rptc_stopRainbowEffect(u16 driverId);
 void rptc_stopRainbowEffectDirect(u16 driverId);
 void rptc_startBoostEffect(int type, driver_t* driver);
+
+#endif

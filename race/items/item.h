@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_ITEMS_ITEM_H
+#define HP_RACE_ITEMS_ITEM_H
+
 #include "sfx.h"
 #include "race/light.h"
 
@@ -154,3 +158,5 @@ extern it_itemset_t* it_sItemsets;
 
 it_item_inst_t* it_spawnItem(MKDSItem item, u32 flags, const VecFx32* position, const VecFx32* up);
 void it_startThrowAnim(it_item_inst_t* item, u32 a2, const VecFx32* position, const VecFx32* a4, const VecFx32* up);
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_MATH_VECTOR_H
+#define HP_MATH_VECTOR_H
+
 #include <types.h>
 #include <nitro/fx/fx_trig.h>
 
@@ -63,3 +66,5 @@ static inline void vec_max(const VecFx32* a, const VecFx32* b, VecFx32* dst)
 	dst->y = a->y > b->y ? a->y : b->y;
 	dst->z = a->z > b->z ? a->z : b->z;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPOBJ_ENEMIES_BOUND_H
+#define HP_RACE_MAPOBJ_ENEMIES_BOUND_H
+
 #include "race/mapobj/mapobj.h"
 #include "race/mapobj/mapobjInstance.h"
 #include "race/pathwalker.h"
@@ -32,3 +35,5 @@ extern mobj_def_t gCreamMObjDef;
 extern mobj_def_t gBerryMObjDef;
 
 bool32 bnd_handleBallHit(int index);
+
+#endif

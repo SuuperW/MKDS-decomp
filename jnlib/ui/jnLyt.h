@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_UI_JNLYT_H
+#define HP_JNLIB_UI_JNLYT_H
+
 #include <nnsys/fnd/heapcommon.h>
 #include <nnsys/g2d/g2d_CharCanvas.h>
 #include <nnsys/g2d/g2d_TextCanvas.h>
@@ -72,3 +75,5 @@ static inline const jnui_bncl_res_element_t* jn_ui_getBnclElement2(const jnui_bn
 	element += idx;
 	return element;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_MICROPHONE_H
+#define HP_SND_MICROPHONE_H
+
 #include <types.h>
 #include <nitro/spi/ARM9/mic.h>
 
@@ -20,3 +23,5 @@ void mic_stopAutoSampling(mic_t* mic);
 int mic_update(mic_t* mic);
 void mic_handlePreSleep(mic_t* mic);
 void mic_handlePostSleep(mic_t* mic);
+
+#endif

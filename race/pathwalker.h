@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_PATHWALKER_H
+#define HP_RACE_PATHWALKER_H
+
 #include "mapData/nkm.h"
 
 typedef int pw_progress_t;
@@ -82,3 +85,5 @@ static inline void pw_setSpeed(pw_pathwalker_t* pw, fx32 speed)
 
 void pw_initFromPathId(pw_pathwalker_t* pw, u16 pathId, fx32 speed);
 void pw_initFromObject(pw_pathwalker_t* pw, const nkm_obji_entry_t* obji, fx32 speed);
+
+#endif

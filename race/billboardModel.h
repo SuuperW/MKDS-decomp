@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_BILLBOARDMODEL_H
+#define HP_RACE_BILLBOARDMODEL_H
+
 #include "animationManager.h"
 #include "model.h"
 
@@ -60,3 +64,5 @@ static inline void bbm_setEmission(bbm_model_t* model, GXRgb emission)
 	model->speEmi &= ~0x7FFF0000;
 	model->speEmi |= emission << 16;
 }
+
+#endif

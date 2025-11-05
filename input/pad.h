@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_INPUT_PAD_H
+#define HP_INPUT_PAD_H
+
 #include <types.h>
 #include <nitro/os/common/tick.h>
 
@@ -36,3 +39,5 @@ static inline u16 pad_isSetPadRep(input_pad_t* shit, u16 mask)
 {
 	return shit->repeatedKeys & mask;
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_RACE_MAPDATA_NKM_H
+#define HP_RACE_MAPDATA_NKM_H
+
 #include <types.h>
 #include <nitro/gx/gxcommon.h>
 
@@ -448,3 +451,5 @@ typedef struct
 	nkm_header_t header;
 	nkm_obji_t obji;
 } nkm_t;
+
+#endif

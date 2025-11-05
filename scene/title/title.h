@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SCENE_TITLE_TITLE_H
+#define HP_SCENE_TITLE_TITLE_H
+
 #include <nnsys/g2d/fmt/g2d_Screen_data.h>
 #include "oam.h"
 #include "scene/scene_statemachine.h"
@@ -69,3 +72,5 @@ void title_vblank();
 void title_update(scene_manager_t* sceneManager);
 void title_init();
 void title_finalize();
+
+#endif

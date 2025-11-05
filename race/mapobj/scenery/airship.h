@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_SCENERY_AIRSHIP_H
+#define HP_RACE_MAPOBJ_SCENERY_AIRSHIP_H
+
 #include "sinThing.h"
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
@@ -21,3 +25,5 @@ typedef struct
 } airship_t;
 
 extern mobj_def_t gAirshipMObjDef;
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SFX_H
+#define HP_SFX_H
+
 #include <types.h>
 #include <nnsys/snd/player.h>
 #include "list.h"
@@ -114,3 +117,5 @@ static inline struc_393* getStru217D26CEntry(u32 idx)
 {
 	return &stru_217D26C[idx];
 }
+
+#endif

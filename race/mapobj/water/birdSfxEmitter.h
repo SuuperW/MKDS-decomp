@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_WATER_BIRDSFXEMITTER_H
+#define HP_RACE_MAPOBJ_WATER_BIRDSFXEMITTER_H
+
 #include "race/mapobj/mapobj.h"
 
 typedef struct
@@ -19,3 +23,5 @@ typedef struct
 extern mobj_def_t gBirdSfxEmitterMObjDef;
 
 int bsfx_getVolume();
+
+#endif

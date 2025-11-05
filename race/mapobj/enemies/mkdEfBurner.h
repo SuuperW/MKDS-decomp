@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_ENEMIES_MKDEFBURNER_H
+#define HP_RACE_MAPOBJ_ENEMIES_MKDEFBURNER_H
+
 #include "race/pathwalker.h"
 #include "race/raceConfig.h"
 #include "race/mapobj/mapobj.h"
@@ -26,3 +30,5 @@ typedef struct
 extern mobj_def_t gMkdEfBurnerMObjDef;
 
 u16 efbnr_getMapIconType(efbnr_t* instance);
+
+#endif

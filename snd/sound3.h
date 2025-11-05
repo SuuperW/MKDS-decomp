@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_SND_SOUND3_H
+#define HP_SND_SOUND3_H
+
 #include <types.h>
 #include <nnsys/snd/output_effect.h>
 #include <nnsys/snd/player.h>
@@ -66,3 +69,5 @@ static inline bool32 soundStateIs2Or3(void)
 {
 	return SoundHandle_217D084.state == 2 || SoundHandle_217D084.state == 3;
 }
+
+#endif

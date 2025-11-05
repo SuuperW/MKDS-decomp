@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef HP_JNLIB_SPA_SPARANDOM_H
+#define HP_JNLIB_SPA_SPARANDOM_H
+
 #include <types.h>
 
 extern u32 gSpaRng;
@@ -12,3 +15,5 @@ static inline u32 spa_getNextRandom()
 	gSpaRng = 1592653589 * gSpaRng + 453816691;
 	return gSpaRng;
 }
+
+#endif

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_DRIVERS_CHARKART_H
+#define HP_RACE_DRIVERS_CHARKART_H
+
 #include "animationManager.h"
 #include "kartOffsetData.h"
 #include "race/light.h"
@@ -66,3 +70,5 @@ typedef struct
 	bool32 nsbtpAnimDisabled;
 	u32 fieldB0;
 } charkart_t;
+
+#endif

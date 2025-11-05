@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef HP_RACE_MAPOBJ_MAPOBJUTIL_H
+#define HP_RACE_MAPOBJ_MAPOBJUTIL_H
+
 #include "mapobjInstance.h"
 #include "rng.h"
 #include "race/items/item.h"
@@ -26,3 +30,5 @@ static inline u16 mobj_getRng1Random(u32 max)
 
 	return rng_getRandom16(mobj_getRng1(), max);
 }
+
+#endif

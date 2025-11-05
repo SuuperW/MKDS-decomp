@@ -27,11 +27,11 @@ typedef enum
 	COL_TYPE_ROAD_NO_DRIVERS, //should have the ignore drivers flag set
 	COL_TYPE_WALL_NO_DRIVERS, //should have the ignore drivers flag set
 	COL_TYPE_CANNON_ACTIVATOR,
-	COL_TYPE_EDGE_WALL,
+	COL_TYPE_EDGE_WALL, // 0x1 00 00
 	COL_TYPE_FALLS_WATER,
 	COL_TYPE_BOOST_PAD_MIN_SPEED, //forces a minimum speed to ensure certain jumps can be at all times
 	COL_TYPE_LOOPING,
-	COL_TYPE_SPECIAL_ROAD,
+	COL_TYPE_SPECIAL_ROAD, // 0x10 00 00
 	COL_TYPE_WALL_3,
 	COL_TYPE_FORCE_RECALCULATE_ROUTE,
 

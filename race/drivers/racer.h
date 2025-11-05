@@ -14,6 +14,7 @@
 #include "race/struc_351.h"
 #include "../../include/types.h"
 #include "race/mapobj/mapobjInstance.h"
+#include "fx_convenience.h"
 
 typedef enum
 {
@@ -273,7 +274,7 @@ typedef struct
 #define DRIVER_FLAGS_DOSSUN_SMASH_CAM       (1 << 26)
 #define DRIVER_FLAGS_BIT27                  (1 << 27)
 #define DRIVER_FLAGS_ON_JUMP_PAD            (1 << 28)
-#define DRIVER_FLAGS_BIT29                  (1 << 29)
+#define DRIVER_FLAGS_PRB                    (1 << 29)
 #define DRIVER_FLAGS_ANTIGRAVITY_CAM        (1 << 30)
 #define DRIVER_FLAGS_BIT31                  (1 << 31)
 
@@ -491,25 +492,25 @@ typedef struct racerData
 {
 	sfx_emitter_t soundEmitter;
 	union { u32 flags44; racerFlags44 flagsA; };
-	union { u32 flags48; racerFlags44 flagsB; };
-	union { u32 flags4C; racerFlags44 flagsC; };
+	union { u32 flags48; racerFlags48 flagsB; };
+	union { u32 flags4C; racerFlags4C flagsC; };
 	VecFx32 targetMovementVector;
 	VecFx32 tmvSigned;
 	VecFx32 movementVector;
 	u16 playerId;
 	u16 padding;
 	InputUnitId inputId;
-	union { u32 flags7C; racerFlags44 flagsD; };
+	union { u32 flags7C; racerFlags7C flagsD; };
 	VecFx32 position;
 	VecFx32 lastPosition;
 	VecFx32 kartTiresPosition;
-	VecFx32 deltaPos;
-	VecFx32 deltaPosNormalized;
+	VecFx32 basePositionDelta;
+	VecFx32 basePosDeltaNormalized;
 	VecFx32 scale;
 	fx32 fieldC8;
 	fx32 targetMaxSpeed;
 	fx32 currentMaxSpeed;
-	u32 fastFallMaxSpeedMultiplier;
+	s32 fastFallMaxSpeedMultiplier;
 	fx32 slipstreamSpeedMultiplier;
 	fx32 offroadSpeedMultiplier;
 	quaternion_t fA_quaternion;
@@ -534,7 +535,7 @@ typedef struct racerData
 	VecFx32 positionForItems; // Also for racer-racer collisions
 	VecFx32 previousPositionForItems; // Or is it pre-movement?
 	VecFx32 colPos2;
-	VecFx32 wallBoucne1; // When you hit a corner or non-aligned wall.
+	VecFx32 wallBounce1; // When you hit a corner or non-aligned wall.
 	u32* field208;
 	racerFunctions functions;
 	racerFunction* func230;
@@ -688,7 +689,7 @@ typedef struct racerData
 	u8 gap5A2[2];
 	fx32 field5A4;
 } racerData;
-static_assert(sizeof(racerData) == 0x5A8);
+_Static_assert(sizeof(racerData) == 0x5A8);
 
 racerData* driver_getById(u32 driverId);
 
@@ -724,6 +725,54 @@ static inline bool32 driver_isAnyNearby(const VecFx32* position, fx32 distance)
 			return TRUE;
 	}
 	return FALSE;
+}
+
+void driver_updateTargetMaxSpeed(racerData* racer)
+{
+	physp_kart_params_t* stats = racer->kartPhysicalParams;
+	racer->targetMaxSpeed = FX_MulFunc4(
+		stats->maxSpeed,
+		racer->offroadSpeedMultiplier,
+		racer->fastFallMaxSpeedMultiplier,
+		racer->slipstreamSpeedMultiplier
+	);
+
+	// If is a ghost:
+	if ((racer->flags7C & (DRIVER_FIELD7C_MG_KILL_GHOST | DRIVER_FIELD7C_TERESA_EFFECT_ACTIVE)) != 0) {
+		// Basically, undo fastfall, offroad, and slipstreams.
+		racer->targetMaxSpeed = stats->maxSpeed;
+		racer->offroadSpeedMultiplier = 0x1000;
+	}
+
+	if ((racer->flags48 & DRIVER_FLAGS_ON_JUMP_PAD) != 0) {
+		racer->targetMaxSpeed = racer->jumpPadSpeed;
+		racer->offroadSpeedMultiplier = 0x1000;
+	}
+
+	const u32 invincibleFlags = DRIVER_FLAGS2_STAR_INVINCIBLE | DRIVER_FLAGS2_KILLER_MODE;
+	bool invincible = (racer->flags4C & invincibleFlags) != 0;
+	if ((racer->flags48 & DRIVER_FLAGS_BOOST) != 0)
+	{
+		if (invincible || (racer->flags48 & DRIVER_FLAGS_PRB)) {
+			racer->targetMaxSpeed = stats->maxSpeed;
+			racer->offroadSpeedMultiplier = 0x1000;
+		}
+		// *= 1.3
+		racer->targetMaxSpeed = FX_MulFunc(racer->targetMaxSpeed, 0x14cd);		
+		if ((racer->flags48 & (DRIVER_FLAGS_MIN_SPEED_BOOST | DRIVER_FLAGS_IN_LOOP)) != 0) {
+			if (racer->targetMaxSpeed < 0x8800) {
+				racer->targetMaxSpeed = 0x8800;
+				racer->offroadSpeedMultiplier = 0x1000;
+			}
+		}
+		return;
+	}
+	else if (invincible)
+	{
+		// x1.2, with no other multipliers
+		racer->targetMaxSpeed = FX_MulFunc(stats->maxSpeed, 0x1333);
+		racer->offroadSpeedMultiplier = 0x1000;
+	}
 }
 
 #endif

@@ -72,7 +72,6 @@ typedef u32 bool32;
 typedef u32 bool32;
 
 // NDS has no floats, only fixed-point values
-typedef s32 fx32;
 #define FX_SHIFT 12
 #define FX32_ONE 4096
 
@@ -88,6 +87,8 @@ static inline fx32 fxMulT(fx32 v1, fx32 v2) {
                                  ((x) * FX_ONE - 0.5f )))
 
 #ifdef __cplusplus
+#define _Static_assert static_assert
+
 extern "C" {
 #endif
 

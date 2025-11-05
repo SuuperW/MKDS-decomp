@@ -92,9 +92,9 @@ typedef struct
 	u32 field48;
 	u16 field4C;
 	u16 field4E;
-	VecFx32 position;
-	VecFx32 velocity;
-	VecFx32 scale;
+	VecFx32 position; // 0x50
+	VecFx32 velocity; // 0x5c
+	VecFx32 scale; // 0x68
 	u32 flags; // 0x74
 	u16 field78;
 	u16 field7A;
@@ -122,9 +122,11 @@ typedef struct
 	u32 field120;
 	u32 field124;
 	u8 field128DriverMask;
+	u32 field12C;
+	u32 field130;
 } it_item_inst_t;
 
-static_assert(sizeof(it_item_inst_t) == 0x12c);
+_Static_assert(sizeof(it_item_inst_t) == 0x134); // Uncertain.
 
 typedef struct
 {
@@ -147,7 +149,7 @@ typedef struct
 	bool32 renderingDisabled;
 } it_itemset_t;
 
-static_assert(sizeof(it_itemset_t) == 0x44);
+_Static_assert(sizeof(it_itemset_t) == 0x44);
 
 //action buffer entry struct
 typedef struct itnet_action_t_ {

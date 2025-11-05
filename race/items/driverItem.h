@@ -33,13 +33,13 @@ typedef struct
 	int itemCount;
 	int field24;
 	u16 driverId;
-	Orientation4D field2C;
-	VecFx32 field5C;
+	Orientation4D targetOrientation;
+	VecFx32 racersBasePosDelta;
 	int field68;
-	VecFx32 field6C;
+	VecFx32 racerTotalPosDelta;
 	int field78;
 	int field7C;
-	int field80;
+	bool fastThrow;
 	VecFx32 field84;
 	VecFx32 field90;
 	VecFx32 field9C;
@@ -62,6 +62,7 @@ typedef struct
 	u16 field18C[3];
 	u16 field192;
 } it_driver_dragitem_t;
+_Static_assert(sizeof(it_driver_dragitem_t) == 0x194);
 
 typedef struct it_driver_item_status_t
 {
@@ -89,6 +90,7 @@ typedef struct it_driver_item_status_t
 	int field208;
 	int field20C;
 } it_driver_item_status_t;
+_Static_assert(sizeof(it_driver_item_status_t) == 0x210);
 
 extern it_driver_item_status_t* it_sDriverItemStatus;
 

@@ -57,7 +57,7 @@ typedef struct
 {
 	u32 signature; ///< File identifier: NKMR
 	u32 nrMissions;
-	mission_config_t missions[0];
+	mission_config_t missions[];
 } mission_mr_t;
 
 #endif

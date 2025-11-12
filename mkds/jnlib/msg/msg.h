@@ -34,7 +34,7 @@ typedef struct
 	u16 nrEntries;
 	u16 fieldA;
 	u32 fieldC;
-	u32 offsets[0];
+	u32 offsets[];
 } jn_msg_bmg_inf1_t;
 
 #define JN_MSG_BMG_DAT1_MAGIC    MKTAG('D','A','T','1')
@@ -42,7 +42,7 @@ typedef struct
 typedef struct
 {
 	jn_msg_bmg_section_header_t sectionHeader;
-	u16 stringData[0];
+	u16 stringData[];
 } jn_msg_bmg_dat1_t;
 
 typedef struct

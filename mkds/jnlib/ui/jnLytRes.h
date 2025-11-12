@@ -39,7 +39,7 @@ typedef struct
 typedef struct
 {
 	jnui_bncl_res_header_t header;
-	jnui_bncl_res_element_t elements[0];
+	jnui_bncl_res_element_t elements[];
 } jnui_bncl_res_t;
 
 typedef struct
@@ -64,7 +64,7 @@ typedef struct
 typedef struct
 {
 	jnui_bnll_res_header_t header;
-	jnui_bnll_res_element_t elements[0];
+	jnui_bnll_res_element_t elements[];
 } jnui_bnll_res_t;
 
 typedef struct
@@ -87,7 +87,7 @@ static_assert(sizeof(jnui_bnbl_res_element_t) == 6);
 typedef struct
 {
 	jnui_bnbl_res_header_t header;
-	jnui_bnbl_res_element_t elements[0];
+	jnui_bnbl_res_element_t elements[];
 } jnui_bnbl_res_t;
 
 #endif

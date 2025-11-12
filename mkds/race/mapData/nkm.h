@@ -38,7 +38,7 @@ static_assert(sizeof(nkm_obji_entry_t) == 0x3C);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_obji_entry_t entries[0];
+	nkm_obji_entry_t entries[];
 } nkm_obji_t;
 
 typedef struct
@@ -53,7 +53,7 @@ static_assert(sizeof(nkm_path_entry_t) == 0x4);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_path_entry_t entries[0];
+	nkm_path_entry_t entries[];
 } nkm_path_t;
 
 typedef struct
@@ -79,7 +79,7 @@ static_assert(sizeof(nkm_poit_entry_t) == 0x14);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_poit_entry_t entries[0];
+	nkm_poit_entry_t entries[];
 } nkm_poit_t;
 
 typedef struct
@@ -119,7 +119,7 @@ static_assert(sizeof(nkm_ktps_entry_t) == 0x1C);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ktps_entry_t entries[0];
+	nkm_ktps_entry_t entries[];
 } nkm_ktps_t;
 
 typedef struct
@@ -136,7 +136,7 @@ static_assert(sizeof(nkm_ktpj_entry_t) == 0x20);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ktpj_entry_t entries[0];
+	nkm_ktpj_entry_t entries[];
 } nkm_ktpj_t;
 
 typedef struct
@@ -152,7 +152,7 @@ static_assert(sizeof(nkm_ktp2_entry_t) == 0x1C);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ktp2_entry_t entries[0];
+	nkm_ktp2_entry_t entries[];
 } nkm_ktp2_t;
 
 typedef struct
@@ -168,7 +168,7 @@ static_assert(sizeof(nkm_ktpc_entry_t) == 0x1C);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ktpc_entry_t entries[0];
+	nkm_ktpc_entry_t entries[];
 } nkm_ktpc_t;
 
 typedef struct
@@ -184,7 +184,7 @@ static_assert(sizeof(nkm_ktpm_entry_t) == 0x1C);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ktpm_entry_t entries[0];
+	nkm_ktpm_entry_t entries[];
 } nkm_ktpm_t;
 
 #define NKM_CPOI_FLAGS_FREEZE_PLACE      1 //disables place updates inside the checkpoint, used in rainbow road for the loop
@@ -210,7 +210,7 @@ static_assert(sizeof(nkm_cpoi_entry_t) == 0x24);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_cpoi_entry_t entries[0];
+	nkm_cpoi_entry_t entries[];
 } nkm_cpoi_t;
 
 typedef struct
@@ -227,7 +227,7 @@ static_assert(sizeof(nkm_cpat_entry_t) == 0xC);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_cpat_entry_t entries[0];
+	nkm_cpat_entry_t entries[];
 } nkm_cpat_t;
 
 typedef struct
@@ -257,7 +257,7 @@ typedef union
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ipoi_entry_t entries[0];
+	nkm_ipoi_entry_t entries[];
 } nkm_ipoi_t;
 
 typedef struct
@@ -274,7 +274,7 @@ static_assert(sizeof(nkm_ipat_entry_t) == 0xC);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_ipat_entry_t entries[0];
+	nkm_ipat_entry_t entries[];
 } nkm_ipat_t;
 
 typedef struct
@@ -296,7 +296,7 @@ static_assert(sizeof(nkm_epoi_entry_t) == 0x18);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_epoi_entry_t entries[0];
+	nkm_epoi_entry_t entries[];
 } nkm_epoi_t;
 
 typedef struct
@@ -313,7 +313,7 @@ static_assert(sizeof(nkm_epat_entry_t) == 0xC);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_epat_entry_t entries[0];
+	nkm_epat_entry_t entries[];
 } nkm_epat_t;
 
 typedef struct
@@ -334,7 +334,7 @@ static_assert(sizeof(nkm_mepo_entry_t) == 0x18);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_mepo_entry_t entries[0];
+	nkm_mepo_entry_t entries[];
 } nkm_mepo_t;
 
 typedef struct
@@ -350,7 +350,7 @@ static_assert(sizeof(nkm_mepa_entry_t) == 0x14);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_mepa_entry_t entries[0];
+	nkm_mepa_entry_t entries[];
 } nkm_mepa_t;
 
 typedef enum
@@ -392,7 +392,7 @@ static_assert(sizeof(nkm_area_entry_t) == 0x48);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_area_entry_t entries[0];
+	nkm_area_entry_t entries[];
 } nkm_area_t;
 
 typedef enum
@@ -443,7 +443,7 @@ static_assert(sizeof(nkm_came_entry_t) == 0x4C);
 typedef struct
 {
 	nkm_section_header_t header;
-	nkm_came_entry_t entries[0];
+	nkm_came_entry_t entries[];
 } nkm_came_t;
 
 typedef struct

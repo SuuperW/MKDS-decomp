@@ -41,7 +41,7 @@ void dcol_render(mobj_render_part_t* renderPart, const Orientation4D* camMtx, dc
 void dcol_commonRender(dynamicCollisionObject* instance, const Orientation4D* camMtx, u16 alpha);
 void dcol_setModel(mobj_render_part_t* renderPart, model_t* model);
 
-bool32 dcol_collide(dynamicCollisionObject* instance, const Vec3_fx32* position, fx32 sphereSize, u16 collideFlags,
-				  col_response_t* floorResponse, col_response_t* wallResponse, Vec3_fx32* a7,
-				  u16* collisionType, Vec3_fx32* a9, u16* a10);
+bool32 dcol_collide(dynamicCollisionObject* instance, const VecFx32* position, fx32 sphereSize, u16 collideFlags,
+				  col_response_t* floorResponse, col_response_t* wallResponse, VecFx32* a7,
+				  u16* collisionType, VecFx32* a9, u16* a10);
 #endif

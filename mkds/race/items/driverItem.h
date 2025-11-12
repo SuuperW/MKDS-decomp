@@ -39,7 +39,7 @@ typedef struct
 	VecFx32 racerTotalPosDelta;
 	int field78;
 	int field7C;
-	bool fastThrow;
+	bool32 fastThrow;
 	VecFx32 field84;
 	VecFx32 field90;
 	VecFx32 field9C;

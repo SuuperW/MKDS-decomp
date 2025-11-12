@@ -41,7 +41,7 @@ s64 Divide(s64 numerator, s64 denominator, int divideType) {
 			return numerator / denominator;
 			// Remainder is numerator % denominator.
 		}
-	} else if (divideType & 1 == 1) {
+	} else if ((divideType & 1) == 1) {
 		denominator = (s32)denominator;
 		if (denominator == 0) {
 			return numerator < 0 ? 1 : (s64)-1;
@@ -65,8 +65,8 @@ s64 Divide(s64 numerator, s64 denominator, int divideType) {
 			// Remainder is numerator % denominator.
 		}
 	} else {
-		// Anything else is invalid. MelonDS doesn't throw here, it just doesn't set any MM registers.
-		throw "Invalid division type.";
+		// Anything else is invalid. MelonDS just doesn't set any MM registers. (has no return)
+		return 0;
 	}
 }
 

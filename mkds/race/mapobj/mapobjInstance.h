@@ -8,6 +8,7 @@
 #include "sfx.h"
 #include "stateMachine.h"
 #include "race/drivers/racer.h"
+#include "mapobjConfig.h"
 
 #define MOBJ_INST_FLAGS_HIDDEN                              (1 << 0) //not rendered and no collision
 #define MOBJ_INST_FLAGS_DISABLE_VISIBILITY_UPDATES          (1 << 1)
@@ -39,8 +40,6 @@
 #define MOBJ_INST_VISIBILITY_FLAGS_DISTANCE_MASK            0x3FFFFFE0
 #define MOBJ_INST_VISIBILITY_FLAGS_BIT30                    (1 << 30)
 #define MOBJ_INST_VISIBILITY_FLAGS_BIT31                    (1 << 31)
-
-typedef struct mobj_config_t mobj_config_t;
 
 typedef struct mobj_inst_t
 {

@@ -4,6 +4,8 @@
 #define HP_RACE_DRIVERS_DRIVER_H
 
 #include <nnsys.h>
+#include "types.h"
+
 #include "sfx.h"
 #include "charKart.h"
 #include "math/quaternion.h"
@@ -12,7 +14,6 @@
 #include "input/input.h"
 #include "enemy.h"
 #include "race/struc_351.h"
-#include "../../include/types.h"
 #include "race/mapobj/mapobjInstance.h"
 #include "fx_convenience.h"
 
@@ -356,12 +357,15 @@ typedef struct {
 	int BIT14:1;
 	int BIT15:1;
 	int BIT16:1;
+	int BIT17:1;
 	int BIT18:1;
 	int BIT19:1;
 	int IS_ON_FALLS_WATER:1;
 	int BIT21:1;
+	int BIT22:1;
 	int BIT23:1;
 	int BIT24:1;
+	int BIT25:1;
 	int BIT26:1;
 	int BIT27:1;
 	int BIT28:1;
@@ -408,25 +412,29 @@ typedef struct {
 typedef struct {
 	int BIT0:1;
 	int BIT1:1;
+	int BIT2:1;
 	int BIT3:1;
-	int BIT4:1;
-	int SPIN_OUT:1; // 0x10
+	int BIT4:1; // 0x10
+	int SPIN_OUT:1;
 	int STAR_INVINCIBLE:1;
 	int THUNDER_SHRINK:1;
-	int GROWING:1;
-	int BIT10:1; // 0x1_00
+	int GROWING:1; // 0x1_00
+	int BIT9:1;
+	int BIT10:1;
 	int BIT11:1;
-	int BIT12:1;
+	int BIT12:1; // 0x10_00
 	int SLIPSTREAM_FULL:1;
-	int SLIPSTREAM_BEGIN:1; // 0x10_00
+	int SLIPSTREAM_BEGIN:1;
 	int BIT15:1;
 	int DOSSUN_FLAT:1;
 	int GESSO_INK_FADING_OUT:1;
 	int BIT18:1;
+	int BIT19:1;
 	int BIT20:1;
 	int BIT21:1;
 	int BIT22:1;
 	int BIT23:1;
+	int BIT24:1;
 	int BIT25:1;
 	int BIT26:1;
 	int GESSO_INK:1;
@@ -448,6 +456,7 @@ typedef struct {
 	int BIT8:1;
 	int IS_NET_PLAYER:1;
 	int IS_NET_NON_PLAYER:1;
+	int BIT11:1;
 	int BIT12:1;
 	int TERESA_EFFECT_ACTIVE:1;
 	int TERESA_FLICKER:1;
@@ -466,24 +475,26 @@ typedef struct {
 	int BIT27:1;
 	int BIT28:1;
 	int BIT29:1;
+	int BIT30:1;
+	int BIT31:1;
 } racerFlags7C;
 
 struct racerData;
-typedef void racerFunction (racerData* racer);
+typedef void (*racerFunction) (racerData* racer);
 
 typedef struct {
 	union {
-		racerFunction* funcs[9];
+		racerFunction funcs[9];
 		struct {
-			racerFunction* func1;
-			racerFunction* oob;
-			racerFunction* eachFrame1;
-			racerFunction* eachFrame2;
-			racerFunction* eachFrame0;
-			racerFunction* func6;
-			racerFunction* func7;
-			racerFunction* func8;
-			racerFunction* func9;
+			racerFunction func1;
+			racerFunction oob;
+			racerFunction eachFrame1;
+			racerFunction eachFrame2;
+			racerFunction eachFrame0;
+			racerFunction func6;
+			racerFunction func7;
+			racerFunction func8;
+			racerFunction func9;
 		};
 	};
 } racerFunctions;
@@ -538,7 +549,7 @@ typedef struct racerData
 	VecFx32 wallBounce1; // When you hit a corner or non-aligned wall.
 	u32* field208;
 	racerFunctions functions;
-	racerFunction* func230;
+	racerFunction func230;
 	s16 pitch;
 	u16 facingAngle;
 	s16 boostTimer;

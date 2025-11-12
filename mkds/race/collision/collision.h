@@ -212,11 +212,11 @@ extern u16* gColQueryResultFlags;
 extern s16 gColQueryResultCount;
 extern u16* gColQueryResultEntryIds;
 
-struct dynamicCollisionObject;
+typedef struct dynamicCollisionObject dynamicCollisionObject;
 
 void col_loadCourseCollision();
-void sub_20D5AA0(struct dynamicCollisionObject*** a1, u32 colFlags, u32* a3, VecFx32* a4, VecFx32* a5);
-bool32 sub_20D5A68(struct dynamicCollisionObject*** a1, u32 colFlags, u32* a3);
+void sub_20D5AA0(dynamicCollisionObject*** a1, u32 colFlags, u32* a3, VecFx32* a4, VecFx32* a5);
+bool32 sub_20D5A68(dynamicCollisionObject*** a1, u32 colFlags, u32* a3);
 u16 col_findResponsePrismAttribute(u32 colFlagsMask);
 void col_init();
 int col_createColEntry(const VecFx32* position, fx32 boundingSphereSize, u16 flags, void* object);
@@ -229,7 +229,7 @@ void col_enableColEntry(s16 entryId);
 bool32 col_collide(
 	const VecFx32* position, const VecFx32* prevPosition, const VecFx32* direction, fx32 radius, colliderType collider, s16 colEntryId,
 	VecFx32* out_pushback, VecFx32* out_floorNormal, VecFx32* out_wallNormal, u32* out_ColFlags, VecFx32* out_param_11, VecFx32* out_param_12,
-	u16* out_objTurnRacer, struct dynamicCollisionObject*** dcolResults);
+	u16* out_objTurnRacer, dynamicCollisionObject*** dcolResults);
 void col_update();
 void col_queryByColEntry(s16 colEntryId, u16 flagMask);
 

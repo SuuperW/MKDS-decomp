@@ -3,9 +3,10 @@
 #ifndef HP_RACE_MAPOBJ_MAPOBJCONFIG_H
 #define HP_RACE_MAPOBJ_MAPOBJCONFIG_H
 
-#include "mapobjInstance.h"
 #include "race/drivers/racer.h"
 #include "race/items/item.h"
+
+typedef struct mobj_inst_t mobj_inst_t;
 
 typedef enum
 {

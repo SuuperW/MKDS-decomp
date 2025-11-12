@@ -15,9 +15,4 @@ typedef struct
 
 static_assert(sizeof(kofs_entry_t) == 0xE0);
 
-typedef struct
-{
-	kofs_entry_t entries[0];
-} kofs_t;
-
 #endif

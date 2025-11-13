@@ -20,6 +20,8 @@ typedef struct
 	u16 modelVFogFlags;
 } crsmdl_t;
 
+static_assert(sizeof(crsmdl_t) == 248);
+
 void crsmdl_init(NNSFndHeapHandle heapHandle);
 void crsmdl_update();
 void crsmdl_renderCourse();

@@ -39,7 +39,7 @@ typedef struct
 	VecFx16 light0Dir;
 } race_state_t;
 
-static_assert(sizeof(race_state_t) == 0x44);
+static_assert(sizeof(race_state_t) == 0x48);
 
 bool32 race_isCamAnimMode();
 bool32 race_isAwardStaffRoll();

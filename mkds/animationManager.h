@@ -33,6 +33,8 @@ typedef struct
 	NNSG3dAnmObj* blendAnmObj;
 } anim_manager_t;
 
+static_assert(sizeof(anim_manager_t) == 56);
+
 void anim_initManager(AnimKind animKind, anim_manager_t* manager, model_t* model, u32 animCount,
 					  NNSFndHeapHandle heapHandle, void* nsbmd);
 void anim_registerAnim(anim_manager_t* manager, int idx, void* anim, bool32 loop, NNSFndHeapHandle heapHandle);

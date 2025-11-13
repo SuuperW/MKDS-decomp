@@ -700,7 +700,7 @@ typedef struct racerData
 	u8 gap5A2[2];
 	fx32 field5A4;
 } racerData;
-_Static_assert(sizeof(racerData) == 0x5A8);
+static_assert(sizeof(racerData) == 0x5A8);
 
 racerData* driver_getById(u32 driverId);
 

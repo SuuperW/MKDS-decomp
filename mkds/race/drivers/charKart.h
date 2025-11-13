@@ -48,7 +48,7 @@ typedef struct
 	fx16 progress;
 } charkart_colors_t;
 
-_Static_assert(sizeof(charkart_colors_t ) == 0x2C);
+static_assert(sizeof(charkart_colors_t ) == 0x2C);
 
 typedef struct
 {
@@ -76,6 +76,6 @@ typedef struct
 	u32 fieldB0;
 } charkart_t;
 
-_Static_assert(sizeof(charkart_t ) == 0xB4);
+static_assert(sizeof(charkart_t ) == 0xB4);
 
 #endif

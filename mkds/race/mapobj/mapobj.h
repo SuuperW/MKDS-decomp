@@ -64,7 +64,7 @@ typedef struct
 } mobj_state_t;
 
 /// uhhh.... whaaa?
-_Static_assert(sizeof(mobj_state_t) == 0x2b0);
+static_assert(sizeof(mobj_state_t) == 0x2b0);
 
 struct water_state_t;
 struct water_splash_state_t;

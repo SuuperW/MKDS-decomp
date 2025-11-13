@@ -126,7 +126,7 @@ typedef struct
 	u32 field130;
 } it_item_inst_t;
 
-_Static_assert(sizeof(it_item_inst_t) == 0x134); // Uncertain.
+static_assert(sizeof(it_item_inst_t) == 0x134); // Uncertain.
 
 typedef struct
 {
@@ -149,7 +149,7 @@ typedef struct
 	bool32 renderingDisabled;
 } it_itemset_t;
 
-_Static_assert(sizeof(it_itemset_t) == 0x44);
+static_assert(sizeof(it_itemset_t) == 0x44);
 
 //action buffer entry struct
 typedef struct itnet_action_t_ {

@@ -62,7 +62,7 @@ typedef struct
 	u16 field18C[3];
 	u16 field192;
 } it_driver_dragitem_t;
-_Static_assert(sizeof(it_driver_dragitem_t) == 0x194);
+static_assert(sizeof(it_driver_dragitem_t) == 0x194);
 
 typedef struct it_driver_item_status_t
 {
@@ -90,7 +90,7 @@ typedef struct it_driver_item_status_t
 	int field208;
 	int field20C;
 } it_driver_item_status_t;
-_Static_assert(sizeof(it_driver_item_status_t) == 0x210);
+static_assert(sizeof(it_driver_item_status_t) == 0x210);
 
 extern it_driver_item_status_t* it_sDriverItemStatus;
 

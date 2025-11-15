@@ -1,0 +1,3 @@
+bar 0x4
+fields 1
+foo_t a

@@ -88,7 +88,7 @@ void mgcnt_20A1DDC(u16 driverId);
 u16 mgcnt_20A1CD8(u16 driverId);
 bool32 mgcnt_20A1748(u16 driverId);
 void mgcnt_resetDriverState(u16 driverId);
-void mgcnt_killDriver(u16 driverId) __attribute__((never_inline));
+void mgcnt_killDriver(u16 driverId);
 int mgcnt_handleShineRunnersTimeUp();
 void mgcnt_tryFinish();
 bool32 mgcnt_hasMgEnded();

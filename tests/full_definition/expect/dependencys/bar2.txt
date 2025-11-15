@@ -1,0 +1,3 @@
+bar2 0x4
+fields 1
+s32 b

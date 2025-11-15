@@ -63,9 +63,6 @@ typedef struct
 	bool32 logicUpdateEnabled;
 } mobj_state_t;
 
-/// uhhh.... whaaa?
-static_assert(sizeof(mobj_state_t) == 0x2b0);
-
 struct water_state_t;
 struct water_splash_state_t;
 struct camera_t;

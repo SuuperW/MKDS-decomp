@@ -1,0 +1,4 @@
+foo1 0x8
+fields 2
+bar* bar
+bar2* bar2

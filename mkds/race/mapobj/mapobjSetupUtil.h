@@ -5,8 +5,9 @@
 
 #include "mapobjConfig.h"
 #include "mapobjLogicPart.h"
-#include "mapobjModel.h"
 #include "mapobjRenderPart.h"
+
+typedef struct mobj_model_t mobj_model_t;
 
 mobj_config_t* mobj_createConfig(
 	mobj_config_driver_collide_func_t driverCollideFunc,

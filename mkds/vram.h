@@ -4,6 +4,7 @@
 #define HP_VRAM_H
 
 #include <nitro/gx/gx_vramcnt.h>
+#include "types.h"
 
 #define VRAM_WVR_STATUS_LOADED        0
 #define VRAM_WVR_STATUS_UNLOADED    1

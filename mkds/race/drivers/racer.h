@@ -14,8 +14,9 @@
 #include "input/input.h"
 #include "enemy.h"
 #include "race/struc_351.h"
-#include "race/mapobj/mapobjInstance.h"
 #include "fx_convenience.h"
+
+typedef struct mobj_inst_t mobj_inst_t;
 
 typedef enum
 {

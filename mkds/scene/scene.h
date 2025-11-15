@@ -43,7 +43,7 @@ int scene_getSceneFrameCounter();
 int scene_getFadeInLength();
 int scene_getFadeOutLength();
 void scene_init(NNSFndHeapHandle heapHandle);
-bool32 scene_areUpdatesSuspended() __attribute__((never_inline));
+bool32 scene_areUpdatesSuspended();
 void scene_reportError(int a1);
 SceneState scene_getState();
 void scene_runScene(scene_manager_t* sceneManager, const scene_def_t* sceneDef);

@@ -9,7 +9,7 @@
 #include "animationManager.h"
 #include "race/billboardModel.h"
 
-typedef struct
+typedef struct mobj_model_t
 {
 	VecFx32 scale;
 	bbm_model_t* bbModel;

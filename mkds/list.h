@@ -4,6 +4,7 @@
 #define HP_LIST_H
 
 #include <nnsys/fnd/list.h>
+#include "types.h"
 
 typedef struct
 {

@@ -1,0 +1,12 @@
+foo 0x28
+fields 10
+s8 a
+u8 b
+s16 c
+u16 d
+s32 e
+u32 f
+s64 g
+u64 h
+void* i
+code* j

@@ -1,0 +1,16 @@
+foo 0x14
+fields 4
+anonymousType2 a
+s32 c
+s32 d
+s32 e, anonymousType1 []
+
+anonymousType2 0x8
+fields 2
+s32 a
+s32 b
+
+anonymousType1 0x4
+fields 2
+s16 f
+s16 g

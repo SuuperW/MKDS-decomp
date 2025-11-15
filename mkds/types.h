@@ -37,21 +37,13 @@ typedef int64_t __int64_t;
 
 typedef uint8_t uint8;
 typedef uint8_t  byte;
-typedef uint8_t  u8;
 typedef uint16_t uint16;
-typedef uint16_t u16;
 typedef uint32_t uint32;
-typedef uint32_t u32;
 typedef uint64_t uint64;
-typedef uint64_t u64;
 typedef int8_t int8;
-typedef int8_t s8;
 typedef int16_t int16;
-typedef int16_t s16;
 typedef int32_t int32;
-typedef int32_t s32;
 typedef int64_t int64;
-typedef int64_t s64;
 
 typedef volatile uint8_t vuint8;
 typedef volatile uint16_t vuint16;
@@ -70,9 +62,6 @@ typedef u32 bool32;
 #endif
 
 // NDS has no floats, only fixed-point values
-#define FX_SHIFT 12
-#define FX32_ONE 4096
-
 static inline fx32 fxMulR(fx32 v1, fx32 v2) {
 	return (fx32)(((s64)v1 * v2 + 0x800) >> FX_SHIFT);
 }
@@ -87,8 +76,6 @@ static inline fx32 fxMulT(fx32 v1, fx32 v2) {
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-typedef s16 fx16;
 
 //fx10.22 (used for intermediate values in collision checks)
 typedef s32 fx10_22;

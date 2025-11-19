@@ -31,6 +31,10 @@ extern int iRam0217b61c;
 extern u32 uRam0217b620;
 extern u32 uRam0217b624;
 extern u32 uRam0217b628;
+extern s32 DAT_0217b5b0;
+
+extern u16 countObjectsInZ; // 0x0217b588
+extern void** ptrsToObjectsInZ; // 0x0217b5a4
 
 void FUN_01fff434(int dotProductOutVecs, int distance1, int distance2,
 	VecFx32* out_param_4, VecFx32* outVec2, VecFx32* outVec1, s64* outTotalDistanceSq)
@@ -72,6 +76,7 @@ bool col_collide(
 	s64 lVar1;
 	s64 lVar2;
 	u32 uVar4;
+	s32 iVar9;
 	VecFx32 *pVVar7;
 	u32 vertexId;
 	fx32 nUpDistance;
@@ -99,14 +104,12 @@ bool col_collide(
 	VecFx32 *triangleVertexes;
 	VecFx32 *triangleVectors = collisionVectors;
 
-	triangleVertexes = ::collisionVertexes;
+	triangleVertexes = collisionVertexes;
 	touchedSomething = false;
 	hasOut8Plus = true;
 	if (out_pushback == NULL && out_floorNormal == NULL && out_wallNormal == NULL) {
 		hasOut8Plus = false;
 	}
-	VecFx32 trash;
-
 
 	accumulatedSurfaceProps = 0;
 	maxLandablePushComponents.x = 0;
@@ -414,10 +417,10 @@ bool col_collide(
 	}
 	if (dcolResults != NULL) {
 		*dcolResults = (int)&touchedDynamicObjects;
-		uRam0217b5b4 = 0;
+		*(u32*)0x0217b5b4 = 0;
 	}
 	int iVar15;
-	if ((DAT_0217b5f0 != 0) && (iVar9 = (int)colEntryId, iVar9 != -2)) {
+	if ((*(s32*)0x0217b5f0 != 0) && (iVar9 = (int)colEntryId, iVar9 != -2)) {
 		iVar15 = 0;
 		if (iVar9 == -1) {
 			FUN_020d5180(position, radius, 0x1000);
@@ -446,7 +449,7 @@ bool col_collide(
 					touchedSurfaceProperties[touchedSurfaceCount] = outShort << 8;
 					touchedSurfaceCount += 1;
 					if (dcolResults != NULL) {
-						if ((uVar_b & LANDABLE) == 0) {
+						if ((uVar_b & COL_FLAGS_TYPE_FLOOR_MASK /*?*/) == 0) {
 							(&DAT_0217b5b0)[iVar15] = theObject;
 						}
 						else {

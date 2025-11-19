@@ -24,6 +24,8 @@ typedef struct
 	u8 mic;
 } input_tpmic_t;
 
+const int t = sizeof(input_tpmic_t);
+
 typedef struct
 {
 	TPData tpSampleBuf[5];

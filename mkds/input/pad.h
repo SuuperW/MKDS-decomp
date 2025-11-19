@@ -13,17 +13,23 @@ typedef struct
 	u16 releasedKeys;
 	u16 repeatedKeys;
 	u16 repeatState;
-	u16 repeatFrameCounter;
+	u16 repeatFrameCounter; // 0xA
 	u16 repeatMask;
 	u16 repeatFirstFrame;
 	u16 repeatNextFrame;
 	u16 resetInvoked;
 	u16 field14;
 
-	OSTick resetStartTime;
+	//OSTick resetStartTime; // 0x18
+	struct {
+		u32 low;
+		u32 high;
+	} resetStartTime;
 	u32 field20;
 	u32 field24;
 } input_pad_t;
+
+static_assert(sizeof(input_pad_t) == 0x28);
 
 static inline u16 pad_isSetPadTrig(input_pad_t* shit, u16 mask)
 {

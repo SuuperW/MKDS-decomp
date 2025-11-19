@@ -77,6 +77,16 @@ typedef struct
 	int respawnPoints;
 } race_skill_rankpoints_t;
 
+typedef struct score_counters_t {
+	bool32 startBoost;
+	s32 mtCount;
+	s32 attackCount;
+	s32 offroadTime;
+	s32 wallCount;
+	s32 courseHazardCount;
+	s32 oobCount;
+} score_counters_t;
+
 typedef struct
 {
 	u32 frameCounter;

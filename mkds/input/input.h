@@ -64,7 +64,10 @@ typedef struct
 	input_tpmic_t tpMic;
 } input_unit_t;
 
-extern input_unit_t gInputUnits[INPUT_UNIT_COUNT];
+static_assert(sizeof(input_unit_t) == 0x5c);
+static_assert(_Alignof(input_unit_t) == 4); // This is true, and the reason input_pad_t doesn't use type OSTick (aka u64) for the tick count.
+
+extern input_unit_t gInputUnits[INPUT_UNIT_COUNT]; //0x02175608
 
 void input_init(NNSFndHeapHandle heapHandle);
 void input_initUnits();

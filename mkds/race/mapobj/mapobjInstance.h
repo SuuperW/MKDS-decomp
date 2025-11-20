@@ -43,7 +43,7 @@
 
 typedef struct mobj_inst_t
 {
-	u16 objectId;
+	u16 objTypeId;
 	u16 flags;
 	VecFx32 position;
 	VecFx32 velocity;

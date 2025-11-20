@@ -582,8 +582,8 @@ typedef struct racerData
 	fx32 driftDirection;
 	s16 colEntryId1;
 	s16 colEntryId2;
-	physp_kart_params_t* kartPhysicalParams; // aka stats
-	physp_char_params_t* charPhysicalParams;
+	physp_kart_params_t* kartStats;
+	physp_char_params_t* characterStats;
 	fx32 turnLoss;
 	VecFx32 bounce2_c; // copied to b
 	VecFx32 boucne2_b; // copied to bounce2
@@ -741,7 +741,7 @@ static inline bool32 driver_isAnyNearby(const VecFx32* position, fx32 distance)
 
 void driver_updateTargetMaxSpeed(racerData* racer)
 {
-	physp_kart_params_t* stats = racer->kartPhysicalParams;
+	physp_kart_params_t* stats = racer->kartStats;
 	racer->targetMaxSpeed = FX_MulFunc4(
 		stats->maxSpeed,
 		racer->offroadSpeedMultiplier,

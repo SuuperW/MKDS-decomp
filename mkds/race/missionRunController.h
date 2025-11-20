@@ -38,7 +38,7 @@ static inline void mrcnt_notifyPlayerDamageSafe(void)
 static inline void mrcnt_notifyMObjDamageSafe(mobj_inst_t* mobj)
 {
 	if (rconf_getRaceMode() == RACE_MODE_MR)
-		mrcnt_notifyMObjDamage(mobj->objectId);
+		mrcnt_notifyMObjDamage(mobj->objTypeId);
 }
 
 #endif

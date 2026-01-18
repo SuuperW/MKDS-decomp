@@ -5,13 +5,13 @@
 
 #include "camera.h"
 
-typedef enum
+typedef enum : int
 {
 	RACE_STATE_PRE_START,
 	RACE_STATE_STARTED
 } RaceState;
 
-typedef enum
+typedef enum : int
 {
 	RACE_DARKENING_FOG_STATE_OFF,
 	RACE_DARKENING_FOG_STATE_ON
@@ -21,8 +21,8 @@ typedef struct
 {
 	s16 state;
 	s16 padding02;
-	u32 frameCounter;
-	int frameCounter2;
+	u32 frameCounter; // pauses when paused
+	int frameCounter2; // increments even when paused
 	int frameCounterModulo8;
 	bool32 isOddFrame; // 0x10
 	int frameCounterModuloDriverCount;

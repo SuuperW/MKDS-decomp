@@ -8,12 +8,12 @@
 //for some reason the rounding constant is different than the one in the sdk???
 #define FX_DEG_TO_IDX2(deg) ((u16) ((FX64C_65536_360 * (deg) + 0x80000000LL) >> 44))
 
-inline int math_min(int a, int b)
+inline int min(int a, int b)
 {
 	return a < b ? a : b;
 }
 
-inline int math_max(int a, int b)
+inline int max(int a, int b)
 {
 	return a > b ? a : b;
 }
@@ -26,7 +26,7 @@ inline int math_absInline(int a)
 // NDS's ARM processor does not have division.
 // NDS instead uses memory-mapped registers to control division hardware.
 // The logic for this function was taken from melonDS.
-s64 Divide(s64 numerator, s64 denominator, int divideType) {
+static s64 Divide(s64 numerator, s64 denominator, int divideType) {
 	if (divideType == 0) {
 		numerator = (s32)numerator;
 		denominator = (s32)denominator;
@@ -74,5 +74,7 @@ fx32 FxDivide(fx32 numerator, fx32 denominator) {
 	s64 raw = Divide((s64)numerator << 0x20, (s32)denominator, 1);
 	return (raw + 0x80000) >> (0x20 - FX_SHIFT);
 }
+
+extern int sqrt(u64 in);
 
 #endif

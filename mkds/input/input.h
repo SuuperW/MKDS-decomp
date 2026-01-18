@@ -24,7 +24,7 @@ typedef struct
 	u32 fieldC;
 } input_pad_data_t;
 
-typedef enum
+typedef enum : int
 {
 	INPUT_UNIT_MODE_DISABLED,
 	INPUT_UNIT_MODE_REPLAYER,
@@ -36,7 +36,7 @@ typedef enum
 	INPUT_UNIT_MODE_WIFI
 } InputUnitMode;
 
-typedef enum
+typedef enum : int
 {
 	INPUT_UNIT_ID_0,
 	INPUT_UNIT_ID_1,

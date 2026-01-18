@@ -20,13 +20,6 @@ static inline fx32 vec_normalizeFastInline(const VecFx32* src, VecFx32* dst)
 	return vec_normalize(src, dst);
 }
 
-static inline void vec_mulScalar(const VecFx32* src, fx32 scalar, VecFx32* dst)
-{
-	dst->x = (s64)src->x * (s64)scalar >> FX_SHIFT;
-	dst->y = (s64)src->y * (s64)scalar >> FX_SHIFT;
-	dst->z = (s64)src->z * (s64)scalar >> FX_SHIFT;
-}
-
 static inline void vec_toRenderSpace(const VecFx32* src, VecFx32* dst)
 {
 	dst->x = src->x >> 4;
@@ -66,5 +59,25 @@ static inline void vec_max(const VecFx32* a, const VecFx32* b, VecFx32* dst)
 	dst->y = a->y > b->y ? a->y : b->y;
 	dst->z = a->z > b->z ? a->z : b->z;
 }
+
+static inline void VEC_Multiply_t(fx32 scalar, const VecFx32* in, VecFx32* out) {
+	out->x = fxMulT(in->x, scalar);
+	out->y = fxMulT(in->y, scalar);
+	out->z = fxMulT(in->z, scalar);
+}
+static inline void VEC_Multiply_r(fx32 scalar, const VecFx32* in, VecFx32* out) {
+	out->x = fxMulR(in->x, scalar);
+	out->y = fxMulR(in->y, scalar);
+	out->z = fxMulR(in->z, scalar);
+}
+
+static fx32 DotProduct_t(const VecFx32* a, const VecFx32* b) {
+	return fxMulT(a->x, b->x) + fxMulT(a->y, b->y) + fxMulT(a->z, b->z);
+}
+static fx32 DotProduct_r(const VecFx32* a, const VecFx32* b) {
+	return fxMulR(a->x, b->x) + fxMulR(a->y, b->y) + fxMulR(a->z, b->z);
+}
+
+extern void VEC_MultAdd_t(fx32 scalar, VecFx32* add, VecFx32* base, VecFx32* dst);
 
 #endif

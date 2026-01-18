@@ -7,7 +7,7 @@
 #include <race/mapobj/mapobj.h>
 #include <race/mapobj/mapobjInstance.h>
 
-typedef enum
+typedef enum : int
 {
 	DRAM_STATE_WAIT,
 	DRAM_STATE_SPIN_END,

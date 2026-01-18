@@ -353,13 +353,13 @@ typedef struct
 	nkm_mepa_entry_t entries[];
 } nkm_mepa_t;
 
-typedef enum
+typedef enum : int
 {
 	NKM_AREA_SHAPE_BOX = 0,
 	NKM_AREA_SHAPE_CYLINDER = 1
 } NKMAreaShape;
 
-typedef enum
+typedef enum : int
 {
 	NKM_AREA_TYPE_0 = 0,
 	NKM_AREA_TYPE_CAMERA = 1,
@@ -395,7 +395,7 @@ typedef struct
 	nkm_area_entry_t entries[];
 } nkm_area_t;
 
-typedef enum
+typedef enum : int
 {
 	NKM_CAME_TYPE_0,
 	NKM_CAME_TYPE_1,
@@ -408,7 +408,7 @@ typedef enum
 	NKM_CAME_TYPE_MR_FINISH
 } NKMCameType;
 
-typedef enum
+typedef enum : int
 {
 	NKM_CAME_FIRST_INTRO_NONE,
 	NKM_CAME_FIRST_INTRO_TOP,

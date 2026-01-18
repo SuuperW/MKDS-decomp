@@ -7,7 +7,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 
-typedef enum
+typedef enum : int
 {
 	DOSSUN_STATE_0,
 	DOSSUN_STATE_1,
@@ -18,7 +18,7 @@ typedef enum
 	DOSSUN_STATE_6
 } DossunState;
 
-typedef enum
+typedef enum : int
 {
 	DOSSUN_STAR_HIT_ANIM_STATE_INACTIVE,
 	DOSSUN_STAR_HIT_ANIM_STATE_1,

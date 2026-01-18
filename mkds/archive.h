@@ -11,7 +11,7 @@
 
 typedef void*(*arc_load_func_t)(const char* path);
 
-typedef enum
+typedef enum : int
 {
 	ARC_MAINRACE,
 	ARC_MAIN2D,
@@ -88,7 +88,6 @@ typedef struct
 	u32 field9C;
 } arc_loader_t;
 
-
 typedef struct
 {
 	arc_t arcs[20];
@@ -104,6 +103,8 @@ typedef struct
 	NNSFndHeapHandle unk0xA7C;
 	NNSFndHeapHandle unk0xA80;
 } arc_data_t;
+
+static_assert(sizeof(arc_data_t) == 2692);
 
 extern arc_data_t* gArcData;
 

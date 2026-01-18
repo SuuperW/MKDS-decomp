@@ -8,7 +8,7 @@
 
 typedef struct
 {
-	mobj_inst_t mobj;
+	mobj_inst_t base;
 	quaternion_t rotation;
 	VecFx32 prevPosition;
 	VecFx32 renderPos;

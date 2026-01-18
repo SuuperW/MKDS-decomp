@@ -5,6 +5,8 @@
 
 #include <nitro/fx/fx_vec.h>
 
+extern void FUN_020f2dac();
+
 int throwItem_B(it_driver_dragitem_t* dragItem, int param_2, int param_3, fx32 param_4, VecFx32* out)
 {
 	int ret;
@@ -38,12 +40,14 @@ int throwItem_B(it_driver_dragitem_t* dragItem, int param_2, int param_3, fx32 p
 	// Is this potential uninitialised memory? Or will local_28 always be non-zero?
 	if (VEC_Mag(&local_28) < 0x10)
 	{
-		VEC_Normalize(&local_28, out);
+		vec_normalize(&local_28, out);
 	}
 	return ret;
 }
 
-void FUN_020f3150(it_item_inst_t* item, it_driver_dragitem_t* dragItem, void* param_3, int param_4,
+extern int FUN_020edb8c(it_driver_dragitem_t* dragItem, u32 param_2, fx32 param_3, fx32 param_4, VecFx32* out);
+
+void FUN_020f3150(it_item_inst_t* item, it_driver_dragitem_t* dragItem, u32 param_3, int param_4,
                   int param_5, int param_6, int param_7)
 {
 	s64 lVar1;
@@ -88,7 +92,7 @@ void FUN_020f3150(it_item_inst_t* item, it_driver_dragitem_t* dragItem, void* pa
 		local_30.z += MATH_Rand32(&gRaceStatus->safeRng, 246) - 123;
 		local_30.x += MATH_Rand32(&gRaceStatus->safeRng, 246) - 123;
 	}
-	VEC_Mult(iVar5, &local_30, &local_30);
+	VEC_Multiply_t(iVar5, &local_30, &local_30);
 	if (!dragItem->driver->flagsB.IN_LOOP)
 	{
 		if (param_4 == 0)
@@ -117,10 +121,10 @@ void FUN_020f3150(it_item_inst_t* item, it_driver_dragitem_t* dragItem, void* pa
 	}
 	if (param_4 == 0)
 	{
-		AddVectors(&item->velocity, &dragItem->driver->wallBounce1, &item->velocity);
+		VEC_Add(&item->velocity, &dragItem->driver->wallBounce1, &item->velocity);
 		if (((dragItem->field7C != 0) && (dragItem->field68 < 0x2000)) && ((item->scale).z < 0xccd))
 		{
-			SubtractVector(&(dragItem->targetOrientation).up, &(dragItem->targetOrientation).forward, &local_30);
+			VEC_Subtract(&(dragItem->targetOrientation).up, &(dragItem->targetOrientation).forward, &local_30);
 			VEC_MultAdd(0x2000, &local_30, &item->position, &item->position);
 		}
 	}
@@ -140,11 +144,11 @@ void FUN_020f3150(it_item_inst_t* item, it_driver_dragitem_t* dragItem, void* pa
 		(item->scale).z = 0xccd;
 	}
 	item->field12C = param_3;
-	item->field124 = (u32)FUN_020f2dac;
+	item->field124 = (void*)FUN_020f2dac;
 	item->flags = item->flags & 0xf8ffffff;
 	if (dragItem->driver->flagsB.IN_LOOP)
 	{
-		iVar5 = DotProductRounded(&(dragItem->targetOrientation).up, &item->velocity);
+		iVar5 = DotProduct_r(&(dragItem->targetOrientation).up, &item->velocity);
 		lVar3 = (s64)(dragItem->targetOrientation).up.x * (s64)iVar5;
 		lVar1 = (s64)(dragItem->targetOrientation).up.y * (s64)iVar5;
 		lVar2 = (s64)(dragItem->targetOrientation).up.z * (s64)iVar5;
@@ -163,7 +167,7 @@ void FUN_020f3150(it_item_inst_t* item, it_driver_dragitem_t* dragItem, void* pa
 			fVar6 = 0x8800;
 		}
 		VEC_MultAdd(fVar6, &(dragItem->targetOrientation).up, &item->velocity, &item->velocity);
-		item->field12C = (void*)0x0;
+		item->field12C = 0;
 		return;
 	}
 	return;

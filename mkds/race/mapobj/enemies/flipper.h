@@ -8,7 +8,7 @@
 
 #define FLIP_ANIM_FRAME_COUNT       30
 
-typedef enum
+typedef enum : int
 {
 	FLIP_STATE_INIT,
 	FLIP_STATE_IDLE,

@@ -5,7 +5,7 @@
 
 #include "mapobjInstance.h"
 
-typedef enum
+typedef enum : int
 {
 	MOBJ_RENDER_PART_TYPE_NONE = 0,
 	MOBJ_RENDER_PART_TYPE_3D = 1,

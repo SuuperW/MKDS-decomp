@@ -7,7 +7,7 @@
 #include "race/objectShadow.h"
 #include "race/pathwalker.h"
 
-typedef enum
+typedef enum : int
 {
 	IBALL_STATE_0,
 	IBALL_STATE_1,

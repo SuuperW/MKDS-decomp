@@ -41,10 +41,30 @@
 #define MOBJ_INST_VISIBILITY_FLAGS_BIT30                    (1 << 30)
 #define MOBJ_INST_VISIBILITY_FLAGS_BIT31                    (1 << 31)
 
+typedef enum MObjFlags : int {
+	NONE = 0,
+	HIDDEN = 1,
+	DISABLE_VISIBILITY_UPDATES = 2,
+	SUSPENDED = 4,
+	BIT_08 = 8,
+	CLIPPED = 0x10,
+	MAP_ICON_TRANSLUCENT = 0x20,
+	DISABLE_PUSHBACK = 0x40,
+	DISABLED_BEFORE_START = 0x80,
+	FREE = 0x100,
+	BIT_200 = 0x200,
+	MAP_ICON_MIRROR = 0x400,
+	SIMPLE_HIT_RESPONSE = 0x800,
+	PREV_HIDDEN = 0x1000,
+	PREV_DISABLE_VIS_UPD = 0x2000,
+	PREV_SUSPENDED = 0x4000,
+	PREV_BIT_08 = 0x8000,	
+} MObjFlags;
+
 typedef struct mobj_inst_t
 {
 	u16 objTypeId;
-	u16 flags;
+	u16 flags; // MObjFlags
 	VecFx32 position;
 	VecFx32 velocity;
 	VecFx32 scale;

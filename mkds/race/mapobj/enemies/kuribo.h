@@ -8,7 +8,7 @@
 #include "race/pathwalker.h"
 #include "math/quaternion.h"
 
-typedef enum
+typedef enum : int
 {
 	KURIBO_STATE_ROUTE_IDLE,
 	KURIBO_STATE_GROUND_ROAM,

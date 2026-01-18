@@ -8,7 +8,7 @@
 #include "scene/scene_statemachine.h"
 #include "jnlib/ui/jnLyt.h"
 
-typedef enum
+typedef enum : int
 {
 	TITLE_SCENE_BUTTON_SINGLE_PLAYER,
 	TITLE_SCENE_BUTTON_MULTIPLAYER,
@@ -17,7 +17,7 @@ typedef enum
 	TITLE_SCENE_BUTTON_RECORDS
 } TitleSceneButton;
 
-typedef enum
+typedef enum : int
 {
 	TITLE_SCENE_STATE_FADE_IN,
 	TITLE_SCENE_STATE_BUTTONS_IN,

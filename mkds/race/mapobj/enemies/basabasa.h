@@ -7,7 +7,7 @@
 #include "race/pathwalker.h"
 #include "math/quaternion.h"
 
-typedef enum
+typedef enum : int
 {
 	BASABASA_STATE_0,
 	BASABASA_STATE_1,

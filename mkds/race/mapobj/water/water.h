@@ -15,7 +15,7 @@ typedef struct
 	mobj_inst_t mobj;
 } water_splash_t;
 
-typedef enum
+typedef enum : int
 {
 	WATER_STATE_0,
 	WATER_STATE_1,

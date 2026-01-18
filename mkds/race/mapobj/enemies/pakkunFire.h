@@ -7,7 +7,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 
-typedef enum
+typedef enum : int
 {
 	PAKKUN_FIRE_STATE_0,
 	PAKKUN_FIRE_STATE_1

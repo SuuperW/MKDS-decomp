@@ -6,7 +6,7 @@
 #include "jnlib/spa/spaEmitter.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum
+typedef enum : int
 {
 	SFSN_STATE_0,
 	SFSN_STATE_1,

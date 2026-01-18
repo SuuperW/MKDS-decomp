@@ -1,11 +1,11 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "NDS",
             "includePath": [
-                "${workspaceFolder}/mkds",
-                "${workspaceFolder}/include",
-                "${workspaceFolder}/external_include"
+                "mkds",
+                "include",
+                "external_include"
             ],
             "defines": [
                 "_DEBUG",
@@ -13,13 +13,20 @@
                 "_UNICODE",
                 "SDK_ARM9",
                 "SDK_TS",
-				"static_assert(a)=_Static_assert(a, \"assertion failed\")"
+				"static_assert(a)=_Static_assert(a, \"assertion failed\")",
+				"SDK_THREAD_INFINITY"
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:\\devkitPro\\devkitARM\\bin\\arm-none-eabi-gcc.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-arm"
+            "intelliSenseMode": "linux-gcc-arm",
+			"compilerArgs": [
+				"-fpack-struct=4",
+				"-Wno-unknown-pragmas",
+				"-Wno-builtin-declaration-mismatch",
+				"-Wno-multichar"
+			]
         }
     ],
     "version": 4

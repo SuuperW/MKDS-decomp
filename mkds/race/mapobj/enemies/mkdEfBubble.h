@@ -7,7 +7,7 @@
 #include "race/objectShadow.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum
+typedef enum : int
 {
 	EFBUB_STATE_JUMP,
 	EFBUB_STATE_WAIT,

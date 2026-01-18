@@ -6,7 +6,7 @@
 #include "types.h"
 #include <nnsys/fnd/heapcommon.h>
 
-typedef enum
+typedef enum : int
 {
 	SCENE_TITLE,
 	SCENE_MENU,

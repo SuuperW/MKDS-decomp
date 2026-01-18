@@ -6,7 +6,7 @@
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum
+typedef enum : int
 {
 	NSK1_STATE_WAIT,
 	NSK1_STATE_MOVE,

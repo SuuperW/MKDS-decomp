@@ -5,7 +5,7 @@
 
 #include "race/mapobj/mapobj.h"
 
-typedef enum
+typedef enum : int
 {
 	BAKUBAKU_STATE_IDLE,
 	BAKUBAKU_STATE_JUMP_OUT,

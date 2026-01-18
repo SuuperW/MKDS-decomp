@@ -69,7 +69,7 @@ typedef struct
 	u16 unk;
 } display_config_bg01_t;
 
-typedef enum
+typedef enum : int
 {
 	DC_BG23_MODE_TEXT = 1,
 	DC_BG23_MODE_AFFINE,

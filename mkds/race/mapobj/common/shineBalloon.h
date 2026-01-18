@@ -6,7 +6,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/drivers/racer.h"
 
-typedef enum
+typedef enum : int
 {
 	SBLLN_STATE_0,
 	SBLLN_STATE_1,

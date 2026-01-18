@@ -22,7 +22,8 @@ typedef struct
 typedef struct
 {
 	bgwkr_queue_t taskQueue;
-	OSThread thread;
+	//OSThread thread;
+	u32 thread[49];
 	u32 unk[2];
 	u32* threadStack;
 	volatile bool32 requestAvailable;

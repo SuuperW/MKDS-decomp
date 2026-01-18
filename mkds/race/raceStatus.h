@@ -9,7 +9,7 @@
 #include "rankpoint.h"
 #include "ranktimeGp.h"
 
-typedef enum
+typedef enum : int
 {
 	RSTAT_DRIVER_STATE_0,
 	RSTAT_DRIVER_STATE_1,
@@ -18,7 +18,7 @@ typedef enum
 	RSTAT_DRIVER_STATE_4
 } RStatDriverState;
 
-typedef enum
+typedef enum : int
 {
 	RSTAT_MR_RESULT_SUCCESS,
 	RSTAT_MR_RESULT_1,
@@ -124,6 +124,8 @@ typedef struct
 	u16 mrLoseDelayCounter;
 	race_skill_rankpoints_t skillRankPoints;
 } race_status_t;
+
+static_assert(sizeof(race_status_t) == 0x524);
 
 extern race_status_t* gRaceStatus; // 0x021755FC
 

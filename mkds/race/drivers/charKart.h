@@ -68,7 +68,7 @@ typedef struct
 	bool32 isCharacterInvisible;
 	bool32 useSeparateTires; // 0x60
 	bool32 inStarToonMode;
-	u16 kartABC;
+	u16 kartABC; // 0: standard, 1: 1-shroom, 2: 3-shroom
 	u16 padding;
 	charkart_colors_t colors; // 0x68
 	anim_animator_t field98; // 0x94

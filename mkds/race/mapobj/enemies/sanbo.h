@@ -8,7 +8,7 @@
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum
+typedef enum : int
 {
 	SANBO_STATE_IDLE,
 	SANBO_STATE_1,

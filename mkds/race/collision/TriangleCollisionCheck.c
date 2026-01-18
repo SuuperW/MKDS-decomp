@@ -1,15 +1,12 @@
+#include "math/vector.h"
+#include "math/math.h"
 
-#pragma once
+#include <nitro/fx/fx_cp.h>
+#include <nitro/fx/fx_vec.h>
 
-#ifndef SD_COLLISION_H
-#define SD_COLLISION_H
-
-#include <vector.h>
-#include <math.h>
-
-#include "nitro/fx/fx_cp.h"
-#include "nitro/fx/fx_vec.h"
 #include "collision.h"
+#include "dynamicCollision.h"
+#include "race/mapobj/mapobj.h"
 
 typedef s32 fx10_22;
 #define FX10_22_SHIFT 22
@@ -31,7 +28,7 @@ extern int iRam0217b61c;
 extern u32 uRam0217b620;
 extern u32 uRam0217b624;
 extern u32 uRam0217b628;
-extern s32 DAT_0217b5b0;
+extern dynamicCollisionObject* DAT_0217b5b0;
 
 extern u16 countObjectsInZ; // 0x0217b588
 extern void** ptrsToObjectsInZ; // 0x0217b5a4
@@ -52,8 +49,8 @@ void FUN_01fff434(int dotProductOutVecs, int distance1, int distance2,
 
 	VecFx32 scaled1;
 	VecFx32 scaled2;
-	MultiplyVector_T(outVec2, iVar1, &scaled1);
-	MultiplyVector_T(outVec1, iVar2, &scaled2);
+	VEC_Multiply_t(iVar1, outVec2, &scaled1);
+	VEC_Multiply_t(iVar2, outVec1, &scaled2);
 	VEC_Add(&scaled1, &scaled2, out_param_4);
 	
 	*outTotalDistanceSq = (s64)out_param_4->z * (s64)out_param_4->z +
@@ -62,12 +59,13 @@ void FUN_01fff434(int dotProductOutVecs, int distance1, int distance2,
 	return;
 }
 
-extern void FUN_020d5180(VecFx32* a, int b, int c);
+extern void FUN_020d5180(const VecFx32* a, int b, int c);
 
-bool col_collide(
-	VecFx32* position, VecFx32* prevPosition,
-	VecFx32* direction, fx32 radius,
-	colliderType collider, short colEntryId,
+// 0x01ffdee4
+bool32 col_collide(
+	const VecFx32* position, const VecFx32* prevPosition,
+	const VecFx32* direction, fx32 radius,
+	colliderType collider, s16 colEntryId,
 	VecFx32* out_pushback, VecFx32* out_floorNormal,
 	VecFx32* out_wallNormal, u32* out_ColFlags,
 	VecFx32* out_param_11, VecFx32* out_wallBounce1,
@@ -89,14 +87,8 @@ bool col_collide(
 	VecFx32 _previousPosition;
 	VecFx32 totalFloorPush;
 	VecFx32 previousDistanceFromVertex;
-	VecFx32 maxLandablePushComponents;
-	VecFx32 minLandablePushComponents;
-	int maxLandableOutwardPushDist;
-	VecFx32 maxLandablePushNormal;
-	VecFx32 maxRegWallPushComponents;
-	VecFx32 minRegWallPushComponents;
-	int maxWallOutwardPushDist;
-	VecFx32 biggestWallPushDirection;
+	col_response_t floorResponse = {0};
+	col_response_t wallResponse = {0};
 	Vec3_fx10_22 maxEdgeWallPushComponents;
 	VecFx32 maxWallPushyComponents;
 	Vec3_fx10_22 minWallPushyComponents;
@@ -112,26 +104,6 @@ bool col_collide(
 	}
 
 	accumulatedSurfaceProps = 0;
-	maxLandablePushComponents.x = 0;
-	maxLandablePushComponents.y = 0;
-	maxLandablePushComponents.z = 0;
-	minLandablePushComponents.x = 0;
-	minLandablePushComponents.y = 0;
-	minLandablePushComponents.z = 0;
-	maxLandableOutwardPushDist = -1;
-	maxLandablePushNormal.x = 0;
-	maxLandablePushNormal.y = 0;
-	maxLandablePushNormal.z = 0;
-	maxRegWallPushComponents.x = 0;
-	maxRegWallPushComponents.y = 0;
-	maxRegWallPushComponents.z = 0;
-	minRegWallPushComponents.x = 0;
-	minRegWallPushComponents.y = 0;
-	minRegWallPushComponents.z = 0;
-	maxWallOutwardPushDist = -1;
-	biggestWallPushDirection.x = 0;
-	biggestWallPushDirection.y = 0;
-	biggestWallPushDirection.z = 0;
 	maxEdgeWallPushComponents.x = 0;
 	maxEdgeWallPushComponents.y = 0;
 	maxEdgeWallPushComponents.z = 0;
@@ -223,7 +195,7 @@ bool col_collide(
 			kindoffar = false;
 
 			VecFx32 distanceToTriangle;
-			MultiplyVector_T(&surfaceNormalVector, -upDistance, &distanceToTriangle);
+			VEC_Multiply_t(-upDistance, &surfaceNormalVector, &distanceToTriangle);
 			u64 radiusSq = (s64)radius * radius;
 
 			fx32 largestOutDistance = outDistance1;
@@ -296,7 +268,7 @@ bool col_collide(
 					}
 				}
 			}
-			nUpDistance = sqrt64(outDistance_2D_sq) - upDistance;
+			nUpDistance = sqrt(outDistance_2D_sq) - upDistance;
 			if (nUpDistance < 0) continue;
 
 			/*  outDistance3 = 1 << ((int)(uVar6 & 0x1f00) >> 8) |
@@ -349,8 +321,8 @@ bool col_collide(
 					if ((someProperties & COL_FLAGS_TYPE_FLOOR_MASK) == 0) {
 						if ((someProperties & COL_FLAGS_TYPE_WALL_MASK) != 0) {
 							if ((someProperties & (1 << COL_TYPE_EDGE_WALL)) == 0) {
-								maxRegWallPushComponents.y = max(maxRegWallPushComponents.y, outwardPush.y);
-								minRegWallPushComponents.y = min(minRegWallPushComponents.y, outwardPush.y);
+								wallResponse.positivePush.y = max(wallResponse.positivePush.y, outwardPush.y);
+								wallResponse.negativePush.y = min(wallResponse.negativePush.y, outwardPush.y);
 							}
 							else {
 								modifiedProperties |= 0x2000000; // why is there a second flag for edge wall?
@@ -358,16 +330,16 @@ bool col_collide(
 								maxEdgeWallPushComponents.y = max(maxEdgeWallPushComponents.y, outwardPush.y);
 							}
 							// because objects stuff uses regwall, maybe I should keep edge stuff seperate...
-							maxRegWallPushComponents.x = max(maxRegWallPushComponents.x, outwardPush.x);
-							minRegWallPushComponents.x = min(minRegWallPushComponents.x, outwardPush.x);
-							maxRegWallPushComponents.z = max(maxRegWallPushComponents.z, outwardPush.z);
-							minRegWallPushComponents.z = min(minRegWallPushComponents.z, outwardPush.z);
+							wallResponse.positivePush.x = max(wallResponse.positivePush.x, outwardPush.x);
+							wallResponse.negativePush.x = min(wallResponse.negativePush.x, outwardPush.x);
+							wallResponse.positivePush.z = max(wallResponse.positivePush.z, outwardPush.z);
+							wallResponse.negativePush.z = min(wallResponse.negativePush.z, outwardPush.z);
 
-							if (out_wallNormal != NULL && maxWallOutwardPushDist <= nUpDistance) {
-								biggestWallPushDirection.x = surfaceNormalVector.x;
-								biggestWallPushDirection.y = surfaceNormalVector.y;
-								biggestWallPushDirection.z = surfaceNormalVector.z;
-								maxWallOutwardPushDist = nUpDistance;
+							if (out_wallNormal != NULL && wallResponse.distance <= nUpDistance) {
+								wallResponse.normal.x = surfaceNormalVector.x;
+								wallResponse.normal.y = surfaceNormalVector.y;
+								wallResponse.normal.z = surfaceNormalVector.z;
+								wallResponse.distance = nUpDistance;
 							}
 							if (direction != NULL) {
 								maxWallPushyComponents.x = max(maxWallPushyComponents.x, outwardPush.x);
@@ -378,18 +350,18 @@ bool col_collide(
 						}
 					}
 					else {
-						maxLandablePushComponents.x = max(maxLandablePushComponents.x, outwardPush.x);
-						minLandablePushComponents.x = min(minLandablePushComponents.x, outwardPush.x);
-						maxLandablePushComponents.y = max(maxLandablePushComponents.y, outwardPush.y);
-						minLandablePushComponents.y = min(minLandablePushComponents.y, outwardPush.y);
-						maxLandablePushComponents.z = max(maxLandablePushComponents.z, outwardPush.z);
-						minLandablePushComponents.z = min(minLandablePushComponents.z, outwardPush.z);
+						floorResponse.positivePush.x = max(floorResponse.positivePush.x, outwardPush.x);
+						floorResponse.negativePush.x = min(floorResponse.negativePush.x, outwardPush.x);
+						floorResponse.positivePush.y = max(floorResponse.positivePush.y, outwardPush.y);
+						floorResponse.negativePush.y = min(floorResponse.negativePush.y, outwardPush.y);
+						floorResponse.positivePush.z = max(floorResponse.positivePush.z, outwardPush.z);
+						floorResponse.negativePush.z = min(floorResponse.negativePush.z, outwardPush.z);
 
-						if (out_floorNormal != NULL && maxLandableOutwardPushDist <= nUpDistance) {
-							maxLandablePushNormal.x = surfaceNormalVector.x;
-							maxLandablePushNormal.y = surfaceNormalVector.y;
-							maxLandablePushNormal.z = surfaceNormalVector.z;
-							maxLandableOutwardPushDist = nUpDistance;
+						if (out_floorNormal != NULL && floorResponse.distance <= nUpDistance) {
+							floorResponse.normal.x = surfaceNormalVector.x;
+							floorResponse.normal.y = surfaceNormalVector.y;
+							floorResponse.normal.z = surfaceNormalVector.z;
+							floorResponse.distance = nUpDistance;
 						}
 					}
 				}
@@ -416,7 +388,7 @@ bool col_collide(
 		*out_objTurnRacer = 0;
 	}
 	if (dcolResults != NULL) {
-		*dcolResults = (int)&touchedDynamicObjects;
+		*dcolResults = (dynamicCollisionObject**)touchedDynamicObjects;
 		*(u32*)0x0217b5b4 = 0;
 	}
 	int iVar15;
@@ -426,20 +398,19 @@ bool col_collide(
 			FUN_020d5180(position, radius, 0x1000);
 		}
 		else {
-			UpdateObjectsInZ(iVar9, 0x1000);
+			UpdateMapObjectsInZ(iVar9, 0x1000);
 		}
 		iVar9 = 0;
 		if (0 < countObjectsInZ) {
 			do {
-				u32 theObject = *(u32*)(ptrsToObjectsInZ + iVar9 * 4);
+				dynamicCollisionObject* theObject = (dynamicCollisionObject*)ptrsToObjectsInZ[iVar9];
 				s32 iVar10 = iVar15;
 				VecFx32* pVVar13 = NULL;
-				u16 outShort; // This is not initialized. However it is definitely set by checkRacerObjectCollision if it returns non-zero...? (That is, assuming the functions that it calls and gives out_param_8 set it.)
+				u16 outShort; // This is not initialized. However it is definitely set by dcol_CheckSphereCollision if it returns non-zero...? (That is, assuming the functions that it calls and gives out_param_8 set it.)
 				if (out_param_11 != NULL)
 					pVVar13 = &distanceToLowestTri;
-				if (checkRacerObjectCollision(theObject, position, radius, collider,
-				  &maxLandablePushComponents, &maxRegWallPushComponents,
-				  pVVar13, &outShort, out_wallBounce1, out_objTurnRacer) != 0) {
+				if (dcol_CheckSphereCollision(theObject, position, radius, collider.flags,
+				      &floorResponse, &wallResponse, pVVar13, &outShort, out_wallBounce1, out_objTurnRacer)) {
 					accumulatedSurfaceProps = accumulatedSurfaceProps | 0x40000000 | 1 << (outShort & 0xff);
 					if (touchedSurfaceCount == 0x10) {
 						touchedSurfaceCount = 0xf;
@@ -473,14 +444,14 @@ bool col_collide(
 		return false;
 	}
 	if (out_floorNormal != NULL) {
-		out_floorNormal->x = maxLandablePushNormal.x;
-		out_floorNormal->y = maxLandablePushNormal.y;
-		out_floorNormal->z = maxLandablePushNormal.z;
+		out_floorNormal->x = floorResponse.normal.x;
+		out_floorNormal->y = floorResponse.normal.y;
+		out_floorNormal->z = floorResponse.normal.z;
 	}
 	if (out_wallNormal != NULL) {
-		out_wallNormal->x = biggestWallPushDirection.x;
-		out_wallNormal->y = biggestWallPushDirection.y;
-		out_wallNormal->z = biggestWallPushDirection.z;
+		out_wallNormal->x = wallResponse.normal.x;
+		out_wallNormal->y = wallResponse.normal.y;
+		out_wallNormal->z = wallResponse.normal.z;
 	}
 	if (out_param_11 != NULL) {
 		out_param_11->x = distanceToLowestTri.x;
@@ -490,8 +461,8 @@ bool col_collide(
 
 	if (out_pushback != NULL) {
 		Vec3_fx10_22 somePositionChange;
-		somePositionChange.y = max(maxLandablePushComponents.y, maxRegWallPushComponents.y);
-		somePositionChange.y += min(minLandablePushComponents.y, minRegWallPushComponents.y);
+		somePositionChange.y = max(floorResponse.positivePush.y, wallResponse.positivePush.y);
+		somePositionChange.y += min(floorResponse.negativePush.y, wallResponse.negativePush.y);
 		if ((accumulatedSurfaceProps & (1 << COL_TYPE_EDGE_WALL)) != 0) {
 			if (out_param_11 == NULL || 
 				  (accumulatedSurfaceProps & COL_FLAGS_TYPE_FLOOR_MASK) == 0 ||
@@ -522,10 +493,10 @@ bool col_collide(
 			}
 		}
 	LAB_01fff184:
-		somePositionChange.x = max(maxLandablePushComponents.x, maxRegWallPushComponents.x) +
-		                       min(minLandablePushComponents.x, minRegWallPushComponents.x);
-		somePositionChange.z = max(maxLandablePushComponents.z, maxRegWallPushComponents.z) +
-		                       min(minLandablePushComponents.z, minRegWallPushComponents.z);
+		somePositionChange.x = max(floorResponse.positivePush.x, wallResponse.positivePush.x) +
+		                       min(floorResponse.negativePush.x, wallResponse.negativePush.x);
+		somePositionChange.z = max(floorResponse.positivePush.z, wallResponse.positivePush.z) +
+		                       min(floorResponse.negativePush.z, wallResponse.negativePush.z);
 		out_pushback->x = somePositionChange.x >> 10;
 		out_pushback->y = somePositionChange.y >> 10;
 		out_pushback->z = somePositionChange.z >> 10;
@@ -548,14 +519,14 @@ bool col_collide(
 				totalPushy.z -= FX_MUL(someVector.z, direction->z);
 				// totalPushy is now: p(1 - m^2)
 
-				AddVector(&maxLandablePushComponents, &minLandablePushComponents, &totalFloorPush);
+				VEC_Add(&floorResponse.positivePush, &floorResponse.negativePush, &totalFloorPush);
 				iVar9 = DotProduct_t(&totalPushy, &totalFloorPush);
 				if (-1 < iVar9) { // Does this mean that target movement vector is away from wall? (experimentally: no)
 					lVar1 = (s64)totalPushy.z * totalPushy.z +
 							(s64)totalPushy.x * totalPushy.x +
 							(s64)totalPushy.y * totalPushy.y;
 					if (lVar1 >= 0x10) { // ??? I'm not sure of this condition. 0x1fff384
-						NormalizeVector(&totalPushy, &totalPushy);
+						vec_normalize(&totalPushy, &totalPushy);
 					}
 					lVar1 = (s64)totalPushy.x * (s64)(radius >> 5);
 					lVar2 = (s64)totalPushy.z * (s64)(radius >> 5);
@@ -570,5 +541,3 @@ bool col_collide(
 	}
 	return touchedSomething;
 }
-
-#endif

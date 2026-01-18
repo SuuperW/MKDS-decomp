@@ -7,7 +7,7 @@
 #include <nnsys/fnd/heapcommon.h>
 #include <nitro/gx/g2_oam.h>
 
-typedef enum
+typedef enum : int
 {
 	DCE_MODE_NONE,
 	DCE_MODE_DOUBLE_3D,

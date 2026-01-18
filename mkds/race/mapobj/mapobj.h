@@ -71,6 +71,10 @@ extern mobj_state_t* gMapObjState;
 extern struct water_splash_state_t* gMObjSplashState;
 extern struct water_state_t* gMObjWaterState;
 
+// Pointer to array of size 32.
+extern VecFx32* objectPushes; // 0x0217b4bc
+extern mobj_inst_t** touchedObjects; // 0x0217b4c8
+
 int mobj_collideDriver(racerData* driver, const VecFx32* position, VecFx32* pushback);
 int mobj_queryBySphere(const VecFx32* position, fx32 sphereSize, MObjId objectId);
 mobj_inst_t* mobj_getQueryResult(int idx);
@@ -111,6 +115,9 @@ void mobj_renderAll(const struct camera_t* camera);
 void mobj_renderDColObjects(const struct camera_t* camera);
 
 mobj_logic_part_t* mobj_getLogicPartForObjectId(MObjId objectId);
+
+// sound related
+void FUN_020d2668(mobj_inst_t* object, racerData* racer, int param_3, int param_4);
 
 typedef struct
 {
@@ -165,5 +172,7 @@ static inline void idk2_update(idk_struct2_t* idk)
 		idk->value = 2 * idk->min - idk->value;
 	}
 }
+
+extern void UpdateMapObjectsInZ(int referenceObjectId, u16 typesToConsider);
 
 #endif

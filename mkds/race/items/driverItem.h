@@ -9,9 +9,9 @@ typedef struct racerData racerData;
 typedef struct it_driver_item_status_t it_driver_item_status_t;
 typedef struct mdat_itempoint_t mdat_itempoint_t;
 
-typedef struct
+typedef struct it_driver_itemslot_t
 {
-	int itemConfigId;
+	ItemConfigId itemConfigId;
 	it_driver_item_status_t* driverItemStatus;
 	int itemCount;
 	int fieldC;
@@ -22,10 +22,10 @@ typedef struct
 	int field24;
 } it_driver_itemslot_t;
 
-typedef struct
+typedef struct it_driver_dragitem_t
 {
-	int itemType;
-	int itemConfigId;
+	MKDSItem itemType;
+	ItemConfigId itemConfigId;
 	int field8;
 	it_driver_item_status_t* driverItemStatus;
 	racerData* driver;
@@ -70,15 +70,15 @@ typedef struct it_driver_item_status_t
 	int field4;
 	int field8;
 	int fieldC;
-	int slotItemConfigId;
-	int dragItemConfigId;
+	ItemConfigId pendingItemConfigId; // spinning roullete
+	ItemConfigId transformItemConfigId; // 14 when in bullet
 	struct it_driver_item_status_t* field18;
 	int field1C;
 	int field20;
 	int field24;
 	int field28;
 	int field2C;
-	it_driver_itemslot_t itemSlot;
+	it_driver_itemslot_t slotItem;
 	it_driver_dragitem_t dragItem;
 	u16 field1EC;
 	mdat_itempoint_t* ipoi;

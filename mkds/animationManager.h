@@ -9,7 +9,7 @@
 #include "model.h"
 #include "animator.h"
 
-typedef enum
+typedef enum : int
 {
 	ANIM_KIND_JNT,
 	ANIM_KIND_SRT,

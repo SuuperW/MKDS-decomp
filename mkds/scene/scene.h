@@ -9,7 +9,7 @@
 #include <nnsys/fnd/heapcommon.h>
 #include "sceneProc.h"
 
-typedef enum
+typedef enum : int
 {
 	SCENE_STATE_INITIALIZING,
 	SCENE_STATE_FADE_IN,
@@ -23,11 +23,12 @@ typedef enum
 typedef struct
 {
 	u32* threadStack;
-	OSThread thread;
+	//OSThread thread;
+	u32 thread[49];
 	OSThreadQueue threadQueue;
 	PMSleepCallbackInfo preSleepCallback;
 	PMSleepCallbackInfo postSleepCallback;
-	int sceneFrameCounter;
+	int sceneFrameCounter; // 0xe4
 	int totalFrameCounter;
 	scene_def_t curSceneDef;
 	SceneState state;
@@ -38,6 +39,8 @@ typedef struct
 	s8 field120;
 	u8 gap121[3];
 } scene_state_t;
+
+static_assert(sizeof(scene_state_t) == 0x128);
 
 int scene_getSceneFrameCounter();
 int scene_getFadeInLength();

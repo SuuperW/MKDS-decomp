@@ -6,7 +6,7 @@
 #include "animationManager.h"
 #include "model.h"
 
-typedef enum
+typedef enum : int
 {
 	EXPL_TYPE_BOMBCORE,
 	EXPL_TYPE_BOMBCORE2,
@@ -17,7 +17,7 @@ typedef enum
 	EXPL_TYPE_COUNT
 } ExplType;
 
-typedef enum
+typedef enum : int
 {
 	EXPL_STATE_NORMAL,
 	EXPL_STATE_SHOULD_DIE

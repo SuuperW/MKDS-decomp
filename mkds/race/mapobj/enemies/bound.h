@@ -8,7 +8,7 @@
 #include "race/pathwalker.h"
 #include "sinThing.h"
 
-typedef enum
+typedef enum : int
 {
 	BOUND_STATE_IDLE,
 	BOUND_STATE_BOUNCING

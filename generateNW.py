@@ -290,11 +290,13 @@ def parse_header(path: str, clang_args: list):
 		'-target', 'arm-none-eabi',
 		"-std=c99",
 		"-fsyntax-only",
-		"-DSDK_ARM9", "-DSDK_TS", "-D_DEBUG", "-DUNICODE", "-D_UNICODE", # defines for Nitro
+		"-DSDK_ARM9", "-DSDK_TS", "-D_DEBUG", "-DUNICODE", "-D_UNICODE", "-DSDK_THREAD_INFINITY", # defines for Nitro
 		"-Dstatic_assert(a)=_Static_assert(a, \"assertion failed\")", # why do static asserts gotta be weird?
 		"-Wno-typedef-redefinition", # ... so? If the typedef changes, clang will give an error instead.
 		"-Wno-comment", # don't warn about /* inside multi-line comment, silly
 		"-Wno-pragma-once-outside-header",
+		"-Wno-incompatible-library-redeclaration", # The built-ins are not used. E.g. sqrt(double): we have no doubles!
+		"-fpack-struct=4", # Align 8-byte ints as 4 bytes
 		# our includes
 		f"-I{PROJECT_ROOT}",
 		f"-Iinclude",

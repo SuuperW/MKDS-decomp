@@ -10,6 +10,10 @@ replacements = [
 	['ulonglong', 'u64'],
 	['longlong', 's64'],
 	['uint', 'u32'],
+	['ushort', 'u16'],
+	['undefined4', 'u32'],
+	['undefined2', 'u16'],
+	['undefined1', 'u8'],
 ]
 
 for r in replacements:

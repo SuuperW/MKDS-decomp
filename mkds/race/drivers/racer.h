@@ -18,7 +18,7 @@
 
 typedef struct mobj_inst_t mobj_inst_t;
 
-typedef enum
+typedef enum : int
 {
 	DRIVER_COLLISION_MODE_NORMAL,
 	DRIVER_COLLISION_MODE_STAR, //invincible
@@ -28,7 +28,7 @@ typedef enum
 	DRIVER_COLLISION_MODE_COUNT
 } DriverCollisionMode;
 
-typedef enum
+typedef enum : int
 {
 	DRIVER_COLLISION_REACTION_NONE,
 	DRIVER_COLLISION_REACTION_1,
@@ -41,7 +41,7 @@ typedef enum
 	DRIVER_COLLISION_REACTION_COUNT
 } DriverCollisionReaction;
 
-typedef enum
+typedef enum : int
 {
 	DRIVER_COLLISION_TYPE_ROAD,
 	DRIVER_COLLISION_TYPE_1,
@@ -59,7 +59,7 @@ typedef enum
 	DRIVER_COLLISION_TYPE_COUNT
 } DriverCollisionType;
 
-typedef enum
+typedef enum : int
 {
 	DRIVER_VOICE_TYPE_SPIN,
 	DRIVER_VOICE_TYPE_OT,
@@ -96,8 +96,8 @@ typedef struct
 	s16 starTimer;
 	s16 slipstreamStartTimer;
 	s16 slipstreamTimer;
-	s16 dossunGrowTimer;
-	s16 dossunFlatTimer;
+	s16 thwompGrowTimer;
+	s16 thwompFlatTimer;
 	s16 teresaTimer;
 	s16 teresaFlickerInterval;
 	s16 teresaFlickerIntervalUpdateTimer;
@@ -273,8 +273,8 @@ typedef struct
 #define DRIVER_FLAGS_WATER_RESPAWN          (1 << 23)
 #define DRIVER_FLAGS_YOUGAN_RESPAWN         (1 << 24) //lava
 #define DRIVER_FLAGS_RESPAWN_START          (1 << 25)
-#define DRIVER_FLAGS_DOSSUN_SMASH_CAM       (1 << 26)
-#define DRIVER_FLAGS_BIT27                  (1 << 27)
+#define DRIVER_FLAGS_THWOMP_FLATTEN_CAM       (1 << 26)
+#define DRIVER_FLAGS_FAR_FROM_PLAYER        (1 << 27)
 #define DRIVER_FLAGS_ON_JUMP_PAD            (1 << 28)
 #define DRIVER_FLAGS_PRB                    (1 << 29)
 #define DRIVER_FLAGS_ANTIGRAVITY_CAM        (1 << 30)
@@ -301,7 +301,7 @@ typedef struct
 #define DRIVER_FLAGS2_BIT20                 (1 << 20)
 #define DRIVER_FLAGS2_BIT21                 (1 << 21)
 #define DRIVER_FLAGS2_BIT22                 (1 << 22)
-#define DRIVER_FLAGS2_BIT23                 (1 << 23)
+#define DRIVER_FLAGS2_INVISIBLE             (1 << 23)
 #define DRIVER_FLAGS2_BIT25                 (1 << 25)
 #define DRIVER_FLAGS2_BIT26                 (1 << 26)
 #define DRIVER_FLAGS2_GESSO_INK             (1 << 27)
@@ -402,8 +402,8 @@ typedef struct {
 	int WATER_RESPAWN:1;
 	int YOUGAN_RESPAWN:1;
 	int RESPAWN_START:1;
-	int DOSSUN_SMASH_CAM:1;
-	int BIT27:1;
+	int THWOMP_FLATTEN_CAM:1;
+	int FAR_FROM_PLAYER:1;
 	int ON_JUMP_PAD:1;
 	int BIT29:1;
 	int ANTIGRAVITY_CAM:1;
@@ -434,7 +434,7 @@ typedef struct {
 	int BIT20:1;
 	int BIT21:1;
 	int BIT22:1;
-	int BIT23:1;
+	int INVISIBLE:1;
 	int BIT24:1;
 	int BIT25:1;
 	int BIT26:1;
@@ -539,7 +539,7 @@ typedef struct racerData
 	};
 	DriverCollisionReaction colReaction;
 	Orientation4D field184;
-	u32 charKartMtx;
+	Orientation4D* charKartMtx;
 	VecFx32 positionForCollision; // 0x1b8
 	VecFx32 preMovementPosForCollision;
 	fx32 colSphereSize; // 0x1d0 (radius)
@@ -576,7 +576,7 @@ typedef struct racerData
 	u16 lastDriverHitMask;
 	u8 gap2B6[2];
 	int field2B8;
-	s32 camVerticalFocusOffset;
+	s32 hopHeightForCamera;
 	u16 hopRotation;
 	u16 padding3;
 	fx32 driftDirection;
@@ -594,7 +594,7 @@ typedef struct racerData
 	u16* driftInsideCountPtr;
 	u16* driftOutsideCountPtr;
 	s32 mtChargeTimer;
-	enemy_t* enemyState;
+	enemy_t* enemyState; // 0x310
 	u16 field314;
 	fx32 field318;
 	VecFx32 field31C;
@@ -703,6 +703,14 @@ typedef struct racerData
 } racerData;
 static_assert(sizeof(racerData) == 0x5A8);
 
+typedef s32 (racer_MObjResponseHandler)(racerData* racer, s32* someWallTypeOutput, mobj_inst_t* object);
+extern racer_MObjResponseHandler* Racer_MObjResponseHandlers[15];
+
+typedef s32 (racer_MObjWallResponseHandler)(racerData* racer, VecFx32* wallNormal);
+extern racer_MObjWallResponseHandler* Racer_MObjWallResponseHandlers[15];
+
+extern fx32 DAT_021654ec;
+
 racerData* driver_getById(u32 driverId);
 
 driver_statistics_t* driver_getPlayerStatistics();
@@ -786,5 +794,14 @@ void driver_updateTargetMaxSpeed(racerData* racer)
 		racer->offroadSpeedMultiplier = 0x1000;
 	}
 }
+
+// 0x020d41e0
+extern int racer_CheckObjectCollisions(racerData* racerData, VecFx32* racerPosition, VecFx32* out_totalPush);
+
+// 0x020d6be0
+extern int racer_CollideWithObject(racerData* racer, mobj_inst_t* object);
+
+// 0x0206f04c
+extern bool racer_touchWall(racerData* racerData, VecFx32* wallPushDirection, bool wasTouchingWall, int param_4, int param_5, int param_6, int param_7);
 
 #endif

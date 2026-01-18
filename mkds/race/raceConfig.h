@@ -7,7 +7,8 @@
 #include "mission.h"
 #include "raceTime.h"
 
-typedef enum
+// Test this form of specifying enum sizes in clang. Also validate it can do -fpack-struct=4 or similar.
+typedef enum : int
 {
 	COURSE_INVALID,
 	COURSE_OLD_YOSHI_GC,
@@ -66,7 +67,7 @@ typedef enum
 	COURSE_STAFFROLLTRUE
 } CourseId;
 
-typedef enum
+typedef enum : int
 {
 	CUP_MUSHROOM,
 	CUP_FLOWER,
@@ -78,17 +79,17 @@ typedef enum
 	CUP_LIGHTNING
 } CupId;
 
-typedef enum
+typedef enum : int
 {
 	RACE_MODE_GP, ///< Grand Prix
 	RACE_MODE_TA, ///< Time Trail (Time Attack)
-	RACE_MODE_MG, ///< Battle (Minigame)
+	RACE_MODE_BATTLE, ///< Battle (Minigame)
 	RACE_MODE_VS, ///< Versus
-	RACE_MODE_MR, ///< Mission
-	RACE_MODE_NT ///< Wifi (Net)
+	RACE_MODE_MISSION, ///< Mission
+	RACE_MODE_WIFI ///< Wifi (Net)
 } RaceMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_DISPLAY_MODE_DEFAULT,
 	RACE_DISPLAY_MODE_TITLE,
@@ -99,20 +100,20 @@ typedef enum
 	RACE_DISPLAY_MODE_STAFF_ROLL
 } RaceDisplayMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_MG_MODE_BALLOON_BATTLE,
 	RACE_MG_MODE_SHINE_RUNNERS
 } RaceMgMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_CC_MODE_50CC = 0,
 	RACE_CC_MODE_100CC = 1,
 	RACE_CC_MODE_150CC = 2
 } RaceCCMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_GP_MODE_50CC,
 	RACE_GP_MODE_100CC,
@@ -122,14 +123,14 @@ typedef enum
 	RACE_GP_MODE_MAX
 } RaceGPMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_COURSE_MODE_CHOOSE = 0,
 	RACE_COURSE_MODE_IN_ORDER = 1,
 	RACE_COURSE_MODE_RANDOM = 2
 } RaceCourseMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_CPU_MODE_NONE = 0, //?
 	RACE_CPU_MODE_EASY = 1,
@@ -137,14 +138,14 @@ typedef enum
 	RACE_CPU_MODE_HARD = 3
 } RaceCPUMode;
 
-typedef enum
+typedef enum : int
 {
 	RACE_RULES_FREE = 0,
 	RACE_RULES_NR_WINS = 1,
 	RACE_RULES_NR_RACES = 2
 } RaceRules;
 
-typedef enum
+typedef enum : int
 {
 	CHAR_MARIO, ///< Mario
 	CHAR_DK, ///< Donkey Kong
@@ -163,7 +164,7 @@ typedef enum
 	CHAR_COUNT
 } CharacterId;
 
-typedef enum
+typedef enum : int
 {
 	DRIVER_TYPE_PLAYER,
 	DRIVER_TYPE_ENEMY,
@@ -172,7 +173,7 @@ typedef enum
 	DRIVER_TYPE_INVALID
 } DriverType;
 
-typedef enum
+typedef enum : int
 {
 	GHOST_TYPE_PERSONAL,
 	GHOST_TYPE_DOWNLOAD,
@@ -264,7 +265,7 @@ typedef struct
 } race_multi_config_t;
 
 extern const CourseId gCupDefs[8][4];
-extern race_multi_config_t* gRaceMultiConfig;
+extern race_multi_config_t* RaceConfig; // 0x021759a0
 
 void rconf_init(NNSFndHeapHandle heapHandle);
 int rconf_courseIdToOrderIdx(CourseId course);
@@ -277,82 +278,82 @@ void sub_204451C(int driverIdx);
 
 static inline CourseId rconf_getCourse(void)
 {
-	return gRaceMultiConfig->current.course;
+	return RaceConfig->current.course;
 }
 
 static inline RaceMode rconf_getRaceMode(void)
 {
-	return gRaceMultiConfig->current.raceMode;
+	return RaceConfig->current.raceMode;
 }
 
 static inline RaceDisplayMode rconf_getDisplayMode(void)
 {
-	return gRaceMultiConfig->current.displayMode;
+	return RaceConfig->current.displayMode;
 }
 
 static inline RaceCCMode rconf_getCCMode(void)
 {
-	return gRaceMultiConfig->current.ccMode;
+	return RaceConfig->current.ccMode;
 }
 
 static inline RaceMgMode rconf_getMgMode(void)
 {
-	return gRaceMultiConfig->current.mgMode;
+	return RaceConfig->current.mgMode;
 }
 
 static inline RaceRules rconf_getRules(void)
 {
-	return gRaceMultiConfig->current.rules;
+	return RaceConfig->current.rules;
 }
 
 static inline bool32 rconf_getIsMirror(void)
 {
-	return gRaceMultiConfig->current.isMirror;
+	return RaceConfig->current.isMirror;
 }
 
 static inline bool32 rconf_getTeamsMode(void)
 {
-	return gRaceMultiConfig->current.teams;
+	return RaceConfig->current.teams;
 }
 
 static inline mission_config_t* rconf_getMrConfig(void)
 {
-	return &gRaceMultiConfig->current.mrConfig;
+	return &RaceConfig->current.mrConfig;
 }
 
 static inline u32 rconf_getMrCamParamsIdx(void)
 {
-	return gRaceMultiConfig->current.mrConfig.camParamsIdx;
+	return RaceConfig->current.mrConfig.camParamsIdx;
 }
 
 static inline s8 rconf_getPlayerDriverId(void)
 {
-	return gRaceMultiConfig->current.playerDriverId;
+	return RaceConfig->current.playerDriverId;
 }
 
 static inline u8 rconf_getCpuDriverId(void)
 {
-	return gRaceMultiConfig->current.cpuDriverId;
+	return RaceConfig->current.cpuDriverId;
 }
 
 static inline race_config_driver_t* rconf_getDriver(u16 idx)
 {
-	return &gRaceMultiConfig->current.drivers[idx];
+	return &RaceConfig->current.drivers[idx];
 }
 
 static inline u32 rconf_getDriverCount(void)
 {
-	return gRaceMultiConfig->driverCount;
+	return RaceConfig->driverCount;
 }
 
 static inline s8 rconf_getMrLevel(void)
 {
-	return gRaceMultiConfig->current.raceMode == RACE_MODE_MR ? gRaceMultiConfig->current.mrLevel : (s8)-1;
+	return RaceConfig->current.raceMode == RACE_MODE_MISSION ? RaceConfig->current.mrLevel : (s8)-1;
 }
 
 static inline s8 rconf_getMrIndex(void)
 {
-	return gRaceMultiConfig->current.raceMode == RACE_MODE_MR ? gRaceMultiConfig->current.mrIndex : (s8)-1;
+	return RaceConfig->current.raceMode == RACE_MODE_MISSION ? RaceConfig->current.mrIndex : (s8)-1;
 }
 
 static inline bool32 rconf_isDriverValidAndNoEnemy(u16 driverId)

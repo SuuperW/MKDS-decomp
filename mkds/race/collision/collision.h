@@ -9,7 +9,7 @@
 #define COL_ENTRY_COUNT_MAX             256
 #define COL_QUERY_RESULT_COUNT_MAX      128
 
-typedef enum
+typedef enum : int
 {
 	COL_TYPE_ROAD,
 	COL_TYPE_SLIPPERY_ROAD,
@@ -147,8 +147,8 @@ typedef struct {
 
 typedef struct
 {
-	VecFx32 maxSomething;
-	VecFx32 minSomething;
+	VecFx32 positivePush;
+	VecFx32 negativePush;
 	fx32 distance;
 	VecFx32 normal;
 } col_response_t;
@@ -212,11 +212,11 @@ extern u16* gColQueryResultFlags;
 extern s16 gColQueryResultCount;
 extern u16* gColQueryResultEntryIds;
 
-typedef struct dynamicCollisionObject dynamicCollisionObject;
+struct dynamicCollisionObject;
 
 void col_loadCourseCollision();
-void sub_20D5AA0(dynamicCollisionObject*** a1, u32 colFlags, u32* a3, VecFx32* a4, VecFx32* a5);
-bool32 sub_20D5A68(dynamicCollisionObject*** a1, u32 colFlags, u32* a3);
+void sub_20D5AA0(struct dynamicCollisionObject*** a1, u32 colFlags, u32* a3, VecFx32* a4, VecFx32* a5);
+bool32 sub_20D5A68(struct dynamicCollisionObject*** a1, u32 colFlags, u32* a3);
 u16 col_findResponsePrismAttribute(u32 colFlagsMask);
 void col_init();
 int col_createColEntry(const VecFx32* position, fx32 boundingSphereSize, u16 flags, void* object);
@@ -228,25 +228,25 @@ void col_enableColEntry(s16 entryId);
 
 bool32 col_collide(
 	const VecFx32* position, const VecFx32* prevPosition, const VecFx32* direction, fx32 radius, colliderType collider, s16 colEntryId,
-	VecFx32* out_pushback, VecFx32* out_floorNormal, VecFx32* out_wallNormal, u32* out_ColFlags, VecFx32* out_param_11, VecFx32* out_param_12,
-	u16* out_objTurnRacer, dynamicCollisionObject*** dcolResults);
+	VecFx32* out_pushback, VecFx32* out_floorNormal, VecFx32* wallResponse, u32* out_ColFlags, VecFx32* out_param_11, VecFx32* out_wallBounce1,
+	u16* out_objTurnRacer, struct dynamicCollisionObject*** dcolResults);
 void col_update();
 void col_queryByColEntry(s16 colEntryId, u16 flagMask);
 
 static inline void col_updateResponseMinMax(col_response_t* response, const VecFx32* vec)
 {
-	if (vec->x > response->maxSomething.x)
-		response->maxSomething.x = vec->x;
-	else if (vec->x < response->minSomething.x)
-		response->minSomething.x = vec->x;
-	if (vec->y > response->maxSomething.y)
-		response->maxSomething.y = vec->y;
-	else if (vec->y < response->minSomething.y)
-		response->minSomething.y = vec->y;
-	if (vec->z > response->maxSomething.z)
-		response->maxSomething.z = vec->z;
-	else if (vec->z < response->minSomething.z)
-		response->minSomething.z = vec->z;
+	if (vec->x > response->positivePush.x)
+		response->positivePush.x = vec->x;
+	else if (vec->x < response->negativePush.x)
+		response->negativePush.x = vec->x;
+	if (vec->y > response->positivePush.y)
+		response->positivePush.y = vec->y;
+	else if (vec->y < response->negativePush.y)
+		response->negativePush.y = vec->y;
+	if (vec->z > response->positivePush.z)
+		response->positivePush.z = vec->z;
+	else if (vec->z < response->negativePush.z)
+		response->negativePush.z = vec->z;
 }
 
 // SUUPER
@@ -281,7 +281,5 @@ extern int* collisionMap; // 0x0217b600
 extern s32 touchedSurfaceCount; // 0x027e0060
 extern u32* touchedSurfaceProperties; // 0x027e0064
 extern u32* touchedSurfacePropFlags; // 0x027e0068
-
-extern dynamicCollisionObject* touchedDynamicObjects[4]; // 0x0217b5b0
 
 #endif

@@ -7,6 +7,16 @@
 #ifndef HPS_TYPES_H
 #define HPS_TYPES_H
 
+#pragma pack(4) // Redundant with compiler args, but necessary for VSCode's stupid "intelli"Sense
+
+// Some static assertions to validate compiler behavior.
+struct __test__pack {
+	int a;
+	long long b;
+};
+static_assert(sizeof(struct __test__pack) == 12);
+static_assert('abcd' == 0x61626364);
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <nitro/fx/fx_vec.h>

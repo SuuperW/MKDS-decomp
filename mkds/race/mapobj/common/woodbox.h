@@ -6,7 +6,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/objectShadow.h"
 
-typedef enum
+typedef enum : int
 {
 	WBOX_STATE_IDLE,
 	WBOX_STATE_DEAD,

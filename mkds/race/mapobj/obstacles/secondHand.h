@@ -6,7 +6,7 @@
 #include "race/pathwalker.h"
 #include "race/collision/dynamicCollision.h"
 
-typedef enum
+typedef enum : int
 {
 	SECONDHAND_STATE_ACCELERATE,
 	SECONDHAND_STATE_MOVE,

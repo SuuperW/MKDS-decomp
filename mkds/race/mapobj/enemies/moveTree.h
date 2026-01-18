@@ -7,7 +7,7 @@
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum
+typedef enum : int
 {
 	MTREE_STATE_WAIT,
 	MTREE_STATE_WALK

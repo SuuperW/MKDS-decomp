@@ -5,8 +5,6 @@
 
 #include "types.h"
 
-struct mobj_inst_t;
-
 typedef struct objByX {
 	u8 field0;
 	u8 objId;
@@ -16,10 +14,12 @@ typedef struct objByX {
 extern objByX* objectsSotrtedByLowX; // 0x0217b5a0
 extern objByX* objectsSortedByHighX; // 0x0217b594
 
-const u16 OBJ_SORT_FLAG_DYNAMIC = 0x1000;
-const u16 OBJ_SORT_FLAG_MAPOBJ  = 0x2000;
-const u16 OBJ_SORT_FLAG_ITEM    = 0x4000;
-const u16 OBJ_SORT_FLAG_RACER   = 0x8000;
+typedef enum ObjSort : u16 {
+	OBJ_SORT_DYNAMIC = 0x1000,
+	OBJ_SORT_MAPOBJ  = 0x2000,
+	OBJ_SORT_ITEM    = 0x4000,
+	OBJ_SORT_RACER   = 0x8000,
+} ObjSort;
 
 typedef struct objShortInfo {
 	s16 idInHighX;
@@ -29,11 +29,14 @@ typedef struct objShortInfo {
 	VecFx32* objPosition;
 	s32 someSize;
 	u16 flags;
-	struct mobj_inst_t* object;
+	void* object;
 } objShortInfo;
 
 static_assert(sizeof(objShortInfo) == 0x1C);
 
+extern u16 countObjectsInZ;          // 0x0217b588
 extern objShortInfo* objectInfosPtr; // 0x0217b598
+extern u16* flagsOfObjectsInZ;       // 0x0217b59c
+extern void** ptrsToObjectsInZ;       // 0x0217b5a4
 
 #endif

@@ -3,6 +3,7 @@
 #include "math/vector.h"
 
 #include "dynamicCollision.h"
+#include "race/drivers/racer.h"
 
 DColResult CheckBoxHitbox(VecFx32* toucheeLocation, VecFx32* objectLocation, Orientation* orientation, VecFx32* frontSize, VecFx32* backSize, fx32 toucheeRadius, VecFx32* out)
 {

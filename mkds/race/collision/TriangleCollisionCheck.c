@@ -6,6 +6,7 @@
 
 #include "collision.h"
 #include "dynamicCollision.h"
+#include "objSorting.h"
 #include "race/mapobj/mapobj.h"
 
 typedef s32 fx10_22;
@@ -29,9 +30,6 @@ extern u32 uRam0217b620;
 extern u32 uRam0217b624;
 extern u32 uRam0217b628;
 extern dynamicCollisionObject* DAT_0217b5b0;
-
-extern u16 countObjectsInZ; // 0x0217b588
-extern void** ptrsToObjectsInZ; // 0x0217b5a4
 
 void FUN_01fff434(int dotProductOutVecs, int distance1, int distance2,
 	VecFx32* out_param_4, VecFx32* outVec2, VecFx32* outVec1, s64* outTotalDistanceSq)
@@ -71,11 +69,7 @@ bool32 col_collide(
 	VecFx32* out_param_11, VecFx32* out_wallBounce1,
 	u16 *out_objTurnRacer, struct dynamicCollisionObject*** dcolResults)
 {
-	s64 lVar1;
-	s64 lVar2;
 	u32 uVar4;
-	s32 iVar9;
-	VecFx32 *pVVar7;
 	u32 vertexId;
 	fx32 nUpDistance;
 	bool kindoffar;
@@ -389,55 +383,50 @@ bool32 col_collide(
 	}
 	if (dcolResults != NULL) {
 		*dcolResults = (dynamicCollisionObject**)touchedDynamicObjects;
-		*(u32*)0x0217b5b4 = 0;
+		touchedDynamicObjects[0] = 0;
+		touchedDynamicObjects[1] = 0;
 	}
-	int iVar15;
-	if ((*(s32*)0x0217b5f0 != 0) && (iVar9 = (int)colEntryId, iVar9 != -2)) {
-		iVar15 = 0;
-		if (iVar9 == -1) {
-			FUN_020d5180(position, radius, 0x1000);
+	if (DAT_0217b5f0 != 0 && colEntryId != -2) {
+		if (colEntryId == -1) {
+			FUN_020d5180(position, radius, OBJ_SORT_DYNAMIC);
 		}
 		else {
-			UpdateMapObjectsInZ(iVar9, 0x1000);
+			UpdateMapObjectsInZ(colEntryId, OBJ_SORT_DYNAMIC);
 		}
-		iVar9 = 0;
-		if (0 < countObjectsInZ) {
-			do {
-				dynamicCollisionObject* theObject = (dynamicCollisionObject*)ptrsToObjectsInZ[iVar9];
-				s32 iVar10 = iVar15;
-				VecFx32* pVVar13 = NULL;
-				u16 outShort; // This is not initialized. However it is definitely set by dcol_CheckSphereCollision if it returns non-zero...? (That is, assuming the functions that it calls and gives out_param_8 set it.)
-				if (out_param_11 != NULL)
-					pVVar13 = &distanceToLowestTri;
-				if (dcol_CheckSphereCollision(theObject, position, radius, collider.flags,
-				      &floorResponse, &wallResponse, pVVar13, &outShort, out_wallBounce1, out_objTurnRacer)) {
-					accumulatedSurfaceProps = accumulatedSurfaceProps | 0x40000000 | 1 << (outShort & 0xff);
-					if (touchedSurfaceCount == 0x10) {
-						touchedSurfaceCount = 0xf;
-					}
-					uVar_b = 1 << (outShort & 0xff);
-					touchedSurfacePropFlags[touchedSurfaceCount] = uVar_b;
-					touchedSurfaceProperties[touchedSurfaceCount] = outShort << 8;
-					touchedSurfaceCount += 1;
-					if (dcolResults != NULL) {
-						if ((uVar_b & COL_FLAGS_TYPE_FLOOR_MASK /*?*/) == 0) {
-							(&DAT_0217b5b0)[iVar15] = theObject;
-						}
-						else {
-							(&DAT_0217b5b0)[iVar15] = DAT_0217b5b0;
-							DAT_0217b5b0 = theObject;
-						}
-						iVar10 = iVar15 + 1;
-						(&DAT_0217b5b0)[iVar10] = 0;
-						if (0xe < iVar10) {
-							iVar10 = iVar15;
-						}
-					}
-					touchedSomething = true;
+		int touchedObjectIndex = 0;
+		for (int i = 0; i < countObjectsInZ; i++)
+		{
+			dynamicCollisionObject* theObject = (dynamicCollisionObject*)ptrsToObjectsInZ[i];
+			VecFx32* pVVar13 = NULL;
+			u16 outShort; // This is not initialized. However it is definitely set by dcol_CheckSphereCollision if it returns non-zero...? (That is, assuming the functions that it calls and gives out_param_8 set it.)
+			if (out_param_11 != NULL)
+				pVVar13 = &distanceToLowestTri;
+			if (dcol_CheckSphereCollision(theObject, position, radius, collider.flags,
+					&floorResponse, &wallResponse, pVVar13, &outShort, out_wallBounce1, out_objTurnRacer)) {
+				accumulatedSurfaceProps = accumulatedSurfaceProps | 0x40000000 | 1 << (outShort & 0xff);
+				if (touchedSurfaceCount == 0x10) {
+					touchedSurfaceCount = 0xf;
 				}
-				iVar9 += 1;
-				iVar15 = iVar10;
-			} while (iVar9 < countObjectsInZ);
+				uVar_b = 1 << (outShort & 0xff);
+				touchedSurfacePropFlags[touchedSurfaceCount] = uVar_b;
+				touchedSurfaceProperties[touchedSurfaceCount] = outShort << 8;
+				touchedSurfaceCount += 1;
+				if (dcolResults != NULL) {
+					if ((uVar_b & COL_FLAGS_TYPE_FLOOR_MASK) == 0) {
+						touchedDynamicObjects[touchedObjectIndex] = theObject;
+					}
+					else {
+						touchedDynamicObjects[touchedObjectIndex] = touchedDynamicObjects[0];
+						touchedDynamicObjects[0] = theObject;
+					}
+					touchedObjectIndex++;
+					touchedDynamicObjects[touchedObjectIndex] = 0;
+					if (touchedObjectIndex > 14) {
+						touchedObjectIndex--;
+					}
+				}
+				touchedSomething = true;
+			}
 		}
 	}
 	if (!touchedSomething) {
@@ -520,18 +509,10 @@ bool32 col_collide(
 				// totalPushy is now: p(1 - m^2)
 
 				VEC_Add(&floorResponse.positivePush, &floorResponse.negativePush, &totalFloorPush);
-				iVar9 = DotProduct_t(&totalPushy, &totalFloorPush);
-				if (-1 < iVar9) { // Does this mean that target movement vector is away from wall? (experimentally: no)
-					lVar1 = (s64)totalPushy.z * totalPushy.z +
-							(s64)totalPushy.x * totalPushy.x +
-							(s64)totalPushy.y * totalPushy.y;
-					if (lVar1 >= 0x10) { // ??? I'm not sure of this condition. 0x1fff384
-						vec_normalize(&totalPushy, &totalPushy);
-					}
-					lVar1 = (s64)totalPushy.x * (s64)(radius >> 5);
-					lVar2 = (s64)totalPushy.z * (s64)(radius >> 5);
-					out_wallBounce1->x = (u32)lVar1 >> 0xc | (int)((u64)lVar1 >> 0x20) << 0x14;
-					out_wallBounce1->z = (u32)lVar2 >> 0xc | (int)((u64)lVar2 >> 0x20) << 0x14;
+				if (-1 < DotProduct_t(&totalPushy, &totalFloorPush)) {
+					vec_normalizeFastInline(&totalPushy, &totalPushy);
+					out_wallBounce1->x = fxMulT(totalPushy.x, radius >> 5);
+					out_wallBounce1->z = fxMulT(totalPushy.z, radius >> 5);
 				}
 			}
 		}

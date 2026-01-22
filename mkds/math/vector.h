@@ -9,8 +9,7 @@
 #define VEC_MAG_SQUARED(vec) ((fx64)((vec)->x) * (fx64)((vec)->x) + (fx64)((vec)->y) * (fx64)((vec)->y) + (fx64)((vec)->z) * (fx64)((vec)->z))
 
 fx32 vec_normalize(const VecFx32* src, VecFx32* dst);
-fx32 vec_dotProduct(const VecFx32* a, const VecFx32* b);
-void vec_crossProduct(const VecFx32* a, const VecFx32* b, VecFx32* dst);
+void VEC_CrossProduct_r(const VecFx32* a, const VecFx32* b, VecFx32* dst);
 
 static inline fx32 vec_normalizeFastInline(const VecFx32* src, VecFx32* dst)
 {
@@ -79,5 +78,21 @@ static fx32 DotProduct_r(const VecFx32* a, const VecFx32* b) {
 }
 
 extern void VEC_MultAdd_t(fx32 scalar, VecFx32* add, VecFx32* base, VecFx32* dst);
+extern void VEC_MultSubtract_t(fx32 scalar, VecFx32* subtract, VecFx32* base, VecFx32* dst);
+
+// NOTE: The dot product is rounded, the multiply is truncated.
+static inline void VEC_Project(const VecFx32* vector, const VecFx32* normal, VecFx32* out) {
+	// X = (N dot V) * N
+	fx32 dot = DotProduct_r(vector, normal);
+	VEC_Multiply_t(dot, normal, out);
+}
+// NOTE: The dot product is rounded, the multiply is truncated.
+static inline void VEC_Rejection(const VecFx32* vector, const VecFx32* normal, VecFx32* out) {
+	// X = V - (N dot V) * N
+	fx32 dot = DotProduct_r(vector, normal);
+	VecFx32 projection;
+	VEC_Multiply_t(dot, normal, &projection);
+	VEC_Subtract(vector, &projection, out);
+}
 
 #endif

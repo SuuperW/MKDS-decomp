@@ -69,11 +69,10 @@ ItemConfigId RngItembox(int kart_ABC, int special_box_type, int placement, bool3
 		    (i == ITEM_CONF_LIGHTNING && shock_available_timer > 0) ||
 		    (i == ITEM_CONF_BLUE_SHELL && blue_shell_available_timer > 0) ||
 		    (i == ITEM_CONF_BLOOPER && blooper_available_timer > 0);
-		if (itemIsRestrictedByTime) continue;
 
 		it_itemconfig_t* config = itemConfigs + i;
 		MKDSItem type = config->type;
-		bool itemIsAvailable =
+		bool itemIsAvailable = !itemIsRestrictedByTime &&
 		    itemSets[type].limit > itemSets[type].countAll &&
 		    config->enabled;
 		if (itemIsAvailable)

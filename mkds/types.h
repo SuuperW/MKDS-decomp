@@ -79,6 +79,10 @@ static inline fx32 fxMulT(fx32 v1, fx32 v2) {
 	return (fx32)(((s64)v1 * v2) >> FX_SHIFT);
 }
 
+static inline fx32 fxMulT3(fx32 v1, fx32 v2, fx32 v3) {
+	return fxMulT(fxMulT(v1, v2), v3);
+}
+
 #define FLOAT_TO_FX32(x) ((fx32)(((x) > 0) ? \
                                  ((x) * FX_ONE + 0.5f ) : \
                                  ((x) * FX_ONE - 0.5f )))

@@ -281,34 +281,36 @@ typedef struct
 #define DRIVER_FLAGS_BIT31                  (1 << 31)
 
 // 0x4C
-#define DRIVER_FLAGS2_BIT0                  (1 << 0)
-#define DRIVER_FLAGS2_BIT1                  (1 << 1)
-#define DRIVER_FLAGS2_BIT3                  (1 << 3)
-#define DRIVER_FLAGS2_BIT4                  (1 << 4)
-#define DRIVER_FLAGS2_SPIN_OUT              (1 << 5)
-#define DRIVER_FLAGS2_STAR_INVINCIBLE       (1 << 6)
-#define DRIVER_FLAGS2_THUNDER_SHRINK        (1 << 7)
-#define DRIVER_FLAGS2_GROWING               (1 << 8)
-#define DRIVER_FLAGS2_BIT10                 (1 << 10)
-#define DRIVER_FLAGS2_BIT11                 (1 << 11)
-#define DRIVER_FLAGS2_BIT12                 (1 << 12)
-#define DRIVER_FLAGS2_SLIPSTREAM_FULL       (1 << 13)
-#define DRIVER_FLAGS2_SLIPSTREAM_BEGIN      (1 << 14)
-#define DRIVER_FLAGS2_BIT15                 (1 << 15)
-#define DRIVER_FLAGS2_DOSSUN_FLAT           (1 << 16)
-#define DRIVER_FLAGS2_GESSO_INK_FADING_OUT  (1 << 17)
-#define DRIVER_FLAGS2_BIT18                 (1 << 18)
-#define DRIVER_FLAGS2_BIT20                 (1 << 20)
-#define DRIVER_FLAGS2_BIT21                 (1 << 21)
-#define DRIVER_FLAGS2_BIT22                 (1 << 22)
-#define DRIVER_FLAGS2_INVISIBLE             (1 << 23)
-#define DRIVER_FLAGS2_BIT25                 (1 << 25)
-#define DRIVER_FLAGS2_BIT26                 (1 << 26)
-#define DRIVER_FLAGS2_GESSO_INK             (1 << 27)
-#define DRIVER_FLAGS2_KILLER_MODE           (1 << 28)
-#define DRIVER_FLAGS2_START_FAILURE         (1 << 29)
-#define DRIVER_FLAGS2_FALLS_WATER           (1 << 30)
-#define DRIVER_FLAGS2_BIT31                 (1 << 31)
+typedef enum driverFlags4C : u32 {
+	DRIVER_4C_BIT0                = (1 << 0),
+	DRIVER_4C_BIT1                = (1 << 1),
+	DRIVER_4C_BIT3                = (1 << 3),
+	DRIVER_4C_BIT4                = (1 << 4),
+	DRIVER_4C_SPIN_OUT            = (1 << 5),
+	DRIVER_4C_STAR_INVINCIBLE     = (1 << 6),
+	DRIVER_4C_THUNDER_SHRINK      = (1 << 7),
+	DRIVER_4C_GROWING             = (1 << 8),
+	DRIVER_4C_BIT10               = (1 << 10),
+	DRIVER_4C_BIT11               = (1 << 11),
+	DRIVER_4C_BIT12               = (1 << 12),
+	DRIVER_4C_SLIPSTREAM_FULL     = (1 << 13),
+	DRIVER_4C_SLIPSTREAM_BEGIN    = (1 << 14),
+	DRIVER_4C_BIT15               = (1 << 15),
+	DRIVER_4C_DOSSUN_FLAT         = (1 << 16),
+	DRIVER_4C_GESSO_INK_FADING_OUT= (1 << 17),
+	DRIVER_4C_BIT18               = (1 << 18),
+	DRIVER_4C_BIT20               = (1 << 20),
+	DRIVER_4C_BIT21               = (1 << 21),
+	DRIVER_4C_BIT22               = (1 << 22),
+	DRIVER_4C_INVISIBLE           = (1 << 23),
+	DRIVER_4C_BIT25               = (1 << 25),
+	DRIVER_4C_BIT26               = (1 << 26),
+	DRIVER_4C_GESSO_INK           = (1 << 27),
+	DRIVER_4C_IN_BULLET           = (1 << 28),
+	DRIVER_4C_START_FAILURE       = (1 << 29),
+	DRIVER_4C_FALLS_WATER         = (1 << 30),
+	DRIVER_4C_BIT31               = ((u32)1 << 31)
+} driverFlags4C;
 
 #define DRIVER_FIELD7C_IS_PLAYER            (1 << 0)
 #define DRIVER_FIELD7C_IS_ENEMY             (1 << 1)
@@ -322,9 +324,9 @@ typedef struct
 #define DRIVER_FIELD7C_IS_NET_PLAYER        (1 << 9)
 #define DRIVER_FIELD7C_IS_NET_NON_PLAYER    (1 << 10)
 #define DRIVER_FIELD7C_BIT12                (1 << 12)
-#define DRIVER_FIELD7C_TERESA_EFFECT_ACTIVE (1 << 13)
-#define DRIVER_FIELD7C_TERESA_FLICKER       (1 << 14)
-#define DRIVER_FIELD7C_TERESA_RENDERING_OFF (1 << 15)
+#define DRIVER_FIELD7C_BOO_EFFECT_ACTIVE (1 << 13)
+#define DRIVER_FIELD7C_BOO_FLICKER       (1 << 14)
+#define DRIVER_FIELD7C_BOO_RENDERING_OFF (1 << 15)
 #define DRIVER_FIELD7C_BIT16                (1 << 16)
 #define DRIVER_FIELD7C_BIT17                (1 << 17)
 #define DRIVER_FIELD7C_MG_KILL              (1 << 18)
@@ -439,7 +441,7 @@ typedef struct {
 	int BIT25:1;
 	int BIT26:1;
 	int GESSO_INK:1;
-	int KILLER_MODE:1;
+	int IN_BULLET:1;
 	int START_FAILURE:1;
 	int FALLS_WATER:1;
 	int BIT31:1;
@@ -450,38 +452,38 @@ typedef struct {
 	int IS_ENEMY:1;
 	int IS_GHOST:1;
 	int BIT3:1;
-	int CHAR_HAS_NSBCA_ANIM:1;
+	int CHAR_HAS_NSBCA_ANIM:1; // 0x10
 	int IS_BEING_KILLED:1;
 	int IS_KILLED:1;
 	int BIT7:1;
-	int BIT8:1;
+	int BIT8:1; // 0x1 00
 	int IS_NET_PLAYER:1;
 	int IS_NET_NON_PLAYER:1;
 	int BIT11:1;
-	int BIT12:1;
-	int TERESA_EFFECT_ACTIVE:1;
-	int TERESA_FLICKER:1;
-	int TERESA_RENDERING_OFF:1;
-	int BIT16:1;
+	int BIT12:1; // 0x10 00
+	int BOO_EFFECT_ACTIVE:1;
+	int BOO_FLICKER:1;
+	int BOO_RENDERING_OFF:1;
+	int BIT16:1; // 0x1 0000
 	int BIT17:1;
 	int MG_KILL:1;
 	int BIT19:1;
-	int BIT20:1;
+	int BIT20:1; // 0x10 0000
 	int BIT21:1;
 	int MG_KILL_GHOST:1;
 	int BIT23:1;
-	int BIT24:1;
+	int BIT24:1; // 0x1 000000
 	int BIT25:1;
 	int BIT26:1;
 	int BIT27:1;
-	int BIT28:1;
+	int BIT28:1; // 0x10 000000
 	int BIT29:1;
 	int BIT30:1;
 	int BIT31:1;
 } racerFlags7C;
 
 struct racerData;
-typedef void (*racerFunction) (racerData* racer);
+typedef void (*racerFunction) (struct racerData* racer);
 
 typedef struct {
 	union {
@@ -544,10 +546,10 @@ typedef struct racerData
 	VecFx32 preMovementPosForCollision;
 	fx32 colSphereSize; // 0x1d0 (radius)
 	fx32 itemHitboxOffset;
-	VecFx32 positionForItems; // Also for racer-racer collisions
-	VecFx32 previousPositionForItems; // Or is it pre-movement?
+	VecFx32 itemPos; // Also for racer-racer collisions
+	VecFx32 previousItemPos; // Or is it pre-movement?
 	VecFx32 colPos2;
-	VecFx32 wallBounce1; // When you hit a corner or non-aligned wall.
+	VecFx32 wallBounce1; // Fully preserved when in the air. Happens when you hit a corner or non-aligned wall.
 	u32* field208;
 	racerFunctions functions;
 	racerFunction func230;
@@ -559,7 +561,7 @@ typedef struct racerData
 	u16 padding2;
 	fx32 grip;
 	VecFx32 surfaceNormalVector;
-	VecFx32 field250;
+	VecFx32 wallNormal;
 	VecFx32 verticalVelocity; // It is a vector, but only the Y component is ever used!
 	VecFx32 fallsWaterForward;
 	fx32 fallsWaterStrength;
@@ -586,8 +588,8 @@ typedef struct racerData
 	physp_char_params_t* characterStats;
 	fx32 turnLoss;
 	VecFx32 bounce2_c; // copied to b
-	VecFx32 boucne2_b; // copied to bounce2
-	VecFx32 bounce2; // shroomless wall bounces, bumpers, obstacles, racer collisions...
+	VecFx32 bounce2_b; // copied to bounce2
+	VecFx32 bounce2; // Decays slowly when in the air. From shroomless wall bounces, bumpers, obstacles, racer collisions...
 	s32 driftLeftRightCount;
 	u16 driftLeftCount;
 	u16 driftRightCount;
@@ -632,7 +634,7 @@ typedef struct racerData
 	u16 field3BC;
 	s16 field3BE;
 	s16 preRespawnCounter;
-	u32 respawnId;
+	s32 respawnId;
 	s16 killTimer;
 	u32 driverVoiceIdx;
 	s16 kartABC;
@@ -758,7 +760,7 @@ void driver_updateTargetMaxSpeed(racerData* racer)
 	);
 
 	// If is a ghost:
-	if ((racer->flags7C & (DRIVER_FIELD7C_MG_KILL_GHOST | DRIVER_FIELD7C_TERESA_EFFECT_ACTIVE)) != 0) {
+	if ((racer->flags7C & (DRIVER_FIELD7C_MG_KILL_GHOST | DRIVER_FIELD7C_BOO_EFFECT_ACTIVE)) != 0) {
 		// Basically, undo fastfall, offroad, and slipstreams.
 		racer->targetMaxSpeed = stats->maxSpeed;
 		racer->offroadSpeedMultiplier = 0x1000;
@@ -769,7 +771,7 @@ void driver_updateTargetMaxSpeed(racerData* racer)
 		racer->offroadSpeedMultiplier = 0x1000;
 	}
 
-	const u32 invincibleFlags = DRIVER_FLAGS2_STAR_INVINCIBLE | DRIVER_FLAGS2_KILLER_MODE;
+	const u32 invincibleFlags = DRIVER_4C_STAR_INVINCIBLE | DRIVER_4C_IN_BULLET;
 	bool invincible = (racer->flags4C & invincibleFlags) != 0;
 	if ((racer->flags48 & DRIVER_FLAGS_BOOST) != 0)
 	{

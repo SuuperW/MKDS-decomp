@@ -233,6 +233,9 @@ bool32 col_collide(
 void col_update();
 void col_queryByColEntry(s16 colEntryId, u16 flagMask);
 
+// 0x020eb3f0
+extern void PushFromSphericalHitbox(VecFx32* toucheeLocaiton, VecFx32* objectLocation, fx32 totalRadius, VecFx32* out);
+
 static inline void col_updateResponseMinMax(col_response_t* response, const VecFx32* vec)
 {
 	if (vec->x > response->positivePush.x)
@@ -281,5 +284,7 @@ extern int* collisionMap; // 0x0217b600
 extern s32 touchedSurfaceCount; // 0x027e0060
 extern u32* touchedSurfaceProperties; // 0x027e0064
 extern u32* touchedSurfacePropFlags; // 0x027e0068
+
+extern s32 DAT_0217b5f0;
 
 #endif

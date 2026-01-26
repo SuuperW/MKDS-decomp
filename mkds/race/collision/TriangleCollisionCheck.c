@@ -6,7 +6,6 @@
 
 #include "collision.h"
 #include "dynamicCollision.h"
-#include "objSorting.h"
 #include "race/mapobj/mapobj.h"
 
 typedef s32 fx10_22;
@@ -388,15 +387,15 @@ bool32 col_collide(
 	}
 	if (DAT_0217b5f0 != 0 && colEntryId != -2) {
 		if (colEntryId == -1) {
-			FUN_020d5180(position, radius, OBJ_SORT_DYNAMIC);
+			FUN_020d5180(position, radius, COL_ENTRY_FLAGS_IS_DCOL);
 		}
 		else {
-			UpdateMapObjectsInZ(colEntryId, OBJ_SORT_DYNAMIC);
+			UpdateMapObjectsInZ(colEntryId, COL_ENTRY_FLAGS_IS_DCOL);
 		}
 		int touchedObjectIndex = 0;
-		for (int i = 0; i < countObjectsInZ; i++)
+		for (int i = 0; i < colQueryResultCount; i++)
 		{
-			dynamicCollisionObject* theObject = (dynamicCollisionObject*)ptrsToObjectsInZ[i];
+			dynamicCollisionObject* theObject = (dynamicCollisionObject*)colQueryResultObjects[i];
 			VecFx32* pVVar13 = NULL;
 			u16 outShort; // This is not initialized. However it is definitely set by dcol_CheckSphereCollision if it returns non-zero...? (That is, assuming the functions that it calls and gives out_param_8 set it.)
 			if (out_param_11 != NULL)

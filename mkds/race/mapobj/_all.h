@@ -14,7 +14,6 @@
 #include "mapobjRender.h"
 #include "mapobjRenderPart.h"
 #include "mapobjSetupUtil.h"
-#include "mapobjSorting.h"
 #include "mapobjTable.h"
 #include "mapobjUtil.h"
 #include "model2.h"

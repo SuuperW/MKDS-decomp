@@ -39,7 +39,7 @@ typedef struct
 	u32 playerCharacter;
 	u32 playerKart;
 	race_time_t courseTimes[4];
-	u16 playerTotalRankPoints;
+	u16 playerTotalGpPoints;
 	u32 driverCharacters[8];
 	u32 driverKarts[8];
 	u8 unkEC[0x20];

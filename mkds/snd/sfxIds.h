@@ -315,7 +315,7 @@
 #define SET_TAIHOU_PINBALL          347
 #define SET_TAIHOU_AIRSHIP          348
 
-#define SET_DIVE_YOUGAN             349
+#define SET_DIVE_LAVA             349
 
 #define SET_JUMP_PAD_SU             350 //
 

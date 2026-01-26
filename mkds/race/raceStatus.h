@@ -57,7 +57,7 @@ typedef struct
 	u16 place : 4;
 	u16 driverId : 4;
 	u16 field3CBit89 : 2;
-	s16 skillRankPoints;
+	s16 skillGpPoints;
 	fx32 cpoiProgress;
 	fx32 raceProgress;
 	fx32 lapProgress;
@@ -122,7 +122,7 @@ typedef struct
 	u8 field4F9;
 	u16 mrWinDelayCounter;
 	u16 mrLoseDelayCounter;
-	race_skill_rankpoints_t skillRankPoints;
+	race_skill_rankpoints_t skillGpPoints;
 } race_status_t;
 
 static_assert(sizeof(race_status_t) == 0x524);
@@ -148,7 +148,7 @@ bool32 rstat_getUncontrollable();
 fx32 rstat_getRaceProgress(u16 driverId);
 fx32 rstat_getLapProgress(u16 driverId);
 int rstat_getFrameCounter();
-u16 rstat_getRankPoints(int place);
+u16 rstat_getGpPoints(int place);
 void rstat_203C2E4(u16 driverId);
 bool32 rstat_isDriverInFinalLap(u16 driverId);
 u32 rstat_getDriverTotalMilliseconds(u16 driverId);

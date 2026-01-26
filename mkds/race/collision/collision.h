@@ -160,6 +160,10 @@ typedef struct
 	s16 xPos;
 } col_segment_left_endpoint_t;
 
+// Is one of these actually right_endpoint?
+extern col_segment_left_endpoint_t* objectsSotrtedByLowX; // 0x0217b5a0
+extern col_segment_left_endpoint_t* objectsSortedByHighX; // 0x0217b594
+
 typedef struct
 {
 	u8 leftEndpoint; //left endpoint idx of this segment
@@ -167,14 +171,16 @@ typedef struct
 	s16 xPos;
 } col_segment_right_endpoint_t;
 
-#define COL_ENTRY_FLAGS_INVALIDATED         (1 << 8) //forces an update when disabled or static
-#define COL_ENTRY_FLAGS_DISABLED            (1 << 9)
-#define COL_ENTRY_FLAGS_STATIC              (1 << 10) //the position doesn't change
-#define COL_ENTRY_FLAGS_IS_DRIVER2          (1 << 11)
-#define COL_ENTRY_FLAGS_IS_DCOL             (1 << 12)
-#define COL_ENTRY_FLAGS_IS_MAPOBJ           (1 << 13)
-#define COL_ENTRY_FLAGS_IS_ITEM             (1 << 14)
-#define COL_ENTRY_FLAGS_IS_DRIVER1          (1 << 15)
+typedef enum ColEntryFlags : u16 {
+	COL_ENTRY_FLAGS_INVALIDATED       = (1 << 8), //forces an update when disabled or static
+	COL_ENTRY_FLAGS_DISABLED          = (1 << 9),
+	COL_ENTRY_FLAGS_STATIC            = (1 << 10), //the position doesn't change
+	COL_ENTRY_FLAGS_IS_DRIVER2        = (1 << 11),
+	COL_ENTRY_FLAGS_IS_DCOL           = (1 << 12),
+	COL_ENTRY_FLAGS_IS_MAPOBJ         = (1 << 13),
+	COL_ENTRY_FLAGS_IS_ITEM           = (1 << 14),
+	COL_ENTRY_FLAGS_IS_DRIVER1        = (1 << 15),
+} ColEntryFlags;
 
 //these flags were probably just static consts or so
 static inline void col_orrStaticFlag(u16* flags)
@@ -197,9 +203,10 @@ typedef struct
 	fx32 zMin;
 	const VecFx32* position;
 	fx32 boundingSphereRadius;
-	u16 flags;
+	ColEntryFlags flags;
 	void* object;
 } col_entry_t;
+static_assert(sizeof(col_entry_t) == 0x1C);
 
 static inline void col_invalidateColEntry(col_entry_t* colEntry)
 {
@@ -207,10 +214,12 @@ static inline void col_invalidateColEntry(col_entry_t* colEntry)
 	colEntry->flags |= flag;
 }
 
-extern void** gColQueryResultObjects;
-extern u16* gColQueryResultFlags;
-extern s16 gColQueryResultCount;
-extern u16* gColQueryResultEntryIds;
+extern void** colQueryResultObjects;         // 0x0217b5a4
+extern u16* colQueryResultFlags;             // 0x0217b59c
+extern s16 colQueryResultCount;              // 0x0217b588
+extern u16* colQueryResultEntryIds;
+
+extern col_entry_t(* collisionEntrys)[256];  // 0x0217b598, pointer to array
 
 struct dynamicCollisionObject;
 

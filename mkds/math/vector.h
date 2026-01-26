@@ -10,6 +10,7 @@
 
 fx32 vec_normalize(const VecFx32* src, VecFx32* dst);
 void VEC_CrossProduct_r(const VecFx32* a, const VecFx32* b, VecFx32* dst);
+void VEC_CrossProduct_t(const VecFx32* a, const VecFx32* b, VecFx32* dst);
 
 static inline fx32 vec_normalizeFastInline(const VecFx32* src, VecFx32* dst)
 {

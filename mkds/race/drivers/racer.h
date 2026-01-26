@@ -174,7 +174,7 @@ typedef struct
 #define DRIVER_NET_FLAGS_BIT16                        (1 << 16)
 #define DRIVER_NET_FLAGS_THROW_UP_START               (1 << 17)
 #define DRIVER_NET_FLAGS_SLIPSTREAM_START             (1 << 18)
-#define DRIVER_NET_FLAGS_GESSO_INK_START              (1 << 19)
+#define DRIVER_NET_FLAGS_BLOOPER_INK_START              (1 << 19)
 #define DRIVER_NET_FLAGS_KILLER_START                 (1 << 20)
 #define DRIVER_NET_FLAGS_KILLER_FINISH                (1 << 21)
 #define DRIVER_NET_FLAGS_BIT22                        (1 << 22)
@@ -229,7 +229,7 @@ typedef struct
 #define DRIVER_FIELD44_BIT10                    (1 << 10)
 #define DRIVER_FIELD44_BIT11                    (1 << 11)
 #define DRIVER_FIELD44_BIT12                    (1 << 12)
-#define DRIVER_FIELD44_BIT13                    (1 << 13)
+#define DRIVER_FIELD44_BOUNCE2_ACTIVE           (1 << 13)
 #define DRIVER_FIELD44_BIT14                    (1 << 14)
 #define DRIVER_FIELD44_BIT15                    (1 << 15)
 #define DRIVER_FIELD44_BIT16                    (1 << 16)
@@ -247,69 +247,71 @@ typedef struct
 #define DRIVER_FIELD44_BIT31                    (1 << 31)
 
 // 0x48
-#define DRIVER_FLAGS_IN_LOOP                (1 << 0)
-#define DRIVER_FLAGS_A_BUTTON               (1 << 1)
-#define DRIVER_FLAGS_B_BUTTON               (1 << 2)
-#define DRIVER_FLAGS_DPAD_LEFT              (1 << 3)
-#define DRIVER_FLAGS_DPAD_RIGHT             (1 << 4)
-#define DRIVER_FLAGS_BOOST                  (1 << 5)
-#define DRIVER_FLAGS_RESPAWNING             (1 << 6)
-#define DRIVER_FLAGS_WHEELSPINNING          (1 << 7)
-#define DRIVER_FLAGS_BIT8                   (1 << 8)
-#define DRIVER_FLAGS_BIT9                   (1 << 9)
-#define DRIVER_FLAGS_BIT10                  (1 << 10)
-#define DRIVER_FLAGS_BIT11                  (1 << 11)
-#define DRIVER_FLAGS_BIT12                  (1 << 12)
-#define DRIVER_FLAGS_FORCE_STOP             (1 << 13)
-#define DRIVER_FLAGS_BIT14                  (1 << 14)
-#define DRIVER_FLAGS_START_BOOST            (1 << 15)
-#define DRIVER_FLAGS_CANNON                 (1 << 16)
-#define DRIVER_FLAGS_BIT17                  (1 << 17)
-#define DRIVER_FLAGS_BIT18                  (1 << 18)
-#define DRIVER_FLAGS_DRIFT_BOOST            (1 << 19)
-#define DRIVER_FLAGS_SHROOM_BOOST           (1 << 20)
-#define DRIVER_FLAGS_SFX_TRIGGER_HANDLED    (1 << 21)
-#define DRIVER_FLAGS_MIN_SPEED_BOOST        (1 << 22)
-#define DRIVER_FLAGS_WATER_RESPAWN          (1 << 23)
-#define DRIVER_FLAGS_YOUGAN_RESPAWN         (1 << 24) //lava
-#define DRIVER_FLAGS_RESPAWN_START          (1 << 25)
-#define DRIVER_FLAGS_THWOMP_FLATTEN_CAM       (1 << 26)
-#define DRIVER_FLAGS_FAR_FROM_PLAYER        (1 << 27)
-#define DRIVER_FLAGS_ON_JUMP_PAD            (1 << 28)
-#define DRIVER_FLAGS_PRB                    (1 << 29)
-#define DRIVER_FLAGS_ANTIGRAVITY_CAM        (1 << 30)
-#define DRIVER_FLAGS_BIT31                  (1 << 31)
+typedef enum driverFlags48 : u32 {
+	DRIVER_48_IN_LOOP              = (1 << 0),
+	DRIVER_48_A_BUTTON             = (1 << 1),
+	DRIVER_48_B_BUTTON             = (1 << 2),
+	DRIVER_48_DPAD_LEFT            = (1 << 3),
+	DRIVER_48_DPAD_RIGHT           = (1 << 4),
+	DRIVER_48_BOOST                = (1 << 5),
+	DRIVER_48_RESPAWNING           = (1 << 6),
+	DRIVER_48_WHEELSPINNING        = (1 << 7),
+	DRIVER_48_BIT8                 = (1 << 8),
+	DRIVER_48_BIT9                 = (1 << 9),
+	DRIVER_48_BIT10                = (1 << 10),
+	DRIVER_48_BIT11                = (1 << 11),
+	DRIVER_48_BIT12                = (1 << 12),
+	DRIVER_48_FORCE_STOP           = (1 << 13),
+	DRIVER_48_BIT14                = (1 << 14),
+	DRIVER_48_START_BOOST          = (1 << 15),
+	DRIVER_48_CANNON               = (1 << 16),
+	DRIVER_48_BIT17                = (1 << 17),
+	DRIVER_48_BIT18                = (1 << 18),
+	DRIVER_48_DRIFT_BOOST          = (1 << 19),
+	DRIVER_48_SHROOM_BOOST         = (1 << 20),
+	DRIVER_48_SFX_TRIGGER_HANDLED  = (1 << 21),
+	DRIVER_48_MIN_SPEED_BOOST      = (1 << 22),
+	DRIVER_48_WATER_RESPAWN        = (1 << 23),
+	DRIVER_48_LAVA_RESPAWN         = (1 << 24),
+	DRIVER_48_RESPAWN_START        = (1 << 25),
+	DRIVER_48_THWOMP_FLATTEN_CAM   = (1 << 26),
+	DRIVER_48_FAR_FROM_PLAYER      = (1 << 27),
+	DRIVER_48_ON_JUMP_PAD          = (1 << 28),
+	DRIVER_48_PRB                  = (1 << 29),
+	DRIVER_48_ANTIGRAVITY_CAM      = (1 << 30),
+	DRIVER_48_BIT31                = ((u32)1 << 31)
+} driverFlags48;
 
 // 0x4C
 typedef enum driverFlags4C : u32 {
-	DRIVER_4C_BIT0                = (1 << 0),
-	DRIVER_4C_BIT1                = (1 << 1),
-	DRIVER_4C_BIT3                = (1 << 3),
-	DRIVER_4C_BIT4                = (1 << 4),
-	DRIVER_4C_SPIN_OUT            = (1 << 5),
-	DRIVER_4C_STAR_INVINCIBLE     = (1 << 6),
-	DRIVER_4C_THUNDER_SHRINK      = (1 << 7),
-	DRIVER_4C_GROWING             = (1 << 8),
-	DRIVER_4C_BIT10               = (1 << 10),
-	DRIVER_4C_BIT11               = (1 << 11),
-	DRIVER_4C_BIT12               = (1 << 12),
-	DRIVER_4C_SLIPSTREAM_FULL     = (1 << 13),
-	DRIVER_4C_SLIPSTREAM_BEGIN    = (1 << 14),
-	DRIVER_4C_BIT15               = (1 << 15),
-	DRIVER_4C_DOSSUN_FLAT         = (1 << 16),
-	DRIVER_4C_GESSO_INK_FADING_OUT= (1 << 17),
-	DRIVER_4C_BIT18               = (1 << 18),
-	DRIVER_4C_BIT20               = (1 << 20),
-	DRIVER_4C_BIT21               = (1 << 21),
-	DRIVER_4C_BIT22               = (1 << 22),
-	DRIVER_4C_INVISIBLE           = (1 << 23),
-	DRIVER_4C_BIT25               = (1 << 25),
-	DRIVER_4C_BIT26               = (1 << 26),
-	DRIVER_4C_GESSO_INK           = (1 << 27),
-	DRIVER_4C_IN_BULLET           = (1 << 28),
-	DRIVER_4C_START_FAILURE       = (1 << 29),
-	DRIVER_4C_FALLS_WATER         = (1 << 30),
-	DRIVER_4C_BIT31               = ((u32)1 << 31)
+	DRIVER_4C_BIT0                   = (1 << 0),
+	DRIVER_4C_BIT1                   = (1 << 1),
+	DRIVER_4C_BIT3                   = (1 << 3),
+	DRIVER_4C_BIT4                   = (1 << 4),
+	DRIVER_4C_SPIN_OUT               = (1 << 5),
+	DRIVER_4C_STAR_INVINCIBLE        = (1 << 6),
+	DRIVER_4C_THUNDER_SHRINK         = (1 << 7),
+	DRIVER_4C_GROWING                = (1 << 8),
+	DRIVER_4C_BIT10                  = (1 << 10),
+	DRIVER_4C_BIT11                  = (1 << 11),
+	DRIVER_4C_BIT12                  = (1 << 12),
+	DRIVER_4C_SLIPSTREAM_FULL        = (1 << 13),
+	DRIVER_4C_SLIPSTREAM_BEGIN       = (1 << 14),
+	DRIVER_4C_BIT15                  = (1 << 15),
+	DRIVER_4C_DOSSUN_FLAT            = (1 << 16),
+	DRIVER_4C_BLOOPER_INK_FADING_OUT = (1 << 17),
+	DRIVER_4C_BIT18                  = (1 << 18),
+	DRIVER_4C_BIT20                  = (1 << 20),
+	DRIVER_4C_BIT21                  = (1 << 21),
+	DRIVER_4C_BIT22                  = (1 << 22),
+	DRIVER_4C_INVISIBLE              = (1 << 23),
+	DRIVER_4C_BIT25                  = (1 << 25),
+	DRIVER_4C_BIT26                  = (1 << 26),
+	DRIVER_4C_BLOOPER_INK            = (1 << 27),
+	DRIVER_4C_IN_BULLET              = (1 << 28),
+	DRIVER_4C_START_FAILURE          = (1 << 29),
+	DRIVER_4C_FALLS_WATER            = (1 << 30),
+	DRIVER_4C_BIT31                  = ((u32)1 << 31)
 } driverFlags4C;
 
 #define DRIVER_FIELD7C_IS_PLAYER            (1 << 0)
@@ -356,7 +358,7 @@ typedef struct {
 	int BIT10:1;
 	int BIT11:1;
 	int BIT12:1;
-	int BIT13:1;
+	int BOUNCE2_ACTIVE:1;
 	int BIT14:1;
 	int BIT15:1;
 	int BIT16:1;
@@ -402,7 +404,7 @@ typedef struct {
 	int SFX_TRIGGER_HANDLED:1;
 	int MIN_SPEED_BOOST:1;
 	int WATER_RESPAWN:1;
-	int YOUGAN_RESPAWN:1;
+	int LAVA_RESPAWN:1;
 	int RESPAWN_START:1;
 	int THWOMP_FLATTEN_CAM:1;
 	int FAR_FROM_PLAYER:1;
@@ -430,7 +432,7 @@ typedef struct {
 	int SLIPSTREAM_BEGIN:1;
 	int BIT15:1;
 	int DOSSUN_FLAT:1;
-	int GESSO_INK_FADING_OUT:1;
+	int BLOOPER_INK_FADING_OUT:1;
 	int BIT18:1;
 	int BIT19:1;
 	int BIT20:1;
@@ -440,7 +442,7 @@ typedef struct {
 	int BIT24:1;
 	int BIT25:1;
 	int BIT26:1;
-	int GESSO_INK:1;
+	int BLOOPER_INK:1;
 	int IN_BULLET:1;
 	int START_FAILURE:1;
 	int FALLS_WATER:1;
@@ -766,22 +768,22 @@ void driver_updateTargetMaxSpeed(racerData* racer)
 		racer->offroadSpeedMultiplier = 0x1000;
 	}
 
-	if ((racer->flags48 & DRIVER_FLAGS_ON_JUMP_PAD) != 0) {
+	if ((racer->flags48 & DRIVER_48_ON_JUMP_PAD) != 0) {
 		racer->targetMaxSpeed = racer->jumpPadSpeed;
 		racer->offroadSpeedMultiplier = 0x1000;
 	}
 
 	const u32 invincibleFlags = DRIVER_4C_STAR_INVINCIBLE | DRIVER_4C_IN_BULLET;
 	bool invincible = (racer->flags4C & invincibleFlags) != 0;
-	if ((racer->flags48 & DRIVER_FLAGS_BOOST) != 0)
+	if ((racer->flags48 & DRIVER_48_BOOST) != 0)
 	{
-		if (invincible || (racer->flags48 & DRIVER_FLAGS_PRB)) {
+		if (invincible || (racer->flags48 & DRIVER_48_PRB)) {
 			racer->targetMaxSpeed = stats->maxSpeed;
 			racer->offroadSpeedMultiplier = 0x1000;
 		}
 		// *= 1.3
 		racer->targetMaxSpeed = FX_MulFunc(racer->targetMaxSpeed, 0x14cd);		
-		if ((racer->flags48 & (DRIVER_FLAGS_MIN_SPEED_BOOST | DRIVER_FLAGS_IN_LOOP)) != 0) {
+		if ((racer->flags48 & (DRIVER_48_MIN_SPEED_BOOST | DRIVER_48_IN_LOOP)) != 0) {
 			if (racer->targetMaxSpeed < 0x8800) {
 				racer->targetMaxSpeed = 0x8800;
 				racer->offroadSpeedMultiplier = 0x1000;

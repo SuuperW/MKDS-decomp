@@ -11,9 +11,9 @@ struct racerData;
 typedef struct
 {
 	int field0;
-	int driverFieldCC;
+	fx32 driverTargetMaxSpeed;
 	int rivalAggressiveness;
-	int maxDriverFieldCC;
+	fx32 maxDriverTargetMaxSpeed;
 	int field10;
 	int place;
 	int field18;
@@ -62,7 +62,7 @@ typedef struct
 
 typedef struct
 {
-	mdat_enemypoint_t* nextEpoi;
+	mdat_enemypoint_t* targetEpoi;
 	mdat_enemypoint_t* curEpoi;
 	VecFx32 direction;
 	mdat_enemypoint_t* areaEpoi;
@@ -82,7 +82,7 @@ typedef struct
 } struc_313_mepo;
 
 
-typedef struct
+typedef struct enemy_t
 {
 	struct racerData* driver;
 	u16 driverId;
@@ -110,8 +110,8 @@ typedef struct
 	int field9C;
 	int fieldA0;
 	int fieldA4;
-	int fieldA8;
-	u16 fieldAC;
+	int rescueState;
+	u16 rescueRecoveryTimer;
 	struct racerData* targetDriver;
 	int fieldB4;
 	int fieldB8;
@@ -119,8 +119,8 @@ typedef struct
 	u16 targetBalloonCount;
 	u16 balloonInflateMicTimeout;
 	int isInflatingBalloon;
-	u16 fieldC8;
-	u16 fieldCA;
+	s16 fieldC8;
+	fx16 fieldCA;
 	int fieldCC;
 	// shine16_t* targetShine;
 	void* targetShine;

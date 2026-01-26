@@ -7,7 +7,9 @@
 #ifndef HPS_TYPES_H
 #define HPS_TYPES_H
 
+#ifdef __INTELLISENSE__
 #pragma pack(4) // Redundant with compiler args, but necessary for VSCode's stupid "intelli"Sense
+#endif
 
 // Some static assertions to validate compiler behavior.
 struct __test__pack {

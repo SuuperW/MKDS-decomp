@@ -61,7 +61,7 @@ typedef struct it_itemconfig_t
 	void* activateFunc;
 } it_itemconfig_t;
 
-typedef struct
+typedef struct it_item_def_t
 {
 	u32 instanceSize;
 	u32 limit;
@@ -131,7 +131,7 @@ typedef struct
 	VecFx32* fieldD0;
 	u32 visibilityFlags;
 	s16 alpha;
-	u16 colEntryId;
+	s16 colEntryId;
 	fx32 collisionRadius;
 	fx32 sphereSize;
 	VecFx32 preMovementPos;

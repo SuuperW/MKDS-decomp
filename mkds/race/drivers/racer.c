@@ -4,7 +4,6 @@
 #include "race/collision/collision.h"
 #include "race/mapobj/mapobj.h"
 #include "race/mapobj/mapobjInstance.h"
-#include "race/collision/objSorting.h"
 
 #include "racer.h"
 
@@ -332,15 +331,15 @@ void racer_CheckCollisionWithOtherRacers(racerData* racer)
 		return;
 	if (racer->flagsB.RESPAWNING)
 		return;
-	if (countObjectsInZ < 1)
+	if (colQueryResultCount < 1)
 		return;
 
 	int local_d4 = 0;
-	for (int i = 0; i < countObjectsInZ; i++)
+	for (int i = 0; i < colQueryResultCount; i++)
 	{
-		if (flagsOfObjectsInZ[i] & OBJ_SORT_RACER == 0)
+		if (colQueryResultFlags[i] & COL_ENTRY_FLAGS_IS_DRIVER1 == 0)
 			continue;
-		racerData* otherRacer = (racerData*)ptrsToObjectsInZ[i];
+		racerData* otherRacer = (racerData*)colQueryResultObjects[i];
 		if (((racer->driverHitCheckMask & (1 << otherRacer->playerId)) != 0))
 			continue;
 		if (otherRacer->flagsD.IS_BEING_KILLED || otherRacer->flagsD.BOO_EFFECT_ACTIVE || otherRacer->flagsD.MG_KILL_GHOST)
@@ -506,5 +505,5 @@ void racer_CheckCollisionWithOtherRacers(racerData* racer)
 		otherRacer->flagsA.IS_TOUCHING_DRIVER = true;
 		racer->driverHitMask |= (u16)(1 << otherRacer->playerId);
 		otherRacer->driverHitMask |= (u16)(1 << racer->playerId);
-	} // for countObjectsInZ
+	} // for colQueryResultCount
 }

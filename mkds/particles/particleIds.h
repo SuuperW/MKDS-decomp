@@ -122,8 +122,8 @@
 
 #define PTCL_RACE_EFFECT_88                      88
 
-#define PTCL_RACE_EFFECT_DOSSUN_SMASH_1          89
-#define PTCL_RACE_EFFECT_DOSSUN_SMASH_2          90
+#define PTCL_RACE_EFFECT_THWOMP_SMASH_1          89
+#define PTCL_RACE_EFFECT_THWOMP_SMASH_2          90
 
 #define PTCL_RACE_EFFECT_91                      91
 #define PTCL_RACE_EFFECT_92                      92

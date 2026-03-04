@@ -1,39 +1,39 @@
 #pragma once
 // thwomp
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_DOSSUN_H
-#define HP_RACE_MAPOBJ_ENEMIES_DOSSUN_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_THWOMP_H
+#define HP_RACE_MAPOBJ_ENEMIES_THWOMP_H
 
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 
 typedef enum : int
 {
-	DOSSUN_STATE_0,
-	DOSSUN_STATE_1,
-	DOSSUN_STATE_2,
-	DOSSUN_STATE_3,
-	DOSSUN_STATE_4,
-	DOSSUN_STATE_5,
-	DOSSUN_STATE_6
-} DossunState;
+	THWOMP_STATE_0,
+	THWOMP_STATE_1,
+	THWOMP_STATE_2,
+	THWOMP_STATE_3,
+	THWOMP_STATE_4,
+	THWOMP_STATE_5,
+	THWOMP_STATE_6
+} ThwompState;
 
 typedef enum : int
 {
-	DOSSUN_STAR_HIT_ANIM_STATE_INACTIVE,
-	DOSSUN_STAR_HIT_ANIM_STATE_1,
-	DOSSUN_STAR_HIT_ANIM_STATE_2
-} DossunStarHitAnimState;
+	THWOMP_STAR_HIT_ANIM_STATE_INACTIVE,
+	THWOMP_STAR_HIT_ANIM_STATE_1,
+	THWOMP_STAR_HIT_ANIM_STATE_2
+} ThwompStarHitAnimState;
 
 typedef struct
 {
 	mobj_inst_t mobj;
-	DossunState state;
+	ThwompState state;
 	int stateCounter;
 	fx32 someSpeed;
 	fx32 floorY;
 	bool32 isSmashing;
-	DossunStarHitAnimState starHitAnimState;
+	ThwompStarHitAnimState starHitAnimState;
 	s16 rotYDelta;
 	s16 rotY;
 	u32 lastStarHitFrame;
@@ -47,10 +47,10 @@ typedef struct
 	fx32 field100;
 	fx32 someAcceleration;
 	fx32 anotherSpeed;
-} dossun_t;
+} thwomp_t;
 
-extern const mobj_def_t gDossunMObjDef;
+extern const mobj_def_t gThwompMObjDef;
 
-fx32 dossun_getMapElevation(dossun_t* dossun);
+fx32 thwomp_getMapElevation(thwomp_t* thwomp);
 
 #endif

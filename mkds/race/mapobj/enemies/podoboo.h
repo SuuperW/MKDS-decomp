@@ -1,18 +1,20 @@
 #pragma once
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_BOUND_H
-#define HP_RACE_MAPOBJ_ENEMIES_BOUND_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_PODOBOO_H
+#define HP_RACE_MAPOBJ_ENEMIES_PODOBOO_H
 
 #include "race/mapobj/mapobj.h"
 #include "race/mapobj/mapobjInstance.h"
 #include "race/pathwalker.h"
 #include "sinThing.h"
 
+// podoboo: the fireballs that jump out of lava
+
 typedef enum : int
 {
-	BOUND_STATE_IDLE,
-	BOUND_STATE_BOUNCING
-} BoundState;
+	PODOBOO_STATE_IDLE,
+	PODOBOO_STATE_BOUNCING
+} PodobooState;
 
 typedef struct
 {
@@ -26,11 +28,11 @@ typedef struct
 	sinthing_t scaleXZSinThing;
 	sinthing_t scaleYSinThing;
 	pw_pathwalker_t pathwalker;
-	BoundState state;
+	PodobooState state;
 	u32 driverHitTimeouts[RACE_DRIVER_COUNT_MAX];
-} bound_t;
+} podoboo_t;
 
-extern mobj_def_t gBoundMObjDef;
+extern mobj_def_t gPodobooMObjDef;
 extern mobj_def_t gCreamMObjDef;
 extern mobj_def_t gBerryMObjDef;
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_PAKKUNFIRE_H
-#define HP_RACE_MAPOBJ_ENEMIES_PAKKUNFIRE_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_PIRANHA_PLANTFIRE_H
+#define HP_RACE_MAPOBJ_ENEMIES_PIRANHA_PLANTFIRE_H
 
 #include "jnlib/spa/spaEmitter.h"
 #include "race/mapobj/mapobj.h"
@@ -9,9 +9,9 @@
 
 typedef enum : int
 {
-	PAKKUN_FIRE_STATE_0,
-	PAKKUN_FIRE_STATE_1
-} PakkunFireState;
+	PIRANHA_PLANT_FIRE_STATE_0,
+	PIRANHA_PLANT_FIRE_STATE_1
+} Piranha_plantFireState;
 
 typedef struct
 {
@@ -19,12 +19,12 @@ typedef struct
 	pw_pathwalker_t pathwalker;
 	fx32 elevation;
 	fx32 elevationVelocity;
-	PakkunFireState state;
+	Piranha_plantFireState state;
 	spa_emitter_t* emitter;
-} pakkunfire_t;
+} piranha_plantfire_t;
 
 void pknf_spawn(pw_pathwalker_t* pathwalker, fx32 elevation);
 
-extern mobj_def_t gPakkunFireMObjDef;
+extern mobj_def_t gPiranha_plantFireMObjDef;
 
 #endif

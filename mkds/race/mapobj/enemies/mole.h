@@ -1,8 +1,8 @@
 #pragma once
 // mole?
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_CHOROPU_H
-#define HP_RACE_MAPOBJ_ENEMIES_CHOROPU_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_MOLE_H
+#define HP_RACE_MAPOBJ_ENEMIES_MOLE_H
 
 #include "race/mapobj/mapobj.h"
 #include "race/objectShadow.h"
@@ -17,7 +17,7 @@ typedef enum : int
 	CHORO_STATE_5,
 	CHORO_STATE_6,
 	CHORO_STATE_7
-} ChoropuState;
+} MoleState;
 
 typedef struct
 {
@@ -30,8 +30,8 @@ typedef struct
 	bool32 fieldB4;
 	u16 rotZ;
 	objshadow_t shadow;
-} choropu_t;
+} mole_t;
 
-extern const mobj_def_t gChoropuMObjDef;
+extern const mobj_def_t gMoleMObjDef;
 
 #endif

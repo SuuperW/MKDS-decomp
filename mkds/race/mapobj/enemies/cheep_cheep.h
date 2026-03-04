@@ -1,8 +1,8 @@
 #pragma once
 // cheep cheep
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_PUKUPUKU_H
-#define HP_RACE_MAPOBJ_ENEMIES_PUKUPUKU_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_CHEEPCHEEP_H
+#define HP_RACE_MAPOBJ_ENEMIES_CHEEPCHEEP_H
 
 #include "race/objectShadow.h"
 #include "race/mapobj/mapobj.h"
@@ -10,13 +10,13 @@
 
 typedef enum : int
 {
-	PUKU_STATE_0,
-	PUKU_STATE_1,
-	PUKU_STATE_2,
-	PUKU_STATE_3,
+	CHEEP_STATE_0,
+	CHEEP_STATE_1,
+	CHEEP_STATE_2,
+	CHEEP_STATE_3,
 
-	PUKU_STATE_COUNT
-} PukupukuState;
+	CHEEP_STATE_COUNT
+} CheepcheepState;
 
 typedef struct
 {
@@ -28,8 +28,8 @@ typedef struct
 	fx32 field100;
 	fx32 field104;
 	fx32 field108;
-} pukupuku_t;
+} cheepcheep_t;
 
-extern const mobj_def_t gPukupukuMObjDef;
+extern const mobj_def_t gCheepcheepMObjDef;
 
 #endif

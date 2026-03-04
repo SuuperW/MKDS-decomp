@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_BASABASA_H
-#define HP_RACE_MAPOBJ_ENEMIES_BASABASA_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_SWOOP_H
+#define HP_RACE_MAPOBJ_ENEMIES_SWOOP_H
 
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
@@ -9,11 +9,11 @@
 
 typedef enum : int
 {
-	BASABASA_STATE_0,
-	BASABASA_STATE_1,
-	BASABASA_STATE_2,
-	BASABASA_STATE_3
-} BasabasaState;
+	SWOOP_STATE_0,
+	SWOOP_STATE_1,
+	SWOOP_STATE_2,
+	SWOOP_STATE_3
+} SwoopState;
 
 typedef struct
 {
@@ -27,10 +27,10 @@ typedef struct
 	u16 mapIconType;
 	idk_struct_t rotZ;
 	u8 driverHitMask;
-	BasabasaState state;
-} basabasa_t;
+	SwoopState state;
+} swoop_t;
 
-extern mobj_def_t gBasabasaMObjDef;
+extern mobj_def_t gSwoopMObjDef;
 
 void basa_spawn(u32 state2Start, const VecFx32* position, const VecFx32* velocity, u32 state0Start, bool32 emitSound,
 				u16 mapIconType);

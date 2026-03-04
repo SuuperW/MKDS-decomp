@@ -298,7 +298,7 @@ typedef enum driverFlags4C : u32 {
 	DRIVER_4C_SLIPSTREAM_FULL        = (1 << 13),
 	DRIVER_4C_SLIPSTREAM_BEGIN       = (1 << 14),
 	DRIVER_4C_BIT15                  = (1 << 15),
-	DRIVER_4C_DOSSUN_FLAT            = (1 << 16),
+	DRIVER_4C_THWOMP_FLAT            = (1 << 16),
 	DRIVER_4C_BLOOPER_INK_FADING_OUT = (1 << 17),
 	DRIVER_4C_BIT18                  = (1 << 18),
 	DRIVER_4C_BIT20                  = (1 << 20),
@@ -431,7 +431,7 @@ typedef struct racerFlags4C {
 	int SLIPSTREAM_FULL:1;
 	int SLIPSTREAM_BEGIN:1;
 	int BIT15:1;
-	int DOSSUN_FLAT:1;
+	int THWOMP_FLAT:1;
 	int BLOOPER_INK_FADING_OUT:1;
 	int BIT18:1;
 	int BIT19:1;
@@ -662,11 +662,11 @@ typedef struct racerData
 	fx32 field418;
 	VecFx32 growBackScale; // 0x41C
 	VecFx32 thunderScale; // 0x428
-	fx32 dossunYScale; // 0x434
+	fx32 thwompYScale; // 0x434
 	mobj_inst_t* mobjHitList[2]; // 0x438
 	u16 mobjHitSfxTimeout[2];
 	bool32 mobjHitEmittedSfx[2];
-	mobj_inst_t* smashDossun;
+	mobj_inst_t* smashThwomp;
 	driver_field450_t field450;
 	fx32 field4BC;
 	u32 colFlagsMap2DShadow;

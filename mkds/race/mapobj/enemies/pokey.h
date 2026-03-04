@@ -1,8 +1,8 @@
 #pragma once
 // pokey
 
-#ifndef HP_RACE_MAPOBJ_ENEMIES_SANBO_H
-#define HP_RACE_MAPOBJ_ENEMIES_SANBO_H
+#ifndef HP_RACE_MAPOBJ_ENEMIES_POKEY_H
+#define HP_RACE_MAPOBJ_ENEMIES_POKEY_H
 
 #include "sinThing.h"
 #include "race/pathwalker.h"
@@ -10,11 +10,11 @@
 
 typedef enum : int
 {
-	SANBO_STATE_IDLE,
-	SANBO_STATE_1,
-	SANBO_STATE_DIEING,
-	SANBO_STATE_RESURRECTING
-} SanboState;
+	POKEY_STATE_IDLE,
+	POKEY_STATE_1,
+	POKEY_STATE_DIEING,
+	POKEY_STATE_RESURRECTING
+} PokeyState;
 
 typedef struct
 {
@@ -25,7 +25,7 @@ typedef struct
 	int rotZ;
 	int rotZSpeed;
 	int wiggleWaitCounter;
-} sanbo_part_t;
+} pokey_part_t;
 
 typedef struct
 {
@@ -34,13 +34,13 @@ typedef struct
 	int hitTimeout;
 	int resurrectionWaitCounter;
 	int sfxTimeout;
-	sanbo_part_t bodyParts[4];
+	pokey_part_t bodyParts[4];
 	u16 bodyPartCount;
 	fx32 pwSpeed;
 	pw_pathwalker_t pathwalker;
-	SanboState state;
-} sanbo_t;
+	PokeyState state;
+} pokey_t;
 
-extern mobj_def_t gSanboMObjDef;
+extern mobj_def_t gPokeyMObjDef;
 
 #endif

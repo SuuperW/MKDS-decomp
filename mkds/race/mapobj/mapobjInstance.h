@@ -101,7 +101,7 @@ sfx_sound_t* mobj_driverEmitSfx(racerData* driver, int sfxId);
 void mobj_emitDriverHitSfx(mobj_inst_t* mobj, racerData* driver, int a3, int a4);
 void mobj_20D2600(int sfxId, const VecFx32* position, int sfxParamsId);
 void mobj_setSizeY(mobj_inst_t* mobj, fx32 sizeY);
-fx32 mobj_getBoundingSphereSize(mobj_inst_t* mobj);
+fx32 mobj_getPodobooingSphereSize(mobj_inst_t* mobj);
 void mobj_setFarClip(mobj_inst_t* mobj, fx32 farClip);
 void mobj_setDirectionFromFloor(mobj_inst_t* mobj);
 void mobj_setInvisible(mobj_inst_t* mobj);

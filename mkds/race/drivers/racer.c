@@ -159,11 +159,11 @@ void racer_DoMapObjCollisions(racerData* racer) {
 				}
 				if (racerResponse == 0xb)
 				{
-					racer->smashDossun = object;
+					racer->smashThwomp = object;
 				}
 			}
 		}
-		if (racer->flagsB.THWOMP_FLATTEN_CAM != 0 && racer->smashDossun == object)
+		if (racer->flagsB.THWOMP_FLATTEN_CAM != 0 && racer->smashThwomp == object)
 		{
 			totalObjPushes.z = 0;
 			totalObjPushes.x = 0;

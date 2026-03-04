@@ -366,10 +366,10 @@
 #define SET_384                     384 //
 #define SET_385                     385 //
 
-#define SET_KURIBO_WALK_SU          386
-#define SET_KURIBO_FUKKATU_SU       387
-#define SET_KURIBO_HIT_SU           388
-#define SET_KURIBO_YARARE_SU        389
+#define SET_GOOMBA_WALK_SU          386
+#define SET_GOOMBA_FUKKATU_SU       387
+#define SET_GOOMBA_HIT_SU           388
+#define SET_GOOMBA_YARARE_SU        389
 
 //beta combines OUT and IN in SET_BAKUBAKU_SU
 #define SET_BAKUBAKU_OUT_SU         390 //
@@ -377,8 +377,8 @@
 
 #define SET_BRIDGE_SU               393 //
 
-#define SET_DOSSUN_HIT_SU           394 //
-#define SET_DOSSUN_GND_MOVE_SU      395 //
+#define SET_THWOMP_HIT_SU           394 //
+#define SET_THWOMP_GND_MOVE_SU      395 //
 
 #define SET_396                     396 //
 
@@ -386,8 +386,8 @@
 
 #define SEL_CLOCK_INTRO_AMBIANCE    402
 
-#define SET_SANBO_HIT_SU            403 //
-#define SET_SANBO_WIGGLE_SU         404 //
+#define SET_POKEY_HIT_SU            403 //
+#define SET_POKEY_WIGGLE_SU         404 //
 
 #define SET_SUN_FIRE_SNAKE_SU       405 //
 #define SET_SUN_FIRE_SNAKE_HIT_SU   406 //

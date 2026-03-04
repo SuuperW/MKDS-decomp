@@ -127,7 +127,7 @@ typedef struct
 	light_t light;
 	light_t* lightPtr;
 	Orientation4D mtx;
-	u8 gapC4[12];
+	VecFx32 VectorC4;
 	VecFx32* fieldD0;
 	u32 visibilityFlags;
 	s16 alpha;
@@ -153,6 +153,14 @@ typedef struct
 } it_item_inst_t;
 
 static_assert(sizeof(it_item_inst_t) == 0x134); // Uncertain.
+// blue shell: 0x31C (shares something with red shell, for following the course path)
+// red shell: 0x274
+// bomb: 0x1a4
+// green shell: 0x188
+// fib: 0x144
+// mushroom: 0x138
+// banana: 0x134
+// star: 0x12C
 
 typedef struct it_itemset_t
 {

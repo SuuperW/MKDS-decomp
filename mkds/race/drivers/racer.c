@@ -43,7 +43,7 @@ void racer_DoMapObjCollisions(racerData* racer) {
 		mobj_inst_t* object = (mobj_inst_t*)0x0;
 		if (racer->flagsB.RESPAWNING == 0)
 		{
-			racer->flagsA.BIT18 = 1;
+			racer->flagsA.TOUCHED_OBJECT = 1;
 			for (int collisionId = collisionCount - 1; collisionId >= 0; collisionId--)
 			{
 				iVar15 = 0;
@@ -506,4 +506,70 @@ void racer_CheckCollisionWithOtherRacers(racerData* racer)
 		racer->driverHitMask |= (u16)(1 << otherRacer->playerId);
 		otherRacer->driverHitMask |= (u16)(1 << racer->playerId);
 	} // for colQueryResultCount
+}
+
+void racer_HandleSlipstream(racerData* racer)
+{
+	fx32 posDeltaMagnitude = 0;
+	bool isStartingSlipstream = false;
+	GetHitboxLocation(&racer->colPos2, racer->somePositionPtr, 0x400, racer);
+	fx32 radius4 = fxMulT(racer->colSphereSize, -0x4000);
+	VEC_MultAdd(radius4, &racer->targetMovementVector, &racer->colPos2, &racer->colPos2);
+	if ((racer->playerId == GetFrameCountMod8()) && ((racer->flags4C & (DRIVER_4C_IN_BULLET | DRIVER_4C_SLIPSTREAM_FULL)) == NONE))
+	{
+		if (0x4000 < racer->basePosDeltaMag && racer->colReaction == DRIVER_COLLISION_REACTION_NONE)
+		{
+			for (int i = 0; i < colQueryResultCount; i++)
+			{
+				racerData* otherRacer = (racerData*)colQueryResultObjects[i];
+				if (0x1fff < otherRacer->basePosDeltaMag && colQueryResultFlags[i] & COL_ENTRY_FLAGS_IS_DRIVER2 != 0 &&
+				     otherRacer != racer && otherRacer->flagsD.BOO_EFFECT_ACTIVE == 0 && otherRacer->flagsD.MG_KILL_GHOST == 0)
+				{
+					VecFx32 posDelta;
+					VEC_Subtract(&otherRacer->position, &racer->position, &posDelta);
+					posDeltaMagnitude = VEC_Mag(&posDelta);
+					fx32 fVar3 = DotProduct_t(&otherRacer->targetMovementVector, &posDelta);
+					if (fxMulT(posDeltaMagnitude, 0xe7f) < fVar3)
+					{
+						isStartingSlipstream = true;
+						racer->timers.slipstreamStartTimer++;
+						break;
+					}
+				}
+			}
+		}
+		if (racer->flagsD.IS_NET_NON_PLAYER == 0)
+		{
+			if (isStartingSlipstream)
+			{
+				racer->flagsC.SLIPSTREAM_BEGIN = true;
+				FUN_02081060(racer);
+				if (0xf < racer->timers.slipstreamStartTimer && posDeltaMagnitude < 0x3c000)
+				{
+					// full slipstream
+					FUN_02069068(racer);
+				}
+			}
+			else
+			{
+				(racer->timers).slipstreamStartTimer = 0;
+				racer->flagsC.SLIPSTREAM_BEGIN = false;
+				if (racer->flagsC.SLIPSTREAM_FULL == 0)
+				{
+					racer->slipstreamSpeedMultiplier = 0x1000;
+				}
+				FUN_02081000((int)racer);
+			}
+		}
+	}
+	if (racer->flagsC.SLIPSTREAM_BEGIN)
+	{
+		racer->slipstreamSpeedMultiplier += 7;
+		if (0x1333 < racer->slipstreamSpeedMultiplier)
+		{
+			racer->slipstreamSpeedMultiplier = 0x1333;
+		}
+		return;
+	}
+	return;
 }

@@ -4,6 +4,7 @@
 #define HP_MATH_MATH_H
 
 #include "types.h"
+#include <nitro/math/rand.h>
 
 //for some reason the rounding constant is different than the one in the sdk???
 #define FX_DEG_TO_IDX2(deg) ((u16) ((FX64C_65536_360 * (deg) + 0x80000000LL) >> 44))
@@ -34,5 +35,11 @@ static s64 Divide(s64 numerator, s64 denominator, int divideType);
 extern fx32 FxDivide(fx32 numerator, fx32 denominator);
 
 extern int sqrt(u64 in);
+
+// A random fixed point value in the range [0,1)
+static inline fx32 MATH_RandFx(MATHRandContext32* context)
+{
+	return MATH_Rand32(context, 0) >> 20;
+}
 
 #endif

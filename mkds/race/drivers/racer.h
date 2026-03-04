@@ -233,7 +233,7 @@ typedef struct
 #define DRIVER_FIELD44_BIT14                    (1 << 14)
 #define DRIVER_FIELD44_BIT15                    (1 << 15)
 #define DRIVER_FIELD44_BIT16                    (1 << 16)
-#define DRIVER_FIELD44_BIT18                    (1 << 18)
+#define DRIVER_FIELD44_TOUCHED_OBJECT           (1 << 18)
 #define DRIVER_FIELD44_BIT19                    (1 << 19)
 #define DRIVER_FIELD44_IS_ON_FALLS_WATER        (1 << 20)
 #define DRIVER_FIELD44_BIT21                    (1 << 21)
@@ -344,7 +344,7 @@ typedef enum driverFlags4C : u32 {
 #define DRIVER_FIELD7C_BIT28                (1 << 28)
 #define DRIVER_FIELD7C_BIT29                (1 << 29)
 
-typedef struct {
+typedef struct racerFlags44 {
 	int SLIP_DRIFT:1;
 	int HOPPING:1;
 	int HOP_LOCK:1;
@@ -363,7 +363,7 @@ typedef struct {
 	int BIT15:1;
 	int BIT16:1;
 	int BIT17:1;
-	int BIT18:1;
+	int TOUCHED_OBJECT:1; // including items+racers
 	int BIT19:1;
 	int IS_ON_FALLS_WATER:1;
 	int BIT21:1;
@@ -379,7 +379,7 @@ typedef struct {
 	int BIT31:1;
 } racerFlags44;
 
-typedef struct {
+typedef struct racerFlags48 {
 	int IN_LOOP:1;
 	int A_BUTTON:1;
 	int B_BUTTON:1;
@@ -414,7 +414,7 @@ typedef struct {
 	int BIT31:1;
 } racerFlags48;
 
-typedef struct {
+typedef struct racerFlags4C {
 	int BIT0:1;
 	int BIT1:1;
 	int BIT2:1;
@@ -449,7 +449,7 @@ typedef struct {
 	int BIT31:1;
 } racerFlags4C;
 
-typedef struct {
+typedef struct racerFlags7C {
 	int IS_PLAYER:1;
 	int IS_ENEMY:1;
 	int IS_GHOST:1;

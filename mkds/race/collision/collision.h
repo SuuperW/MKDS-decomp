@@ -160,16 +160,15 @@ typedef struct
 	s16 xPos;
 } col_segment_left_endpoint_t;
 
-// Is one of these actually right_endpoint?
-extern col_segment_left_endpoint_t* objectsSotrtedByLowX; // 0x0217b5a0
-extern col_segment_left_endpoint_t* objectsSortedByHighX; // 0x0217b594
-
 typedef struct
 {
 	u8 leftEndpoint; //left endpoint idx of this segment
 	u8 minLeftEndpoint; //from all segments overlapping this x, the left most left-endpoint idx
 	s16 xPos;
 } col_segment_right_endpoint_t;
+
+extern col_segment_left_endpoint_t* objectsSortedByLowX; // 0x0217b5a0
+extern col_segment_right_endpoint_t* objectsSortedByHighX; // 0x0217b594
 
 typedef enum ColEntryFlags : u16 {
 	COL_ENTRY_FLAGS_INVALIDATED       = (1 << 8), //forces an update when disabled or static
@@ -195,7 +194,7 @@ static inline void col_orrIsDcolFlag(u16* flags)
 	*flags |= flag;
 }
 
-typedef struct
+typedef struct col_entry_t
 {
 	s16 segmentRightEndpoint;
 	s16 segmentLeftEndpoint;
@@ -220,6 +219,7 @@ extern s16 colQueryResultCount;              // 0x0217b588
 extern u16* colQueryResultEntryIds;
 
 extern col_entry_t(* collisionEntrys)[256];  // 0x0217b598, pointer to array
+extern s16 someObjectCount; // 0x0217b590
 
 struct dynamicCollisionObject;
 

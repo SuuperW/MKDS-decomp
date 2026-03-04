@@ -23,8 +23,7 @@ typedef enum : int
 typedef struct
 {
 	u32* threadStack;
-	//OSThread thread;
-	u32 thread[49];
+	OSThread thread;
 	OSThreadQueue threadQueue;
 	PMSleepCallbackInfo preSleepCallback;
 	PMSleepCallbackInfo postSleepCallback;
@@ -40,7 +39,7 @@ typedef struct
 	u8 gap121[3];
 } scene_state_t;
 
-static_assert(sizeof(scene_state_t) == 0x128);
+static_assert(sizeof(scene_state_t) == 0x124);
 
 int scene_getSceneFrameCounter();
 int scene_getFadeInLength();

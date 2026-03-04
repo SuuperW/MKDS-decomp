@@ -26,6 +26,8 @@ typedef struct
 	u16 field32;
 } enemy_rubberbanding_t;
 
+static_assert(sizeof(enemy_rubberbanding_t) == 0x34);
+
 typedef struct
 {
 	void* updateFunc;
@@ -132,6 +134,8 @@ typedef struct enemy_t
 	enemy_field140_t field140;
 	int field154;
 } enemy_t;
+
+static_assert(sizeof(enemy_t) == 0x158);
 
 void enmy_setupFunctions();
 void enmy_init(enemy_t* enemy, u16 driverId);

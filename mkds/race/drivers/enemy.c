@@ -123,3 +123,28 @@ void enemy_UpdateTargetPosition(enemy_t* enemy)
 	VEC_Add(&targetPoint, &enemy->driftOffset, &enemy->targetPos);
 	return;
 }
+
+void enemy_UpdateDriftOffset(enemy_t* enemy)
+{
+	VecFx32 up = { .x = 0, .y = 0x1000, .z = 0 };
+	VEC_CrossProduct_t(&enemy->epoi.direction, &up, &enemy->driftOffset);
+
+	enemy->driftEpoiRadiusScaleUpdateCounter++;
+	if (enemy->driftEpoiRadiusScaleUpdateFrames < enemy->driftEpoiRadiusScaleUpdateCounter)
+	{
+		enemy->driftEpoiRadiusScaleUpdateCounter = 0;
+		enemy->driftEpoiRadiusScaleUpdateFrames = 0;
+
+		MATHRandContext32* rng = GetRngStatePtr();
+		MATH_Rand32(rng, 0); // result is ignored
+		fx32 randValue = (MATH_RandFx(rng) << 1) - 0x1000;
+		fx32 iVar7 = enemy->driftEpoiRadiusScale + fxMulT(randValue, 0x267);
+
+		fx32 iVar3 = min(iVar7, 0xb36);
+		iVar3 = max(iVar3, -0xb36);
+		enemy->driftEpoiRadiusScale = iVar3;
+	}
+	
+	fx32 a = fxMulT(enemy->driftEpoiRadiusScale, enemy->epoi.targetEpoi->radius);
+	VEC_Multiply_t(a, &enemy->driftOffset, &enemy->driftOffset);
+}

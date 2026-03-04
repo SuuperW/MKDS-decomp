@@ -66,7 +66,7 @@ typedef struct mobj_inst_t
 	u16 objTypeId;
 	u16 flags; // MObjFlags
 	VecFx32 position;
-	VecFx32 velocity;
+	VecFx32 bumpingVelocity;
 	VecFx32 scale;
 	Orientation4D mtx;
 	VecFx32 size;

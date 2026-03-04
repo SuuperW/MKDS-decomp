@@ -60,4 +60,23 @@ typedef struct
 	mission_config_t missions[];
 } mission_mr_t;
 
+typedef struct mission_state_t {
+	int unk00;
+	s16 missionProgress;
+	s16 unk06;
+	s16 coinsBeingCollected;
+	s16 cooldown;
+	s16 unk0c;
+	s16 unk0e;
+	s16 unk10;
+	s16 unk12;
+	u8 unk14[0x34];
+	struct boss_t* bossParts[3]; // array length unknown
+	u8 unk54[0x14];
+} mission_state_t;
+
+static_assert(sizeof(mission_state_t) == 0x68);
+
+extern mission_state_t* missionState; // 0x021a9b70
+
 #endif

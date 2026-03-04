@@ -14,9 +14,9 @@ u8 bumper_OnDriverCollide(bumper* bumper, racerData* racer, byte* objResp, u8* d
 {
 	if (1 < *objResp - 3)
 	{
-		(bumper->base).velocity.x = 0;
-		(bumper->base).velocity.y = 0;
-		(bumper->base).velocity.z = 0;
+		(bumper->base).bumpingVelocity.x = 0;
+		(bumper->base).bumpingVelocity.y = 0;
+		(bumper->base).bumpingVelocity.z = 0;
 		return 2;
 	}
 	if (bumper->cooldownTimerPerRacer[racer->playerId] == 0)
@@ -43,26 +43,26 @@ u8 bumper_OnDriverCollide(bumper* bumper, racerData* racer, byte* objResp, u8* d
 		fx32 magnitude = VEC_Mag(&tangentialPosDelta);
 		if (magnitude < 4)
 		{
-			VEC_Multiply_t((fx32)12.0, &(racer->facingOrientation).left, &(bumper->base).velocity);
+			VEC_Multiply_t((fx32)12.0, &(racer->facingOrientation).left, &(bumper->base).bumpingVelocity);
 		}
 		else
 		{
 			vec_normalize(&tangentialPosDelta, &tangentialPosDelta);
-			VEC_Multiply_t((fx32)12.0, &tangentialPosDelta, &(bumper->base).velocity);
+			VEC_Multiply_t((fx32)12.0, &tangentialPosDelta, &(bumper->base).bumpingVelocity);
 		}
 		VEC_Subtract(&verticalTPD, &(bumper->base).mtx.up, &verticalTPD);
-		VEC_MultAdd((fx32)0.1f, &verticalTPD, &(bumper->base).velocity, &(bumper->base).velocity);
+		VEC_MultAdd((fx32)0.1f, &verticalTPD, &(bumper->base).bumpingVelocity, &(bumper->base).bumpingVelocity);
 		bumper->cooldownTimerPerRacer[racer->playerId] = 0x1f;
 		if ((RaceConfig->current).raceMode == RACE_MODE_BATTLE)
 		{
-			ApplyForceToDriverBalloons(racer->playerId, &(bumper->base).velocity);
+			ApplyForceToDriverBalloons(racer->playerId, &(bumper->base).bumpingVelocity);
 		}
 	}
 	else
 	{
-		(bumper->base).velocity.x = 0;
-		(bumper->base).velocity.y = 0;
-		(bumper->base).velocity.z = 0;
+		(bumper->base).bumpingVelocity.x = 0;
+		(bumper->base).bumpingVelocity.y = 0;
+		(bumper->base).bumpingVelocity.z = 0;
 	}
 	if (((RaceConfig->current).drivers[racer->playerId].type != DRIVER_TYPE_GHOST) &&
 	    (bumper->field_0x11C == 0))

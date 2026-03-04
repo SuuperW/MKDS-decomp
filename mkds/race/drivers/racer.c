@@ -82,19 +82,19 @@ void racer_DoMapObjCollisions(racerData* racer) {
 						}
 					}
 					if ((someResponseFlags & 1) != 0 &&
-						(object->velocity.x != 0 || object->velocity.y != 0 || object->velocity.z != 0))
+						(object->bumpingVelocity.x != 0 || object->bumpingVelocity.y != 0 || object->bumpingVelocity.z != 0))
 					{
 						bool pushAlignedWithBounce = true;
 						VecFx32 objBounceVector;
 						if ((someResponseFlags & 4) != 0)
 						{
-							objBounceVector = object->velocity;
+							objBounceVector = object->bumpingVelocity;
 						}
 						else
 						{
 							if (pushMagnitude != 0)
 							{
-								iVar15 = DotProduct_r(&pushNormalForR1ized, &object->velocity);
+								iVar15 = DotProduct_r(&pushNormalForR1ized, &object->bumpingVelocity);
 								VEC_Multiply_t(iVar15, &pushNormalForR1ized, &objBounceVector);
 							}
 							else

@@ -40,7 +40,8 @@ typedef struct boss_t {
 	u32 unk184;
 	u8 unk188[0x20];
 	u16 angle;
-	u8 unk1ac[0x1c];
+	VecFx32 unkVec1AC;
+	u8 unk1b8[0x10];
 	VecFx32 velocity;
 	u8 unk1d4[0x1c];
 	int actionTriggerTime;

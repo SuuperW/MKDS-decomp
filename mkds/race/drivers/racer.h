@@ -647,8 +647,8 @@ typedef struct racerData
 	u32 floorColType;
 	int floorColVariant;
 	s16 pitchMomentum;
-	u32 yRotSpeedTarget;
-	u32 yRotSpeed;
+	s32 yRotSpeedTarget;
+	s32 yRotSpeed;
 	fx32 field3F4;
 	fx32 airSpeed;
 	u16 field3FC;

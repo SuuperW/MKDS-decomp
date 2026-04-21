@@ -5,7 +5,7 @@
 
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	NSK2_STATE_0,
 	NSK2_STATE_1

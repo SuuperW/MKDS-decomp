@@ -6,7 +6,7 @@
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	SUN_STATE_SLEEP,
 	SUN_STATE_MOVE,

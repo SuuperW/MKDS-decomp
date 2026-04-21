@@ -3,7 +3,7 @@
 #ifndef HP_RACE_MAPOBJ_MAPOBJIDS_H
 #define HP_RACE_MAPOBJ_MAPOBJIDS_H
 
-typedef enum : int
+typedef enum
 {
 	MOBJ_GROUP_AMBIENT = 0,
 	MOBJ_GROUP_COMMON = 1,
@@ -15,7 +15,7 @@ typedef enum : int
 	MOBJ_GROUP_COUNT
 } MObjGroup;
 
-typedef enum : int
+typedef enum
 {
 	MOBJ_ID_BEACH_WATER = 1,
 	MOBJ_ID_FALLS_WATER_DST = 2,

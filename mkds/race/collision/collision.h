@@ -9,7 +9,7 @@
 #define COL_ENTRY_COUNT_MAX             256
 #define COL_QUERY_RESULT_COUNT_MAX      128
 
-typedef enum : int
+typedef enum
 {
 	COL_TYPE_ROAD,
 	COL_TYPE_SLIPPERY_ROAD,
@@ -170,7 +170,7 @@ typedef struct
 extern col_segment_left_endpoint_t* objectsSortedByLowX; // 0x0217b5a0
 extern col_segment_right_endpoint_t* objectsSortedByHighX; // 0x0217b594
 
-typedef enum ColEntryFlags : u16 {
+typedef enum ColEntryFlags {
 	COL_ENTRY_FLAGS_INVALIDATED       = (1 << 8), //forces an update when disabled or static
 	COL_ENTRY_FLAGS_DISABLED          = (1 << 9),
 	COL_ENTRY_FLAGS_STATIC            = (1 << 10), //the position doesn't change

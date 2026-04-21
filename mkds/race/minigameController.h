@@ -8,7 +8,7 @@
 #include "race/mapData/mapData.h"
 #include "race/drivers/racer.h"
 
-typedef enum : int
+typedef enum
 {
 	MGCNT_DRIVER_STATE_ALIVE,
 	MGCNT_DRIVER_STATE_DYING,

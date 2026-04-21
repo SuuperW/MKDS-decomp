@@ -8,7 +8,7 @@
 
 typedef struct mobj_inst_t mobj_inst_t;
 
-typedef enum : int
+typedef enum
 {
 	MOBJ_COLLISION_TYPE_NONE,
 	MOBJ_COLLISION_TYPE_SPHERE,

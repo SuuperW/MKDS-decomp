@@ -7,7 +7,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/objectShadow.h"
 
-typedef enum : int
+typedef enum
 {
 	CHORO_STATE_0,
 	CHORO_STATE_1,

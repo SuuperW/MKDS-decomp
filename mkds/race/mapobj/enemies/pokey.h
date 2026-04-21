@@ -8,7 +8,7 @@
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	POKEY_STATE_IDLE,
 	POKEY_STATE_1,

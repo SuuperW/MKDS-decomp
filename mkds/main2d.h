@@ -8,14 +8,14 @@
 #include <nnsys/g2d/g2d_Font.h>
 #include "jnlib/ui/jnUIUtil.h"
 
-typedef enum : int
+typedef enum
 {
 	FONT_LC_S,
 	FONT_LC_M,
 	FONT_MARIO
 } MKDSFont;
 
-typedef enum : int
+typedef enum
 {
 	PORTRAIT_MEDIUM,
 	PORTRAIT_LARGE

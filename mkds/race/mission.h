@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-typedef enum : int
+typedef enum
 {
 	MISSION_TASK_GATES, ///< Drive through all gates
 	MISSION_TASK_COINS, ///< Collect coins

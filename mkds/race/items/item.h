@@ -6,7 +6,7 @@
 #include "sfx.h"
 #include "race/light.h"
 
-typedef enum MKDSItem : int
+typedef enum MKDSItem
 {
 	ITEM_KOURA_G,
 	ITEM_KOURA_R,
@@ -27,7 +27,7 @@ typedef enum MKDSItem : int
 	ITEM_NONE
 } MKDSItem;
 
-typedef enum ItemConfigId : int {
+typedef enum ItemConfigId {
 	ITEM_CONF_GREEN_SHELL,
 	ITEM_CONF_RED_SHELL,
 	ITEM_CONF_BANANA,

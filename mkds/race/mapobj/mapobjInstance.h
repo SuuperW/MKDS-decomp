@@ -41,7 +41,7 @@
 #define MOBJ_INST_VISIBILITY_FLAGS_BIT30                    (1 << 30)
 #define MOBJ_INST_VISIBILITY_FLAGS_BIT31                    (1 << 31)
 
-typedef enum MObjFlags : int {
+typedef enum MObjFlags {
 	NONE = 0,
 	HIDDEN = 1,
 	DISABLE_VISIBILITY_UPDATES = 2,

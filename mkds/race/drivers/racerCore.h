@@ -6,7 +6,7 @@
 #include "racer.h"
 #include "race/mapobj/mapobjInstance.h"
 
-typedef enum : int
+typedef enum
 {
 	DRIVER_HIT_COL_REACTION_NONE,
 	DRIVER_HIT_COL_REACTION_1,

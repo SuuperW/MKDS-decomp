@@ -7,7 +7,7 @@
 #include "race/collision/dynamicCollision.h"
 #include "race/mapobj/mapobjIds.h"
 
-typedef enum : int
+typedef enum
 {
 	KOOPABLOCK_STATE_SPEEDUP,
 	KOOPABLOCK_STATE_MOVE,

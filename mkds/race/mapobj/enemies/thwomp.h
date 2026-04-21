@@ -7,7 +7,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/pathwalker.h"
 
-typedef enum : int
+typedef enum
 {
 	THWOMP_STATE_0,
 	THWOMP_STATE_1,
@@ -18,7 +18,7 @@ typedef enum : int
 	THWOMP_STATE_6
 } ThwompState;
 
-typedef enum : int
+typedef enum
 {
 	THWOMP_STAR_HIT_ANIM_STATE_INACTIVE,
 	THWOMP_STAR_HIT_ANIM_STATE_1,

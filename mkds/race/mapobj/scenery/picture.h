@@ -5,13 +5,13 @@
 
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	PICT_TYPE_1,
 	PICT_TYPE_2,
 } PictType;
 
-typedef enum : int
+typedef enum
 {
 	PICT_STATE_IDLE,
 	PICT_STATE_WAIT,

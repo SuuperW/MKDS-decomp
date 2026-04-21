@@ -10,7 +10,7 @@
 
 // podoboo: the fireballs that jump out of lava
 
-typedef enum : int
+typedef enum
 {
 	PODOBOO_STATE_IDLE,
 	PODOBOO_STATE_BOUNCING

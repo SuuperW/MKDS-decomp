@@ -5,7 +5,7 @@
 
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	SMAN_STATE_IDLE,
 	SMAN_STATE_HIT,

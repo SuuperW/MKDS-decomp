@@ -6,7 +6,7 @@
 #include "sinThing.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	TERESA_STATE_0,
 	TERESA_STATE_1

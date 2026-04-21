@@ -11,7 +11,7 @@
 #include "sound3.h"
 #include "soundPool.h"
 
-typedef enum : int
+typedef enum
 {
 	SOUND_MODE_NORMAL,
 	SOUND_MODE_WIFI,

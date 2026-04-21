@@ -8,7 +8,7 @@
 #include "sinThing.h"
 #include "jnlib/spa/spaEmitter.h"
 
-typedef enum : int
+typedef enum
 {
 	TROPHY_ID_KINO,
 	TROPHY_ID_FLOW,
@@ -23,7 +23,7 @@ typedef enum : int
 	TROPHY_ID_MAX
 } TrophyId;
 
-typedef enum : int
+typedef enum
 {
 	TROPHY_RANK_GOLD,
 	TROPHY_RANK_SILVER,

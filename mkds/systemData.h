@@ -10,7 +10,7 @@
 #include "snd/sound3.h"
 #include "overlay.h"
 
-typedef enum : int
+typedef enum
 {
 	MKDS_LANGUAGE_JA,
 	MKDS_LANGUAGE_US,
@@ -21,7 +21,7 @@ typedef enum : int
 	MKDS_LANGUAGE_US2 //huh?
 } MKDSLanguage;
 
-typedef enum : int
+typedef enum
 {
 	MKDS_OVERLAYRELATEDNUM_0,
 	MKDS_OVERLAYRELATEDNUM_1,
@@ -30,7 +30,7 @@ typedef enum : int
 	MKDS_OVERLAYRELATEDNUM_WIFI_UTIL
 } MKDSOverlayRelatedNum;
 
-typedef enum : int
+typedef enum
 {
 	SYSDAT_BACKLIGHT_STATE_ON,
 	SYSDAT_BACKLIGHT_STATE_OFF

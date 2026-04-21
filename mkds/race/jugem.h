@@ -7,7 +7,7 @@
 #include "billboardModel.h"
 #include "model.h"
 
-typedef enum : int
+typedef enum
 {
 	JG_OBJECT_LAP_COUNT,
 	JG_OBJECT_LAP_FINAL,
@@ -16,7 +16,7 @@ typedef enum : int
 	JG_OBJECT_NONE
 } JgObject;
 
-typedef enum : int
+typedef enum
 {
 	JG_STATE_IDLE,
 	JG_STATE_REVERSE,

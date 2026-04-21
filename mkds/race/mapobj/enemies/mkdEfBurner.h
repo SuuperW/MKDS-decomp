@@ -7,7 +7,7 @@
 #include "race/raceConfig.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	EFBNR_STATE_WAIT,
 	EFBNR_STATE_BURN_START,

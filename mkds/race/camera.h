@@ -6,7 +6,7 @@
 #include "mapData/mapData.h"
 #include "race/drivers/racer.h"
 
-typedef enum : int
+typedef enum
 {
 	CAMERA_MODE_NORMAL,
 	CAMERA_MODE_DOUBLE_TOP,

@@ -5,7 +5,7 @@
 
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	BALLOON_STATE_0,
 	BALLOON_STATE_1,

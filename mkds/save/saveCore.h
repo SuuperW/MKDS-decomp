@@ -8,7 +8,7 @@
 
 #define SAVC_SAVE_HEADER_SIGNATURE      ((u64)MKTAG('M', 'K', 'D', 'S') | ((u64)MKTAG('S', 'V', '1', '0') << 32))
 
-typedef enum : int
+typedef enum
 {
 	SAVC_STATUS_0,
 	SAVC_STATUS_1,
@@ -17,7 +17,7 @@ typedef enum : int
 	SAVC_STATUS_4
 } SaveCoreStatus;
 
-typedef enum : int
+typedef enum
 {
 	SAVC_ERROR_NONE,
 	SAVC_ERROR_1,
@@ -26,7 +26,7 @@ typedef enum : int
 	SAVC_ERROR_INVALID_HEADER_SIGNATURE
 } SaveCoreError;
 
-typedef enum : int
+typedef enum
 {
 	SAVC_TRANSFER_TYPE_DIRECT,
 	SAVC_TRANSFER_TYPE_WITH_BACKUP,

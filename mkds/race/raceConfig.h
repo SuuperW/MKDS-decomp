@@ -8,7 +8,7 @@
 #include "raceTime.h"
 
 // Test this form of specifying enum sizes in clang. Also validate it can do -fpack-struct=4 or similar.
-typedef enum : int
+typedef enum
 {
 	COURSE_INVALID,
 	COURSE_OLD_YOSHI_GC,
@@ -67,7 +67,7 @@ typedef enum : int
 	COURSE_STAFFROLLTRUE
 } CourseId;
 
-typedef enum : int
+typedef enum
 {
 	CUP_MUSHROOM,
 	CUP_FLOWER,
@@ -79,7 +79,7 @@ typedef enum : int
 	CUP_LIGHTNING
 } CupId;
 
-typedef enum : int
+typedef enum
 {
 	RACE_MODE_GP, ///< Grand Prix
 	RACE_MODE_TA, ///< Time Trail (Time Attack)
@@ -89,7 +89,7 @@ typedef enum : int
 	RACE_MODE_WIFI ///< Wifi (Net)
 } RaceMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_DISPLAY_MODE_DEFAULT,
 	RACE_DISPLAY_MODE_TITLE,
@@ -100,20 +100,20 @@ typedef enum : int
 	RACE_DISPLAY_MODE_STAFF_ROLL
 } RaceDisplayMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_MG_MODE_BALLOON_BATTLE,
 	RACE_MG_MODE_SHINE_RUNNERS
 } RaceMgMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_CC_MODE_50CC = 0,
 	RACE_CC_MODE_100CC = 1,
 	RACE_CC_MODE_150CC = 2
 } RaceCCMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_GP_MODE_50CC,
 	RACE_GP_MODE_100CC,
@@ -123,14 +123,14 @@ typedef enum : int
 	RACE_GP_MODE_MAX
 } RaceGPMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_COURSE_MODE_CHOOSE = 0,
 	RACE_COURSE_MODE_IN_ORDER = 1,
 	RACE_COURSE_MODE_RANDOM = 2
 } RaceCourseMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_CPU_MODE_NONE = 0, //?
 	RACE_CPU_MODE_EASY = 1,
@@ -138,14 +138,14 @@ typedef enum : int
 	RACE_CPU_MODE_HARD = 3
 } RaceCPUMode;
 
-typedef enum : int
+typedef enum
 {
 	RACE_RULES_FREE = 0,
 	RACE_RULES_NR_WINS = 1,
 	RACE_RULES_NR_RACES = 2
 } RaceRules;
 
-typedef enum : int
+typedef enum
 {
 	CHAR_MARIO, ///< Mario
 	CHAR_DK, ///< Donkey Kong
@@ -164,7 +164,7 @@ typedef enum : int
 	CHAR_COUNT
 } CharacterId;
 
-typedef enum : int
+typedef enum
 {
 	DRIVER_TYPE_PLAYER,
 	DRIVER_TYPE_ENEMY,
@@ -173,7 +173,7 @@ typedef enum : int
 	DRIVER_TYPE_INVALID
 } DriverType;
 
-typedef enum : int
+typedef enum
 {
 	GHOST_TYPE_PERSONAL,
 	GHOST_TYPE_DOWNLOAD,

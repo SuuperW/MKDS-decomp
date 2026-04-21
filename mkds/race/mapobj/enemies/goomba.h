@@ -8,7 +8,7 @@
 #include "race/pathwalker.h"
 #include "math/quaternion.h"
 
-typedef enum : int
+typedef enum
 {
 	GOOMBA_STATE_ROUTE_IDLE,
 	GOOMBA_STATE_GROUND_ROAM,

@@ -8,7 +8,7 @@
 #include "race/mapobj/mapobjInstance.h"
 #include "sinThing.h"
 
-typedef enum : int
+typedef enum
 {
 	CRAB_STATE_0,
 	CRAB_STATE_1,

@@ -6,7 +6,7 @@
 #include "types.h"
 #include <nnsys/fnd/heapcommon.h>
 
-typedef enum : int
+typedef enum
 {
 	INPUT_REC_STATE_IDLE,
 	INPUT_REC_STATE_RECORDING,

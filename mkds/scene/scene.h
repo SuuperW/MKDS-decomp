@@ -9,7 +9,7 @@
 #include <nnsys/fnd/heapcommon.h>
 #include "sceneProc.h"
 
-typedef enum : int
+typedef enum
 {
 	SCENE_STATE_INITIALIZING,
 	SCENE_STATE_FADE_IN,

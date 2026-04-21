@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-typedef enum : int
+typedef enum
 {
 	ANIM_LOOP_MODE_STOP,
 	ANIM_LOOP_MODE_INFINITE_LOOP,

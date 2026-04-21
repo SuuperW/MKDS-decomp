@@ -18,7 +18,7 @@
 
 typedef struct mobj_inst_t mobj_inst_t;
 
-typedef enum : int
+typedef enum
 {
 	DRIVER_COLLISION_MODE_NORMAL,
 	DRIVER_COLLISION_MODE_STAR, //invincible
@@ -28,7 +28,7 @@ typedef enum : int
 	DRIVER_COLLISION_MODE_COUNT
 } DriverCollisionMode;
 
-typedef enum : int
+typedef enum
 {
 	DRIVER_COLLISION_REACTION_NONE,
 	DRIVER_COLLISION_REACTION_1,
@@ -41,7 +41,7 @@ typedef enum : int
 	DRIVER_COLLISION_REACTION_COUNT
 } DriverCollisionReaction;
 
-typedef enum : int
+typedef enum
 {
 	DRIVER_COLLISION_TYPE_ROAD,
 	DRIVER_COLLISION_TYPE_1,
@@ -59,7 +59,7 @@ typedef enum : int
 	DRIVER_COLLISION_TYPE_COUNT
 } DriverCollisionType;
 
-typedef enum : int
+typedef enum
 {
 	DRIVER_VOICE_TYPE_SPIN,
 	DRIVER_VOICE_TYPE_OT,
@@ -247,7 +247,7 @@ typedef struct
 #define DRIVER_FIELD44_BIT31                    (1 << 31)
 
 // 0x48
-typedef enum driverFlags48 : u32 {
+typedef enum driverFlags48 {
 	DRIVER_48_IN_LOOP              = (1 << 0),
 	DRIVER_48_A_BUTTON             = (1 << 1),
 	DRIVER_48_B_BUTTON             = (1 << 2),
@@ -283,7 +283,7 @@ typedef enum driverFlags48 : u32 {
 } driverFlags48;
 
 // 0x4C
-typedef enum driverFlags4C : u32 {
+typedef enum driverFlags4C {
 	DRIVER_4C_BIT0                   = (1 << 0),
 	DRIVER_4C_BIT1                   = (1 << 1),
 	DRIVER_4C_BIT3                   = (1 << 3),

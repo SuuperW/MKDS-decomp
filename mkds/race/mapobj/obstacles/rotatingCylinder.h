@@ -6,7 +6,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/collision/dynamicCollision.h"
 
-typedef enum : int
+typedef enum
 {
 	ROTCYL_STATE_BEGIN_ROTATE,
 	ROTCYL_STATE_ROTATE,
@@ -16,7 +16,7 @@ typedef enum : int
 	ROTCYL_STATE_COUNT
 } RotatingCylinderState;
 
-typedef enum : int
+typedef enum
 {
 	ROTCYL_TYPE_TEST_CYLINDER,
 	ROTCYL_TYPE_GEAR_BLACK,

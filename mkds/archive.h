@@ -11,7 +11,7 @@
 
 typedef void*(*arc_load_func_t)(const char* path);
 
-typedef enum : int
+typedef enum
 {
 	ARC_MAINRACE,
 	ARC_MAIN2D,

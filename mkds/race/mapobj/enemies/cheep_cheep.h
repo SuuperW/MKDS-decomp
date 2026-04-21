@@ -8,7 +8,7 @@
 #include "race/mapobj/mapobj.h"
 #include "race/mapobj/rotDieMObj.h"
 
-typedef enum : int
+typedef enum
 {
 	CHEEP_STATE_0,
 	CHEEP_STATE_1,

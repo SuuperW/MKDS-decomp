@@ -9,7 +9,7 @@
 #include "rankpoint.h"
 #include "ranktimeGp.h"
 
-typedef enum : int
+typedef enum
 {
 	RSTAT_DRIVER_STATE_0,
 	RSTAT_DRIVER_STATE_1,
@@ -18,7 +18,7 @@ typedef enum : int
 	RSTAT_DRIVER_STATE_4
 } RStatDriverState;
 
-typedef enum : int
+typedef enum
 {
 	RSTAT_MR_RESULT_SUCCESS,
 	RSTAT_MR_RESULT_1,

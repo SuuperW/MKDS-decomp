@@ -7,13 +7,13 @@
 #include "model.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	DCOL_SHAPE_BOX,
 	DCOL_SHAPE_CYLINDER
 } DColShape;
 
-typedef enum : int {
+typedef enum {
 	DCOL_RESULT_NONE,
 	DCOL_RESULT_UP,
 	DCOL_RESULT_RADIAL,

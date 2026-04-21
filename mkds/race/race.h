@@ -5,13 +5,13 @@
 
 #include "camera.h"
 
-typedef enum : int
+typedef enum
 {
 	RACE_STATE_PRE_START,
 	RACE_STATE_STARTED
 } RaceState;
 
-typedef enum : int
+typedef enum
 {
 	RACE_DARKENING_FOG_STATE_OFF,
 	RACE_DARKENING_FOG_STATE_ON

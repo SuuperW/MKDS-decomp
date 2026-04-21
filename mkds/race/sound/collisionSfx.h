@@ -5,7 +5,7 @@
 
 #include "types.h"
 
-typedef enum : int
+typedef enum
 {
 	CSFX_FLOOR_MAT_ASPHALT,
 	CSFX_FLOOR_MAT_CONCRETE,
@@ -32,7 +32,7 @@ typedef enum : int
 	CSFX_FLOOR_MAT_NONE
 } CSfxFloorMat;
 
-typedef enum : int
+typedef enum
 {
 	CSFX_WALL_MAT_CONCRETE,
 	CSFX_WALL_MAT_FENCE,
@@ -52,7 +52,7 @@ typedef enum : int
 	CSFX_WALL_MAT_NONE
 } CSfxWallMat;
 
-typedef enum : int
+typedef enum
 {
 	CSFX_FLOOR_SFX_TYPE_RUN,
 	CSFX_FLOOR_SFX_TYPE_SLIP,
@@ -62,7 +62,7 @@ typedef enum : int
 	CSFX_FLOOR_SFX_TYPE_COUNT
 } CSfxFloorSfxType;
 
-typedef enum : int
+typedef enum
 {
 	CSFX_WALL_SFX_TYPE_CRUSH,
 

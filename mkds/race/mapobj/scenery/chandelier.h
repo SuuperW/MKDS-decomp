@@ -5,7 +5,7 @@
 
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	CHND_STATE_WAIT,
 	CHND_STATE_MOVE,

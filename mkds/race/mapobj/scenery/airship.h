@@ -7,7 +7,7 @@
 #include "race/pathwalker.h"
 #include "race/mapobj/mapobj.h"
 
-typedef enum : int
+typedef enum
 {
 	ASHIP_STATE_IDLE,
 	ASHIP_STATE_TAKING_OFF,

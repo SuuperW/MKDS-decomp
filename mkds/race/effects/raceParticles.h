@@ -8,7 +8,7 @@
 
 typedef struct racerData racerData;
 
-typedef enum : int
+typedef enum
 {
 	RPTC_COLLISION_EFFECT_NONE,
 	RPTC_COLLISION_EFFECT_DIRT,

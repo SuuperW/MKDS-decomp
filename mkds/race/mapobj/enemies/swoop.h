@@ -7,7 +7,7 @@
 #include "race/pathwalker.h"
 #include "math/quaternion.h"
 
-typedef enum : int
+typedef enum
 {
 	SWOOP_STATE_0,
 	SWOOP_STATE_1,

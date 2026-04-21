@@ -3,7 +3,6 @@
 #ifndef HP_RACE_DRIVERS_DRIVER_H
 #define HP_RACE_DRIVERS_DRIVER_H
 
-#include <nnsys.h>
 #include "types.h"
 
 #include "sfx.h"
